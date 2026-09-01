@@ -1,0 +1,33 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+.venv/
+outputs/
+
+# Local/raw research data and generated analysis artifacts
+Datasets/
+plan/
+
+# Packet captures, archives, and large generated tabular/binary files
+*.pcap
+*.pcapng
+*.cap
+*.parquet
+*.arrow
+*.feather
+*.tar
+*.tar.gz
+*.tgz
+*.zip
+*.7z
+*.rar
+
+# Local environment and editor state
+.env
+.env.*
+!.env.example
+.idea/
+.vscode/

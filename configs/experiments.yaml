@@ -1,0 +1,46 @@
+experiment_schema_version: 1
+seed: 20260901
+
+track_a_transformation:
+  unit_policy:
+    VLESS: exclusive_connection_pair
+    SHADOWSOCKS: exclusive_connection_pair
+    HYSTERIA2: carrier_inner_union_envelope
+  primary_group: session_id
+  report_by: [protocol_dataset]
+  h2_full_lifetime_sensitivity: true
+  tcp_fr_cross_transport_comparison: false
+
+track_b_protocol_classification:
+  unit: session
+  input_side: post
+  labels: [HYSTERIA2, SHADOWSOCKS, VLESS]
+  primary_split: site
+  sensitivity_split: session
+  enforce_hysteria2_carrier_isolation: true
+  feature_sets: [a_core, a_plus_b]
+  models: [multinomial_logistic, random_forest]
+  primary_metric: macro_f1
+  secondary_metrics: [balanced_accuracy, accuracy]
+  formal_evaluation:
+    protocol: repeated_nested_site_group_cv
+    outer_splits: 5
+    outer_repeats: 5
+    inner_splits: 4
+    refit_metric: macro_f1
+    exploratory_holdout_not_final: true
+    ablations:
+      - workload_volume
+      - packetization_timing
+      - packet_length
+      - iat_timing
+      - interaction
+      - reversal_only
+      - transition_burst
+      - cumulative_shape
+      - a_core_all
+      - a_core_minus_reversal
+      - a_core_minus_cumulative
+      - a_core_minus_packetization_timing
+      - a_plus_b_all
+      - transport_b_only

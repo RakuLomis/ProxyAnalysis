@@ -1,0 +1,58 @@
+feature_schema_version: 1
+
+lengths:
+  primary: transport_payload_len
+  secondary: ip_total_len
+  diagnostic: captured_len
+
+iat:
+  storage_unit: ns
+  log_transform_unit: us
+
+offload:
+  suspected_ip_len_above_bytes: 1500
+
+burst:
+  primary: direction_run
+  time_gap_thresholds_ms: [1, 10, 100]
+
+active_idle:
+  thresholds_ms: [100, 500, 1000]
+
+sequence:
+  prefix_lengths: [8, 16, 32]
+
+cumulative_shape:
+  grid_points: 101
+  interpolation: previous
+
+histograms:
+  transport_payload_len_edges_bytes:
+    [0, 1, 32, 64, 128, 256, 512, 768, 1024, 1280, 1440, 1460, 1500, 2048, 4096, 8192, 16384, 65536]
+  ip_total_len_edges_bytes:
+    [0, 40, 60, 64, 128, 256, 512, 768, 1024, 1280, 1440, 1460, 1500, 2048, 4096, 8192, 16384, 65536]
+  iat_edges_us:
+    [0, 1, 2, 5, 10, 20, 50, 100, 200, 500, 1000, 2000, 5000, 10000, 20000, 50000, 100000, 200000, 500000, 1000000, 5000000, 30000000]
+
+ratios:
+  epsilon: 1.0
+
+tcp:
+  include_observed_sequence: true
+  include_unique_seq_sequence: true
+  use_sack_for_primary_rtt: false
+
+privacy:
+  store_payload: false
+  payload_prefix_bytes: 0
+  store_payload_prefix_hash: false
+
+pairing:
+  hysteria2_post_levels: [carrier, page_window]
+  allow_hysteria2_logical_post: false
+  js_log_base: 2
+  low_power_min_samples: 20
+  wasserstein_iat_transform: log1p_us
+
+splitting:
+  group_keys: [site, session_id, carrier_id]

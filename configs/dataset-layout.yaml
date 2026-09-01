@@ -1,0 +1,16 @@
+dataset_root: Datasets/TrafficTracer-Protocol-Datasets-raw
+protocols: [VLESS, SHADOWSOCKS, HYSTERIA2]
+required_session_files:
+  - manifest.json
+  - raw/tun.pcap
+  - raw/phys.pcap
+  - raw/netlog.json
+  - raw/cdp.json
+  - raw/mihomo-trace.jsonl
+  - raw/capture-context.json
+  - analysis/summary.json
+  - analysis/connection-index-v2.json
+  - analysis/request-index-v2.json
+  - analysis/flow-index.json
+  - analysis/pcap-index-v1.json
+

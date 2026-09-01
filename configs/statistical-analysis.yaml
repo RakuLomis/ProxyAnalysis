@@ -1,0 +1,135 @@
+schema_version: 1
+implementation_version: 1
+seed: 20260901
+bootstrap_repetitions: 5000
+permutation_repetitions: 10000
+confidence_level: 0.95
+fdr_alpha: 0.05
+minimum_paired_clusters: 20
+
+url_protocol_policy:
+  HYSTERIA2:
+    cohort: url_weighted
+    inference: descriptive_carrier_context
+  SHADOWSOCKS:
+    cohort: url_strict
+    inference: confirmatory
+  VLESS:
+    cohort: url_strict
+    inference: confirmatory
+  cross_protocol:
+    cohort: url_weighted
+    inference: exploratory
+
+interpretation_policy:
+  transition_p_pm:
+    status: retained_with_caveat
+    within_vless: unstable_no_practical_directional_shift
+    cross_protocol: pre_imbalanced_joint_association
+    exclude_from_a_core: false
+
+cohorts:
+  page_complete:
+    all_three_proxy_coverage: true
+  url_strict:
+    feature_join_complete: true
+    unique_url_count_on_connection: 1
+    shared_connection: false
+    comparison_entity_reused: false
+  url_weighted:
+    feature_join_complete: true
+
+practical_thresholds:
+  log_ratio_relative_change: 0.10
+  normalized_difference_abs: 0.05
+  js_divergence: 0.05
+  normalized_cumulative_l1: 0.05
+  paired_rank_biserial_abs: 0.20
+
+metrics:
+  - id: packet_count
+    family: workload
+    pre_column: pre__aggregate__packet_count
+    post_column: post__aggregate__packet_count
+    delta_column: delta__aggregate__packet_count__log_ratio
+    transform: log_ratio
+    practical_threshold: log_ratio_relative_change
+    protocols: [HYSTERIA2, SHADOWSOCKS, VLESS]
+  - id: transport_bytes
+    family: workload
+    pre_column: pre__aggregate__volume__total_transport_bytes
+    post_column: post__aggregate__volume__total_transport_bytes
+    delta_column: delta__aggregate__volume__total_transport_bytes__log_ratio
+    transform: log_ratio
+    practical_threshold: log_ratio_relative_change
+    protocols: [HYSTERIA2, SHADOWSOCKS, VLESS]
+  - id: ip_bytes
+    family: workload
+    pre_column: pre__aggregate__volume__total_ip_bytes
+    post_column: post__aggregate__volume__total_ip_bytes
+    delta_column: delta__aggregate__volume__total_ip_bytes__log_ratio
+    transform: log_ratio
+    practical_threshold: log_ratio_relative_change
+    protocols: [HYSTERIA2, SHADOWSOCKS, VLESS]
+  - id: directional_transport_bytes
+    family: direction
+    pre_column: pre__derived__volume__transport_bytes_normalized_difference
+    post_column: post__derived__volume__transport_bytes_normalized_difference
+    transform: difference
+    practical_threshold: normalized_difference_abs
+    protocols: [HYSTERIA2, SHADOWSOCKS, VLESS]
+  - id: burst_count
+    family: interaction
+    pre_column: pre__aggregate__direction_run_burst__count
+    post_column: post__aggregate__direction_run_burst__count
+    delta_column: delta__aggregate__direction_run_burst__count__log_ratio
+    transform: log_ratio
+    practical_threshold: log_ratio_relative_change
+    protocols: [HYSTERIA2, SHADOWSOCKS, VLESS]
+  - id: transition_p_pm
+    family: interaction
+    pre_column: pre__derived__transition_nonempty__p_pm
+    post_column: post__derived__transition_nonempty__p_pm
+    transform: difference
+    practical_threshold: normalized_difference_abs
+    protocols: [HYSTERIA2, SHADOWSOCKS, VLESS]
+  - id: entity_count
+    family: multiplexing
+    pre_column: pre__entity_count
+    post_column: post__entity_count
+    delta_column: delta__entity_count__log_ratio
+    transform: log_ratio
+    practical_threshold: log_ratio_relative_change
+    protocols: [HYSTERIA2, SHADOWSOCKS, VLESS]
+  - id: packet_length_js
+    family: distribution
+    distance_column: distance__transport_payload_len__js_divergence
+    transform: distance
+    practical_threshold: js_divergence
+    protocols: [HYSTERIA2, SHADOWSOCKS, VLESS]
+  - id: iat_js
+    family: distribution
+    distance_column: distance__iat_us__js_divergence
+    transform: distance
+    practical_threshold: js_divergence
+    protocols: [HYSTERIA2, SHADOWSOCKS, VLESS]
+  - id: cumulative_l1
+    family: cumulative_shape
+    distance_column: distance__normalized_cumulative_shape__l1_mean
+    transform: distance
+    practical_threshold: normalized_cumulative_l1
+    protocols: [HYSTERIA2, SHADOWSOCKS, VLESS]
+  - id: cumulative_max_abs
+    family: cumulative_shape
+    distance_column: distance__normalized_cumulative_shape__max_abs
+    transform: distance
+    practical_threshold: normalized_cumulative_l1
+    protocols: [HYSTERIA2, SHADOWSOCKS, VLESS]
+  - id: flow_reversals
+    family: flow_reversal
+    pre_column: pre__aggregate__proxy_reversal__fr_reversals
+    post_column: post__aggregate__proxy_reversal__fr_reversals
+    delta_column: delta__aggregate__proxy_reversal__fr_reversals__log_ratio
+    transform: log_ratio
+    practical_threshold: log_ratio_relative_change
+    protocols: [SHADOWSOCKS, VLESS]

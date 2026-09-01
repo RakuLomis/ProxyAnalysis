@@ -1,0 +1,2 @@
+"""Checkpointable extraction pipeline stages."""
+

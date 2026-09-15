@@ -141,6 +141,7 @@ def _build_parser() -> argparse.ArgumentParser:
         "quality-report", help="run feature invariants and dataset quality gates"
     )
     quality_parser.add_argument("feature_root", type=Path)
+    quality_parser.add_argument("--session-id", action="append", default=None)
     quality_parser.add_argument("--output", type=Path)
 
     dual_parser = subparsers.add_parser(
@@ -179,6 +180,7 @@ def _build_parser() -> argparse.ArgumentParser:
     )
     url_index_parser.add_argument("dataset_root", type=Path)
     url_index_parser.add_argument("output", type=Path)
+    url_index_parser.add_argument("--registry", type=Path)
 
     url_pair_parser = subparsers.add_parser(
         "build-url-pairs", help="join URL incidences to processed pre/post features"
@@ -199,6 +201,7 @@ def _build_parser() -> argparse.ArgumentParser:
         "validate-aligned", help="validate aligned tables and write lineage manifest"
     )
     aligned_quality_parser.add_argument("aligned_root", type=Path)
+    aligned_quality_parser.add_argument("--registry", type=Path)
 
     statistical_mart_parser = subparsers.add_parser(
         "build-statistical-marts", help="freeze statistical cohorts and coverage audit"
@@ -242,6 +245,7 @@ def _build_parser() -> argparse.ArgumentParser:
         "finalize-statistics", help="write statistical figures, tables, quality, and manifest"
     )
     finalize_statistics_parser.add_argument("output_root", type=Path)
+    finalize_statistics_parser.add_argument("--interpretation-addendum", type=Path)
     finalize_statistics_parser.add_argument(
         "--config", type=Path, default=Path("configs/statistical-analysis.yaml")
     )
@@ -545,7 +549,7 @@ def main(argv: Sequence[str] | None = None) -> int:
         )
         return 0 if report["state"] == "passed" else 2
     if args.command == "quality-report":
-        report = build_quality_report(args.feature_root)
+        report = build_quality_report(args.feature_root, expected_session_ids=args.session_id)
         if args.output:
             args.output.parent.mkdir(parents=True, exist_ok=True)
             args.output.write_text(
@@ -614,7 +618,7 @@ def main(argv: Sequence[str] | None = None) -> int:
         print(json.dumps(report, ensure_ascii=False, indent=2))
         return 0
     if args.command == "build-url-index":
-        summary = build_url_connection_index(args.dataset_root, args.output)
+        summary = build_url_connection_index(args.dataset_root, args.output, registry=args.registry)
         print(json.dumps(summary, ensure_ascii=False, indent=2))
         return 0
     if args.command == "build-url-pairs":
@@ -630,7 +634,7 @@ def main(argv: Sequence[str] | None = None) -> int:
         print(json.dumps(summary, ensure_ascii=False, indent=2))
         return 0
     if args.command == "validate-aligned":
-        report = validate_aligned_datasets(args.aligned_root)
+        report = validate_aligned_datasets(args.aligned_root, registry=args.registry)
         print(
             json.dumps(
                 {
@@ -667,7 +671,7 @@ def main(argv: Sequence[str] | None = None) -> int:
         print(json.dumps(report, ensure_ascii=False, indent=2))
         return 0
     if args.command == "finalize-statistics":
-        report = finalize_statistical_analysis(args.output_root, args.config)
+        report = finalize_statistical_analysis(args.output_root, args.config, interpretation_addendum=args.interpretation_addendum)
         print(json.dumps(report, ensure_ascii=False, indent=2))
         return 0 if report["state"] == "passed" else 2
     raise AssertionError(f"unhandled command: {args.command}")

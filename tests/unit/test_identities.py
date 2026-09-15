@@ -68,5 +68,4 @@ def test_shared_carrier_descriptors_are_deduplicated(tmp_path: Path) -> None:
     assert len(post) == 1
     assert post[0].entity_level == "carrier"
     assert post[0].logical_connection_ids == ("conn-1", "conn-2")
-    assert post[0].responder.port is None
-
+    assert {b.port for _, b in post[0].physical_paths} == {36001, 36002}

@@ -41,7 +41,8 @@ def analyze_entity_capture(descriptor: EntityDescriptor) -> EntityAnalysis:
         raw_events.append(event)
         parsed_by_id[event_id] = (parsed, record.captured_len)
 
-    events = enrich_sequence(raw_events, descriptor.initiator, descriptor.responder)
+    events = enrich_sequence(raw_events, descriptor.initiator, descriptor.responder,
+                             physical_paths=descriptor.physical_paths)
     tcp_packets: list[TcpPacket] = []
     decoded_transport_count = 0
     for event in events:

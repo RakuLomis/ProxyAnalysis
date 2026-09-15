@@ -1,0 +1,10 @@
+schema_version: 1
+bundle_root: Datasets/TrafficTracer-Datasets-20260914
+feature_config: configs/feature-defaults.yaml
+statistics_config: configs/statistical-analysis.yaml
+interpretation_addendum: configs/interpretation-20260914.json
+repeat_spec: configs/reproducibility.yaml
+information_config: configs/information_validation.yaml
+batches:
+  broad: {directory: sites-64url-repetition-1, expected_attempts: 194, expected_selected: 192, repetitions: [1]}
+  repeat: {directory: sites-detailed-18url-repetition-5, expected_attempts: 270, expected_selected: 270, repetitions: [1, 2, 3, 4, 5]}

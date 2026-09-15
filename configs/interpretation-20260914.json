@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "approved_by": "user",
+  "approval_date": "2026-09-14",
+  "output_scope": "outputs/replication-20260914/run-01/broad/statistics",
+  "decisions": [
+    {
+      "check": "url_strict_vs_weighted",
+      "protocol_dataset": "VLESS",
+      "metric_id": "burst_count",
+      "interpretation": "resource_scope_sensitive_no_cross_scope_robust_increase_claim",
+      "primary_scope": "url_strict",
+      "sensitivity_scope": "url_weighted",
+      "note": "Strict remains primary; weighted is sensitivity only. Zero versus positive median is scope sensitivity, not a sign reversal or proof of equivalence. Page-level results remain a separate estimand."
+    }
+  ]
+}

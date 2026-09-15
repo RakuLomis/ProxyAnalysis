@@ -1,0 +1,8 @@
+{
+  "policy": "primary_content_presence_v2",
+  "approved_by": "user",
+  "definition": "Any observed main-content playback qualifies as valid video capture, independent of configured playback-duration goal.",
+  "excluded_evidence": ["page_load_only", "player_present_only", "advertisement_only"],
+  "preserve_separately": ["playback_goal_met", "primary_content_seconds", "desired_primary_seconds", "capture_integrity", "route_scope"],
+  "note": "This change does not waive packet/correlation quality or assign unobserved activity labels."
+}

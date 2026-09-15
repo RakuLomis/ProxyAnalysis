@@ -1,0 +1,36 @@
+schema_version: 1
+experiment_id: activity-crosscontent-v1
+status: pilot_preparation
+seed: 20260914
+labels:
+  - bilibili.com::video_playback
+  - bilibili.com::search
+  - youtube.com::video_playback
+  - youtube.com::search
+protocols: [SHADOWSOCKS, VLESS, HYSTERIA2]
+pilot:
+  contents_per_label: 3
+  blocks: 2
+formal:
+  development_contents_per_label: 12
+  locked_contents_per_label: 8
+  blocks: 4
+  budget_frozen: false
+observation:
+  primary_seconds: 60
+  playback_goal_seconds: 20
+  stop_at_playback_goal: false
+  video_validity: main_content_observed_in_window
+  search_action: direct_search_results_load_no_click_no_scroll
+  prefixes_seconds: [10, 20, 40]
+  post_scope: configured_proxy_endpoints_in_action_window
+  formal_window_frozen: false
+deployment:
+  collector_path: null
+  isolated_proxy_confirmed: false
+  clean_browser_confirmed: false
+  deployment_manifest: null
+attempts:
+  primary: first_attempt
+  max_technical_retries: 1
+  recovered_attempts: sensitivity_only

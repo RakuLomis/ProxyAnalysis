@@ -26,7 +26,7 @@ from .urls import (
 )
 
 
-ALIGNMENT_IMPLEMENTATION_VERSION = 1
+ALIGNMENT_IMPLEMENTATION_VERSION = 2
 
 
 def _load_items(path: Path) -> list[dict[str, Any]]:
@@ -251,10 +251,23 @@ def build_session_url_index(
 
 
 def build_url_connection_index(
-    dataset_root: Path | str, output: Path | str
+    dataset_root: Path | str, output: Path | str, *, registry: Path | str | None = None
 ) -> dict[str, Any]:
     sessions = InventoryScanner(dataset_root).scan()
+    if registry is not None:
+        registered = pq.read_table(registry).to_pylist()
+        ids = [r['session_id'] for r in registered if r.get('is_selected', r.get('is_final', False))]
+        if len(ids) != len(set(ids)):
+            raise ValueError('duplicate selected registry session')
+        if set(ids) - {s.session_id for s in sessions}:
+            raise ValueError('selected registry session missing from inventory')
+        sessions = [s for s in sessions if s.session_id in set(ids)]
     rows = [row for session in sessions for row in build_session_url_index(session)]
+    if registry is not None:
+        by_id = {r['session_id']: r for r in registered}
+        for row in rows:
+            identity = by_id[row['session_id']]
+            row.update({k: identity[k] for k in ['repetition','activity_id','target_key','target_index']})
     destination = Path(output)
     _atomic_wide_parquet(destination, rows)
     return summarize_url_index(rows)
@@ -503,6 +516,7 @@ def build_url_aligned_pair_features(
             "url_connection_incidence_id": stable_hash(
                 "\0".join((session_id, normalized_hash, connection_id))
             ),
+            **{k: first.get(k) for k in ['repetition','activity_id','target_key','target_index']},
             "protocol_dataset": first["protocol_dataset"],
             "session_id": session_id,
             "target_url_hash": first["target_url_hash"],
@@ -903,8 +917,9 @@ def build_page_aligned_protocol_features(
                 pre_entities[0].get("feature_config_sha256") if pre_entities else None
             ),
             "page_protocol_id": stable_hash(
-                "\0".join((protocol, str(first["target_url_hash"])))
+                "\0".join((protocol, str(first["target_url_hash"]), session_id))
             ),
+            **{k: first.get(k) for k in ['repetition','activity_id','target_key','target_index']},
             "protocol_dataset": protocol,
             "session_id": session_id,
             "target_url_hash": first["target_url_hash"],
@@ -1035,7 +1050,7 @@ def build_page_aligned_protocol_features(
 
     target_groups: dict[str, list[dict[str, Any]]] = {}
     for row in output_rows:
-        target_groups.setdefault(str(row["target_url_hash"]), []).append(row)
+        target_groups.setdefault((str(row["target_url_hash"]), row.get('repetition')), []).append(row)
     for rows in target_groups.values():
         protocols = {row["protocol_dataset"] for row in rows}
         all_present = protocols == {"HYSTERIA2", "SHADOWSOCKS", "VLESS"}

@@ -56,6 +56,7 @@ METADATA_ONLY_COLUMNS = {
     "post_outer_tls_sni",
     "tls_sni_role",
     "group_site",
+    "repetition", "activity_id", "target_key", "target_index", "page_protocol_id",
     "split_by_site",
     "split_by_session",
     "pre_entity_set_hash",
@@ -98,7 +99,7 @@ def _target_protocol_errors(
 ) -> int:
     grouped: dict[str, list[str]] = {}
     for row in rows:
-        grouped.setdefault(str(row.get("target_url_hash")), []).append(
+        grouped.setdefault((str(row.get("target_url_hash")), row.get('repetition')), []).append(
             str(row.get("protocol_dataset"))
         )
     return sum(
@@ -121,7 +122,7 @@ def _table_manifest(path: Path) -> dict[str, Any]:
     }
 
 
-def validate_aligned_datasets(root: Path | str) -> dict[str, Any]:
+def validate_aligned_datasets(root: Path | str, *, registry: Path | str | None = None) -> dict[str, Any]:
     """Validate the three frozen aligned tables and write report plus manifest."""
     output_root = Path(root)
     errors: list[dict[str, Any]] = []
@@ -150,7 +151,17 @@ def validate_aligned_datasets(root: Path | str) -> dict[str, Any]:
         if not condition:
             errors.append({"code": code, **details})
 
-    require(len(index_rows) == 32713, "url_index_row_count", expected=32713, actual=len(index_rows))
+    require(bool(index_rows), "empty_url_index")
+    page_ids = {r['session_id'] for r in page_rows}
+    require({r['session_id'] for r in index_rows} == page_ids, 'index_page_session_coverage')
+    if registry is not None:
+        selected = {r['session_id']:r for r in pq.read_table(registry).to_pylist() if r['is_final']}
+        require(page_ids == set(selected), 'selected_page_session_coverage')
+        for rows in [index_rows, pair_rows, page_rows]:
+            require(all(r['session_id'] in selected and all(
+                r.get(k) == selected[r['session_id']].get(k) for k in ['repetition','activity_id','target_key','target_index'])
+                and r['protocol_dataset'] == selected[r['session_id']]['protocol'] for r in rows),
+                'aligned_registry_identity')
     request_ids = [row.get("request_occurrence_id") for row in index_rows]
     require(len(set(request_ids)) == len(request_ids), "duplicate_request_occurrence_id")
     require(
@@ -161,7 +172,7 @@ def validate_aligned_datasets(root: Path | str) -> dict[str, Any]:
         "url_index_target_protocol_matrix",
     )
     require(
-        len({row.get("target_url_hash") for row in index_rows}) == 64,
+        {row.get("target_url_hash") for row in index_rows} == {row.get("target_url_hash") for row in page_rows},
         "url_index_target_url_count",
     )
     require(
@@ -218,15 +229,9 @@ def validate_aligned_datasets(root: Path | str) -> dict[str, Any]:
         "pair_hysteria2_flow_reversal_preservation_enabled",
     )
     require(
-        len(
-            {
-                (row.get("session_id"), row.get("comparison_entity_id"))
-                for row in pair_rows
-                if row.get("protocol_dataset") == "HYSTERIA2"
-            }
-        )
-        == 41,
-        "hysteria2_carrier_count",
+        {(r['session_id'],r['comparison_entity_id']) for r in pair_rows if r['protocol_dataset']=='HYSTERIA2'}
+        <= {(r['session_id'],r['carrier_id']) for r in index_rows if r['protocol_dataset']=='HYSTERIA2'},
+        "hysteria2_carrier_reference",
     )
     index_incidence_keys = {
         (row.get("session_id"), row.get("normalized_url_hash"), row.get("connection_id"))
@@ -244,9 +249,9 @@ def validate_aligned_datasets(root: Path | str) -> dict[str, Any]:
         "pair_to_url_index_foreign_key",
     )
 
-    require(len(page_rows) == 192, "page_row_count", expected=192, actual=len(page_rows))
-    require(len({row.get("session_id") for row in page_rows}) == 192, "page_session_uniqueness")
-    require(len({row.get("target_url_hash") for row in page_rows}) == 64, "page_target_url_count")
+    require(bool(page_rows), "empty_page_table")
+    require(len(page_ids) == len(page_rows), "page_session_uniqueness")
+    require(len({r['page_protocol_id'] for r in page_rows}) == len(page_rows), "page_record_identity")
     require(
         _target_protocol_errors(
             page_rows, require_exactly_one_row_per_protocol=True

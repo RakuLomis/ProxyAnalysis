@@ -161,3 +161,11 @@ def test_workload_aggregation_adds_unique_entity_values() -> None:
     workload = _workload_from_entities(entities)
     assert workload["entity_count"] == 1
     assert workload["volume__total_transport_bytes"] == 100
+
+
+def test_target_protocol_gate_separates_repetitions():
+    rows=[{'target_url_hash':'u','protocol_dataset':p,'repetition':r}
+          for r in range(1,6) for p in ['HYSTERIA2','SHADOWSOCKS','VLESS']]
+    assert _target_protocol_errors(rows,require_exactly_one_row_per_protocol=True)==0
+    rows.pop()
+    assert _target_protocol_errors(rows,require_exactly_one_row_per_protocol=True)==1

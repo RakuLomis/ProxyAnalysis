@@ -1,0 +1,34 @@
+schema_version: 1
+seed: 20260907
+bootstrap_repetitions: 5000
+confidence_level: 0.95
+minimum_repetitions: 3
+primary_scope: exclusive_page
+hy2_scope: carrier_context_envelope
+hy2_inference: descriptive_only
+version_strata: [all5, rounds2to5]
+separation_protocols: [SHADOWSOCKS, VLESS]
+protocol_effect_interpretation: protocol_deployment_association
+log_ratio_equivalence_bounds: [0.9, 1.1]
+bounded_difference_threshold: 0.05
+distance_threshold: 0.05
+separability_epsilon_tau_squared: 0.000001
+metrics:
+  - {id: packet_count, family: workload, transform: log_ratio, unit: packets}
+  - {id: transport_bytes, family: workload, transform: log_ratio, unit: bytes}
+  - {id: ip_bytes, family: workload, transform: log_ratio, unit: bytes}
+  - {id: up_transport_bytes, family: workload, transform: log_ratio, unit: bytes}
+  - {id: down_transport_bytes, family: workload, transform: log_ratio, unit: bytes}
+  - {id: burst_count, family: interaction, transform: log_ratio, unit: per_stream_runs_sum}
+  - {id: fr_runs, family: interaction, transform: log_ratio, unit: tcp_stream_runs_sum, tcp_only: true}
+  - {id: fr_switches, family: interaction, transform: log_ratio, unit: tcp_stream_switches_sum, tcp_only: true}
+  - {id: fr_runs_per_packet, family: interaction, transform: difference, unit: runs_per_nonempty_packet, tcp_only: true}
+  - {id: up_byte_fraction, family: direction, transform: difference, unit: fraction}
+  - {id: transition_p_pm, family: direction, transform: difference, unit: probability}
+  - {id: direction_entropy, family: direction, transform: difference, unit: bits}
+  - {id: length_median, family: packetization, transform: log_ratio, unit: bytes}
+  - {id: iat_median_us, family: timing, transform: log_ratio, unit: microseconds}
+  - {id: length_js, family: packetization, transform: distance, unit: base2_divergence}
+  - {id: iat_js, family: timing, transform: distance, unit: base2_divergence}
+  - {id: cumulative_l1, family: cumulative, transform: distance, unit: normalized_curve_distance}
+  - {id: entity_count, family: multiplexing, transform: log_ratio, unit: entities}

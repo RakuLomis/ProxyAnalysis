@@ -63,6 +63,12 @@ class InventoryScanner:
         self.dataset_root = Path(dataset_root)
 
     def scan(self) -> list[SessionInventory]:
+        if _is_file(self.dataset_root / "pipeline-manifest.json"):
+            from .reproducibility.registry import discover_runs
+
+            return [self._read_session(row["protocol"],
+                                      Path(row["session_path"]) / "manifest.json")
+                    for row in discover_runs(self.dataset_root) if row["is_final"]]
         datasets_root = self.dataset_root / "datasets"
         if not datasets_root.is_dir():
             raise InventoryError(f"missing datasets directory: {datasets_root}")

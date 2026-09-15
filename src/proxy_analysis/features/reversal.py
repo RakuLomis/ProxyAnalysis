@@ -18,6 +18,10 @@ class ReversalFeatures:
     fr_norm_packets: float | None
     fr_per_second: float | None
     fr_per_kib: float | None
+    # Existing normalized fields above retain their switch-count semantics.
+    fr_runs_per_packet: float | None = None
+    fr_runs_per_second: float | None = None
+    fr_runs_per_kib: float | None = None
 
 
 def reversal_features(
@@ -48,5 +52,8 @@ def reversal_features(
         fr_norm_packets=reversals / (count - 1) if count > 1 else None,
         fr_per_second=(reversals * 1_000_000_000 / duration_ns) if duration_ns > 0 else None,
         fr_per_kib=(reversals / (payload_bytes / 1024)) if payload_bytes > 0 else None,
+        fr_runs_per_packet=(1 + reversals) / count,
+        fr_runs_per_second=((1 + reversals) * 1_000_000_000 / duration_ns)
+        if duration_ns > 0 else None,
+        fr_runs_per_kib=(1 + reversals) / (payload_bytes / 1024),
     )
-

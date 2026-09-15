@@ -21,7 +21,7 @@ def _close(a: Any, b: Any, tolerance: float = 1e-9) -> bool:
     )
 
 
-def build_quality_report(feature_root: Path | str) -> dict[str, Any]:
+def build_quality_report(feature_root: Path | str, *, expected_session_ids: Iterable[str] | None = None) -> dict[str, Any]:
     root = Path(feature_root)
     errors: list[dict[str, Any]] = []
     warnings: list[dict[str, Any]] = []
@@ -112,36 +112,30 @@ def build_quality_report(feature_root: Path | str) -> dict[str, Any]:
         errors.append({"code": "mixed_feature_config_hashes", "count": len(config_hashes)})
 
     session_count = len(statuses)
-    if session_count == 192:
-        expected = {
-            "entity": 9121,
-            "exclusive_pair": 1432,
-            "hysteria2_window": 41,
-            "web_session": 192,
-        }
-        actual = {
-            "entity": len(entity_rows),
-            "exclusive_pair": len(pair_rows),
-            "hysteria2_window": len(hy2_rows),
-            "web_session": len(web_rows),
-        }
-        for name in expected:
-            if actual[name] != expected[name]:
-                errors.append(
-                    {
-                        "code": "full_dataset_record_count",
-                        "table": name,
-                        "expected": expected[name],
-                        "actual": actual[name],
-                    }
-                )
+    status_ids = [s.get("session_id") for s in statuses]
+    if not statuses:
+        errors.append({"code": "empty_feature_dataset"})
+    if len(set(status_ids)) != session_count:
+        errors.append({"code": "duplicate_session_status"})
+    if expected_session_ids is not None:
+        expected_ids = set(expected_session_ids)
+        if set(status_ids) != expected_ids:
+            errors.append({"code": "session_selection_mismatch",
+                           "missing": sorted(expected_ids - set(status_ids)),
+                           "unexpected": sorted(set(status_ids) - expected_ids)})
     else:
-        warnings.append(
-            {
-                "code": "partial_dataset_quality_report",
-                "session_count": session_count,
-            }
-        )
+        warnings.append({"code": "expected_session_ids_not_supplied"})
+    for rows, key in [(entity_rows, "entity_record_count"), (pair_rows, "exclusive_pair_record_count"),
+                      (hy2_rows, "hysteria2_window_record_count"), (web_rows, "web_record_count")]:
+        for status in statuses:
+            actual = sum(r['session_id'] == status['session_id'] for r in rows)
+            if actual != status.get(key):
+                errors.append({"code": "checkpoint_record_count_mismatch", "table": key,
+                               "session_id": status['session_id'], "expected": status.get(key), "actual": actual})
+        if any(r['session_id'] not in set(status_ids) for r in rows):
+            errors.append({"code": "orphan_feature_session", "table": key})
+    if len(web_rows) != session_count or len({r['session_id'] for r in web_rows}) != session_count:
+        errors.append({"code": "web_session_cardinality"})
 
     return {
         "state": "passed" if not errors else "failed",

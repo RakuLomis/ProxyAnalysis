@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from collections import Counter
+import hashlib
 import json
 import os
 from pathlib import Path
@@ -24,7 +25,7 @@ from sklearn.feature_selection import VarianceThreshold
 from .baselines import MODEL_METADATA
 
 
-EVALUATION_IMPLEMENTATION_VERSION = 1
+EVALUATION_IMPLEMENTATION_VERSION = 2
 
 
 def feature_family(name: str) -> str | None:
@@ -239,6 +240,7 @@ def nested_site_group_cv(
     labels = sorted(np.unique(y).tolist())
     folds: list[dict[str, Any]] = []
     best_parameters: list[dict[str, Any]] = []
+    oof = []
     for repeat in range(outer_repeats):
         outer = StratifiedGroupKFold(
             n_splits=outer_splits, shuffle=True, random_state=seed + repeat
@@ -271,6 +273,9 @@ def nested_site_group_cv(
             with parallel_backend("threading"):
                 search.fit(x[train_index], y[train_index], groups=train_groups)
             prediction = search.predict(x[test_index])
+            oof.extend({'repeat': repeat+1, 'fold': fold_index, 'session_id': str(sessions[i]),
+                        'group_site': str(groups[i]), 'truth': str(y[i]), 'prediction': str(pred)}
+                       for i, pred in zip(test_index, prediction))
             metric = _fold_metrics(y[test_index], prediction, labels)
             folds.append(
                 {
@@ -281,6 +286,10 @@ def nested_site_group_cv(
                     "train_site_count": int(np.unique(train_groups).size),
                     "test_site_count": int(np.unique(test_groups).size),
                     "site_overlap_count": 0,
+                    "train_session_ids": sessions[train_index].tolist(),
+                    "test_session_ids": sessions[test_index].tolist(),
+                    "train_sites": sorted(set(train_groups.tolist())),
+                    "test_sites": sorted(set(test_groups.tolist())),
                     "inner_best_macro_f1": float(search.best_score_),
                     **metric,
                     "confusion_matrix": confusion_matrix(
@@ -295,6 +304,10 @@ def nested_site_group_cv(
     }
     return {
         "dataset": str(dataset_path),
+        "dataset_sha256": hashlib.sha256(Path(dataset_path).read_bytes()).hexdigest(),
+        "feature_allowlist": feature_names,
+        "oof": oof,
+        "pooled_oof_macro_f1": float(f1_score([r['truth'] for r in oof], [r['prediction'] for r in oof], average='macro')),
         "model": model_name,
         "ablation": ablation,
         "seed": seed,
@@ -364,6 +377,8 @@ def run_formal_tabular_evaluation(
                 and existing.get("inner_splits") == inner_splits
                 and existing.get("evaluation_implementation_version", 1)
                 == EVALUATION_IMPLEMENTATION_VERSION
+                and existing.get("dataset_sha256") == hashlib.sha256(
+                    (root / f"protocol-classification-{feature_set}.parquet").read_bytes()).hexdigest()
             ):
                 report = existing
         if report is None:

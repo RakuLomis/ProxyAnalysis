@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "applies_to_run": "outputs/replication-20260914/run-01",
+  "evidence_source": "user_confirmation",
+  "evidence_granularity": "target_level_not_per_session_telemetry",
+  "confirmations": [
+    {"batch": "broad", "url": "https://www.bilibili.com/video/BV1hu4m1P7Mu/", "activity": "video_playback", "page_kind": "video_resource", "main_content_playback": true},
+    {"batch": "broad", "url": "https://www.bilibili.com/video/BV1HEf2YWEvs/", "activity": "video_playback", "page_kind": "video_resource", "main_content_playback": true},
+    {"batch": "repeat", "url": "https://www.bilibili.com/video/BV1hu4m1P7Mu/", "activity": "video_playback", "page_kind": "video_resource", "main_content_playback": true},
+    {"batch": "broad", "url": "https://vimeo.com/", "activity": "page_load", "page_kind": "homepage", "main_content_playback": false},
+    {"batch": "repeat", "url": "https://vimeo.com/513177164", "activity": "page_load", "page_kind": "video_description", "main_content_playback": false}
+  ]
+}

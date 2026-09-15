@@ -47,7 +47,7 @@ FEATURE_RECORD_SCHEMA = pa.schema(
 )
 
 # Increment whenever code changes alter persisted record semantics independently of config.
-PIPELINE_IMPLEMENTATION_VERSION = 2
+PIPELINE_IMPLEMENTATION_VERSION = 4
 
 
 def _utc_now() -> str:

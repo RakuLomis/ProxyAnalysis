@@ -2,12 +2,13 @@
 
 from __future__ import annotations
 
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 import json
 from pathlib import Path
 from typing import Any, Mapping
 
 from ..sequences.direction import Endpoint
+from .carrier_paths import carrier_paths
 
 
 @dataclass(frozen=True, slots=True)
@@ -25,6 +26,7 @@ class EntityDescriptor:
     shared: bool
     egress_outcome: str | None
     logical_connection_ids: tuple[str, ...]
+    physical_paths: tuple[tuple[Endpoint, Endpoint], ...] = ()
 
 
 @dataclass(frozen=True, slots=True)
@@ -143,7 +145,9 @@ def build_entity_descriptors(
                 connection_id,
             )
         )
-    return _merge_candidates(candidates)
+    paths = carrier_paths(session_dir) if any(c.entity_level == "carrier" for c in candidates) else {}
+    return [replace(d, physical_paths=tuple(dict.fromkeys((*d.physical_paths, *paths.get(d.entity_id, ())))))
+            if d.entity_level == "carrier" else d for d in _merge_candidates(candidates)]
 
 
 def _nested_string(value: Mapping[str, Any], *keys: str) -> str | None:
@@ -165,8 +169,10 @@ def _merge_candidates(candidates: list[_Candidate]) -> list[EntityDescriptor]:
     for key in sorted(groups):
         items = groups[key]
         first = items[0]
-        initiator = _merge_endpoint([item.initiator for item in items])
-        responder = _merge_endpoint([item.responder for item in items])
+        # Carrier identity survives migration; direction uses all indexed tuples.
+        migrating = first.entity_level == "carrier"
+        initiator = first.initiator if migrating else _merge_endpoint([item.initiator for item in items])
+        responder = first.responder if migrating else _merge_endpoint([item.responder for item in items])
         protocols = {item.transport_protocol for item in items}
         if len(protocols) != 1:
             raise ValueError(f"entity has inconsistent transports: {key}: {protocols}")
@@ -184,6 +190,7 @@ def _merge_candidates(candidates: list[_Candidate]) -> list[EntityDescriptor]:
                 initiator=initiator,
                 responder=responder,
                 shared=first.shared,
+                physical_paths=tuple(dict.fromkeys((item.initiator, item.responder) for item in items)) if migrating else (),
                 egress_outcome=next(iter(outcomes)) if len(outcomes) == 1 else None,
                 logical_connection_ids=tuple(
                     sorted({item.logical_connection_id for item in items})
@@ -199,4 +206,3 @@ def _merge_endpoint(endpoints: list[Endpoint]) -> Endpoint:
         raise ValueError(f"entity endpoint has multiple IPs: {sorted(ips)}")
     ports = {item.port for item in endpoints}
     return Endpoint(next(iter(ips)), next(iter(ports)) if len(ports) == 1 else None)
-

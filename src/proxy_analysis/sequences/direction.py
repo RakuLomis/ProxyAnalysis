@@ -52,7 +52,8 @@ def packet_direction(
 
 
 def enrich_sequence(
-    events: Iterable[SequenceEvent], initiator: Endpoint, responder: Endpoint
+    events: Iterable[SequenceEvent], initiator: Endpoint, responder: Endpoint,
+    *, physical_paths: tuple[tuple[Endpoint, Endpoint], ...] = (),
 ) -> list[SequenceEvent]:
     """Stable-sort and add entity-global direction, relative time, and IAT."""
     ordered = sorted(events, key=lambda item: (item.timestamp_ns, item.packet_ordinal))
@@ -62,13 +63,19 @@ def enrich_sequence(
     previous_timestamp: int | None = None
     enriched: list[SequenceEvent] = []
     for event in ordered:
+        directions = {packet_direction(event, a, b) for a, b in physical_paths} if physical_paths else {
+            packet_direction(event, initiator, responder)}
+        directions.discard(None)
+        if len(directions) > 1:
+            raise ValueError("ambiguous carrier path orientation")
+        direction = next(iter(directions)) if directions else None
         iat = None if previous_timestamp is None else event.timestamp_ns - previous_timestamp
         if iat is not None and iat < 0:
             raise AssertionError("stable timestamp ordering produced a negative IAT")
         enriched.append(
             replace(
                 event,
-                direction=packet_direction(event, initiator, responder),
+                direction=direction,
                 relative_time_ns=event.timestamp_ns - first_timestamp,
                 packet_iat_ns=iat,
             )

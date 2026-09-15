@@ -1,0 +1,16 @@
+schema_version: 1
+seed: 20260907
+observation_level: offline_index_assisted_post
+protocols: [SHADOWSOCKS, VLESS]
+classification_C: [0.1, 1.0, 10.0]
+ridge_alpha: 1.0
+bootstrap_repetitions: 1000
+probability_floor: 1.0e-12
+primary_targets: [packet_count, transport_bytes, burst_count, fr_runs, length_js, iat_js]
+settings:
+  - {id: primary, selection: observed, min_round: 1, route: page, no_retry: false}
+  - {id: rounds2to5, selection: observed, min_round: 2, route: page, no_retry: false}
+  - {id: nonempty, selection: nonempty, min_round: 1, route: page, no_retry: false}
+  - {id: exclude_full_retransmission, selection: exclude_full_retransmission, min_round: 1, route: page, no_retry: false}
+  - {id: main_document, selection: observed, min_round: 1, route: main_document, no_retry: false}
+  - {id: no_retry, selection: observed, min_round: 1, route: page, no_retry: true}

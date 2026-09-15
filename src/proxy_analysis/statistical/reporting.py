@@ -158,10 +158,16 @@ def _coverage_figure(audit: Mapping[str, Any], figures: Path) -> None:
 
 
 def finalize_statistical_analysis(
-    output_root: Path | str, config_path: Path | str
+    output_root: Path | str, config_path: Path | str, *, interpretation_addendum: Path | str | None = None
 ) -> dict[str, Any]:
     root = Path(output_root)
     config = StatisticalConfig.load(config_path)
+    addendum = None
+    if interpretation_addendum is not None:
+        addendum = json.loads(Path(interpretation_addendum).read_text(encoding='utf-8'))
+        if addendum.get('approved_by') != 'user' or Path(addendum['output_scope']).resolve() != root.resolve():
+            raise ValueError('interpretation approval scope mismatch')
+        _atomic_json(root/'approved-interpretation-addendum.json', addendum)
     required = {
         "coverage": root / "coverage-audit.json",
         "frozen_spec": root / "frozen-analysis-spec.json",
@@ -199,10 +205,8 @@ def finalize_statistical_analysis(
     ):
         if summary.get("statistical_config_sha256") != config.sha256:
             errors.append({"code": "config_hash_mismatch", "output": name})
-    if audit["page"]["complete_triplet_row_count"] != 120:
+    if audit["page"]["complete_triplet_row_count"] != 3 * audit["page"]["complete_triplet_target_count"]:
         errors.append({"code": "page_complete_triplet_row_count"})
-    if audit["page"]["complete_triplet_target_count"] != 40:
-        errors.append({"code": "page_complete_triplet_target_count"})
     for table_name, rows in (
         ("q1", q1),
         ("q2_omnibus", q2_omnibus),
@@ -243,10 +247,20 @@ def finalize_statistical_analysis(
         and row.get("protocol_dataset") == "VLESS"
         and row.get("metric_id") == "transition_p_pm"
     ]
+    newly_acknowledged = []
+    for decision in (addendum or {}).get('decisions', []):
+        matches = [r for r in sensitivity if r.get('direction_stable') is False and all(
+            r.get(k) == decision.get(k) for k in ['check','protocol_dataset','metric_id'])]
+        if len(matches) != 1:
+            errors.append({'code':'approved_conflict_not_uniquely_present','decision':decision})
+        else:
+            newly_acknowledged.extend(matches)
+            warnings.append({'code':'user_acknowledged_scope_sensitivity', 'decision':decision,
+                             'observed':matches[0]})
     unacknowledged = [
         row
         for row in sensitivity
-        if row.get("direction_stable") is False and row not in acknowledged_conflicts
+        if row.get("direction_stable") is False and row not in acknowledged_conflicts + newly_acknowledged
     ]
     if unacknowledged:
         errors.append(
@@ -266,7 +280,7 @@ def finalize_statistical_analysis(
     warnings.append(
         {
             "code": "hysteria2_url_weighted_descriptive_only",
-            "explanation": "Hysteria2 has only two URL-strict target clusters because carrier sharing is intrinsic.",
+            "explanation": "Hysteria2 remains weighted descriptive carrier context under the frozen scope policy; see this run's coverage audit for actual cluster counts.",
         }
     )
     warnings.append(
@@ -309,15 +323,21 @@ def finalize_statistical_analysis(
 Quality state: **{quality['state']}** ({quality['error_count']} errors, {quality['warning_count']} explained warnings).
 
 - Confirmatory unit: page/session with site-clustered uncertainty.
-- Complete three-protocol cohort: 40 target URLs × 3 protocols.
+- Complete three-protocol cohort: {audit['page']['complete_triplet_target_count']} target URLs × 3 protocols.
 - URL-strict confirmatory scope: Shadowsocks and VLESS.
 - Hysteria2 URL scope: weighted descriptive carrier context only.
 - Cross-protocol URL/host scope: exploratory weighted carrier context.
 - TCP Flow Reversal preservation excludes Hysteria2.
-- `transition_p_pm` is retained with a frozen caveat: the within-VLESS direction is unstable and not practically meaningful; cross-protocol results are pre-imbalanced joint associations.
+- `transition_p_pm` retains the prior batch's conservative interpretation policy. This inherited restriction is not evidence that the new batch reproduces the old instability; consult current estimates and sensitivity outputs.
 - CDN endpoint/provider/PoP analysis is unsupported by the current capture points.
 
 Main machine-readable results are the Q1/Q2/Q3 Parquet and JSON files. CSV tables are in `tables/`; figures are in `figures/`; exact lineage and hashes are in `statistical-analysis-manifest.json`.
+
+Current direction-sensitivity conflicts (retained even when explicitly acknowledged):
+{json.dumps(sensitivity_summary.get('direction_conflicts', []), ensure_ascii=False, indent=2)}
+
+User-approved interpretation addendum (does not alter estimates, cohorts, or thresholds):
+{json.dumps(addendum, ensure_ascii=False, indent=2)}
 """
     _atomic_text(root / "README.md", readme)
 
@@ -329,6 +349,7 @@ Main machine-readable results are the Q1/Q2/Q3 Parquet and JSON files. CSV table
     manifest = {
         "statistical_config_sha256": config.sha256,
         "quality_state": quality["state"],
+        "interpretation_addendum_sha256": _sha256(Path(interpretation_addendum)) if interpretation_addendum else None,
         "artifacts": {
             str(path.relative_to(root)): {
                 "sha256": _sha256(path),

@@ -181,7 +181,7 @@ def context_descriptors(path):
     return descriptors
 
 
-def extract_one(row: dict, config: FeatureConfig, metrics: list[dict]) -> dict:
+def extract_one(row: dict, config: FeatureConfig, metrics: list[dict], *, side_summary_sink=None) -> dict:
     path = Path(row["session_path"])
     descriptors = context_descriptors(path) if row['protocol']=='HYSTERIA2' else build_entity_descriptors(path, row["protocol"])
     cache = {}
@@ -238,6 +238,9 @@ def extract_one(row: dict, config: FeatureConfig, metrics: list[dict]) -> dict:
                 windowed = [[p for p in g if before and before["first_ns"] <= p.timestamp_ns <= before["last_ns"]]
                             for g in after_groups]
             after = describe(windowed, config)
+            if side_summary_sink is not None:
+                side_summary_sink.append({"scope": scope, "selection": selection,
+                                          "pre": before, "post": after})
             comparisons.extend({"scope": scope, "selection": selection, **item}
                                for item in compare(before, after, metrics, not hy2))
     sequences = []

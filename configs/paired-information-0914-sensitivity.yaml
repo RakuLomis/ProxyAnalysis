@@ -1,0 +1,11 @@
+schema_version: 1
+base_config: configs/paired-information-0914.yaml
+output_name: sensitivity-01
+wrong_repetitions: 20
+perturbation_repetitions: 20
+bootstrap_repetitions: 1000
+variants:
+  - {id: rounds2to5, selection: observed, min_round: 2}
+  - {id: nonempty, selection: nonempty, min_round: 1}
+  - {id: exclude_full_retransmission, selection: exclude_full_retransmission, min_round: 1}
+interpretation: fixed_primary_14_url_cohort_sensitivity_not_reselected_population

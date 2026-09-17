@@ -1,0 +1,19 @@
+schema_version: 1
+raw_root: Datasets/TrafficTracer-Datasets-20260914
+source_root: outputs/paired-information-0914/run-01
+audit_root: outputs/replication-20260914/run-01
+output_root: outputs/paired-value-next-stage-0914/run-01
+spec: configs/reproducibility.yaml
+seed: 20260915
+classification_C: [0.1, 1.0, 10.0]
+inner_partition_seeds: [1101, 1102, 1103, 1104, 1105, 1106, 1107, 1108, 1109, 1110]
+wrong_pair_seeds: [20260915, 20261915, 20262915, 20263915, 20264915, 20265915, 20266915, 20267915, 20268915, 20269915]
+training_group_bootstraps: 20
+wrong_seeds_per_bootstrap: 5
+probability_rtol: 0.00000001
+probability_atol: 0.0000000001
+primary_selection: observed
+scope: exclusive_page
+observation_level: offline_index_assisted_post
+business_min_contents_per_class: 5
+business_teacher_training_enabled: false

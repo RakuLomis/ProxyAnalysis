@@ -1,0 +1,15 @@
+{
+  "dataset": "TrafficTracer-content-generalization-20260916",
+  "audit_root": "outputs/content-generalization-20260916/audit-01",
+  "confirmed_on": "2026-09-17",
+  "statement": "bilibili的视频实际上应该都已经正常播放，至少在我看到浏览器打开视频时是正常播放的",
+  "evidence_granularity": "target_level_user_observation_not_exhaustive_session_telemetry",
+  "urls": [
+    "https://www.bilibili.com/video/BV1hu4m1P7Mu/",
+    "https://www.bilibili.com/video/BV1HEf2YWEvs/",
+    "https://www.bilibili.com/video/BV1pW411J7s8/",
+    "https://www.bilibili.com/video/BV1ys411472E/?p=2",
+    "https://www.bilibili.com/video/BV1o4411D7vm/"
+  ],
+  "routing_override": false
+}

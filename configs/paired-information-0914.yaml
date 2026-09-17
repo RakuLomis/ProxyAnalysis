@@ -1,0 +1,13 @@
+schema_version: 1
+raw_root: Datasets/TrafficTracer-Datasets-20260914
+input_root: outputs/replication-20260914/run-01
+feature_config: configs/feature-defaults.yaml
+spec: configs/reproducibility.yaml
+output_root: outputs/paired-information-0914/run-01
+seed: 20260915
+protocols: [SHADOWSOCKS, VLESS]
+scope: exclusive_page
+selection: observed
+classification_C: [0.1, 1.0, 10.0]
+permutations: 100
+bootstrap_repetitions: 1000

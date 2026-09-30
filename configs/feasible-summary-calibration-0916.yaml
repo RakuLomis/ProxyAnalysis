@@ -1,0 +1,23 @@
+version: 1
+source_roles: outputs/cross-business-calibration-0916/run-01
+seeds: [20260918, 20260919, 20260920]
+arms: [raw, center, marginal, paired, cyclic, group]
+reference: reference
+ridge_alpha: 1.0
+views: 8
+encoder: [log_N_plus_half, asinh_D, log_G_up_plus_half, log_G_down_plus_half, log_H_up_plus_half, log_H_down_plus_half]
+integer_link: floor_exp
+direction_rounding: ties_to_even_lattice_index
+redraws: 0
+fallback: forbidden
+classification_steps: 1000
+classification_batch: 24
+classification_lr: 0.001
+classification_weight_l2: 0.0001
+classification_scale: C_pre_original_log1p
+bootstrap_draws: 10000
+primary_comparisons: [paired-raw, paired-group]
+primary_metric: F1_new_from_full_six_class_confusion
+primary_family_size: 4
+practical_delta_reference: 0.01
+device: cuda

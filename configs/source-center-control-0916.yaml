@@ -1,0 +1,10 @@
+schema_version: 1
+decision_config: configs/source-decision-calibration-0916.yaml
+output_root: outputs/source-center-control-0916/run-01
+lambda: 1
+alpha: 1
+folds: 5
+solve_budget: 5
+subset: Full
+bootstrap_repetitions: 2000
+bootstrap_seed: 20260919

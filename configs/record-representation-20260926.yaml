@@ -1,0 +1,12 @@
+version: 1
+seed: 20260926
+chunk_bytes: 1024
+length_bins: [0, 64, 128, 256, 512, 1024, 2048, 4096, 8192, 16384, 32768, .inf]
+grid_points: 101
+segment_bytes: [256, 1460, 4096]
+classifier_fits: 0
+regression_fits: 0
+max_pairs: 72
+max_files: 144
+max_unique_file_bytes: 2147483648
+scope: frozen_57_pairs_VLESS_45_SS_12

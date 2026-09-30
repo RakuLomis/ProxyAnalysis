@@ -1,0 +1,56 @@
+\section{Measurement Design and Motivating Observations}
+\subsection{Cohorts and Content-Disjoint Evaluation}
+The September 16 collection contains 525 raw visits covering seven candidate business classes. The primary conservative cohort contains 240 visits: 30 contents, two deployments, and four repetitions (collection rounds 1, 2, 4, and 5). A 299-visit sensitivity cohort substantially overlaps this cohort and is not an independent test set. Playback confirmation and eligibility for exclusive TCP correspondence are separate criteria; exclusion from the strict cohort must not be interpreted as proof that playback did not occur.
+
+The September 14 data are retained as historical measurement context. Their strict paired subset contains 140 visits to 14 resources across two deployments and five repetitions. The broader three-deployment collection and this strict subset have different scopes. We do not mix September 14 samples into the primary September 16 training folds or treat their resource-label task as interchangeable with the six-class activity task.
+
+The primary evaluation uses five fixed content-disjoint folds. Each fold has 24 training contents and six held-out contents, producing 192 training and 48 test visits when both deployments are used. All repetitions, both sides, and associated parent visits and connections move with the content. Predictions are pooled across the five held-out folds. The independent content count is 30, not 240. No random packet or connection split is used.
+
+\begin{table}[t]\centering
+\caption{Distinct evidence scopes; overlapping cohorts are not independent replications.}\label{tab:cohorts}
+\small\begin{tabular}{lrr>{\raggedright\arraybackslash}p{2.7cm}}\toprule
+Cohort & Visits & Contents & Role\\\midrule
+0914 strict & 140 & 14 & Historical measurement and deployment classification\\
+0916 raw & 525 & --- & Collection audit; seven candidate classes\\
+0916 primary & 240 & 30 & Six-class model reuse\\
+0916 sensitivity & 299 & 30 & Overlapping sensitivity\\\bottomrule
+\end{tabular}\end{table}
+
+\subsection{Features and Explicit Packet Semantics}
+Packet fields are decoded before custom aggregation; semantic features are not taken from Wireshark's built-in flow statistics. The study distinguishes observed packets from alternative retransmission-filtered interpretations. The measurements here retain observed traffic under the frozen extraction contract. Retransmissions and empty-payload packets can affect some aggregates and are not silently removed.
+
+The classification representation contains 157 dimensions in six groups (Table~\ref{tab:groups}). This is not the complete catalogue of features supported by the extractor. Length distributions use 19 bins, IAT distributions use 23 bins, and the cumulative representation has 101 normalized samples. IATs are computed within original connections; unrelated connections are not joined to create artificial gaps. Distributions and scalar aggregations follow the frozen entity-to-visit contract.
+
+For nonempty packets with direction sequence $(d_1,\ldots,d_N)$, the implemented Flow Reversals run count is
+\begin{equation}
+ \mathrm{FR}_{\mathrm{runs}}=\begin{cases}0,&N=0,\\1+\sum_{i=2}^{N}\mathbb{1}[d_i\ne d_{i-1}],&N>0.\end{cases}
+\end{equation}
+The switch count omits the initial one. The classifier's normalized FR coordinate is runs per nonempty packet; the extractor also supports a distinct switches$/ (N-1)$ normalization for $N>1$, which is not substituted for that coordinate. Empty-payload packets are filtered before evaluating FR. In contrast, the observed burst count counts direction runs including empty-payload packets. These are different measurements, even though both describe interaction structure. This operational definition avoids conflating a bidirectional connection with a directional run.
+
+\begin{table}[t]\centering\caption{Frozen classification feature groups.}\label{tab:groups}
+\small\begin{tabular}{lp{5.0cm}r}\toprule Group & Scope & Dim.\\\midrule
+G1 & Transport/IP and directional byte volume & 4\\
+G2 & Upstream byte share, direction entropy & 2\\
+G3 & FR and directional transitions & 4\\
+G4 & Packetization, bursts, length distribution & 22\\
+G5 & Median IAT and IAT distribution & 24\\
+G6 & Normalized cumulative traffic shape & 101\\\bottomrule\end{tabular}
+\end{table}
+
+\subsection{Repeatable Changes Without Universal Invariance}
+For positive scalar measurements, define $\Delta_{u,r,c}=\ln(x^+_{u,r,c}/x^-_{u,r,c})$, where $u,r,c$ index content, repetition, and deployment. We first summarize repetitions within a content and then summarize contents with equal weight. A typical ratio is the exponential of the median of content-wise median log ratios. It is neither the ratio of total bytes nor a pooled connection median. Within-content MAD is unscaled; IQR uses linear quantiles. These are descriptive repeatability statistics, not ICC estimates.
+
+Figure~\ref{fig:transform} contrasts typical changes with repetition dispersion. In SS, packet count and observed bursts have typical ratios 1.6746 and 1.7509, while transport-payload bytes have ratio 1.0196. All 30 content medians exceed 1.1 for packet and burst counts. VLESS exhibits a smaller packet ratio of 1.2453 but a larger FR ratio of 1.2303 than SS (1.0561). VLESS bursts are heterogeneous: 13 content medians exceed 1.1, 13 lie in $[0.9,1.1]$, and four are below 0.9. The reference band is descriptive, not an equivalence test.
+
+\begin{figure*}[t]\centering\includegraphics[width=\textwidth]{transformations.pdf}
+\caption{Primary-cohort transformations. Left: typical post/pre ratios computed by nested content/repetition medians. Right: median within-content MAD of natural-log ratios. The right panel describes repeat dispersion, not uncertainty intervals for the left panel.}\label{fig:transform}\end{figure*}
+
+Length and IAT changes are summarized by Jensen--Shannon divergence in bits, not its square-root distance. SS typical divergences are 0.3509 and 0.1973, compared with 0.0627 and 0.0783 for VLESS. Positive divergence does not specify a direction of change. In the 299-visit sensitivity cohort the major descriptive directions persist. Five resources overlap the two strict collection batches, but matching a resource does not match network conditions, action duration, or returned content. Historical agreement supplies contextual replication, not an external blinded validation.
+
+\subsection{Recoverability and Task Utility Do Not Rank Together}
+We compare a fixed one-dimensional Ridge recovery baseline for each feature with fixed post-side logistic classifiers trained on each group alone and on all groups except that group. These are separate fitted learners under the same content partition, not zeroing dimensions of a fitted model. Recovery skill is $1-\mathrm{MSE}_{\mathrm{model}}/\mathrm{MSE}_{\mathrm{train\ mean}}$ under the frozen content-weighted evaluation. Negative values are retained.
+
+Figure~\ref{fig:groups} reveals a mismatch. G1 has recovery skill 0.9933 but only-group macro-F1 0.5711; G4 has skill 0.3036 but only-group macro-F1 0.8150. Removing G4 reduces full-feature F1 by 0.0662, with a descriptive interval $[0.0336,0.0995]$. G6 is highly recoverable (0.9879), yet its deletion increment is not clearly positive. These comparisons do not estimate mutual information or model-independent unique contributions. They motivate testing the recovery objective directly while keeping the source classifier and mapping capacity fixed.
+
+\begin{figure*}[t]\centering\includegraphics[width=\textwidth]{group-utility.pdf}
+\caption{Distinct group diagnostics: held-out univariate recovery skill, single-group post classification, and full-minus-deleted-group F1. Only the last panel includes 95\% paired content-bootstrap intervals. Shared group names do not make the vertical quantities interchangeable.}\label{fig:groups}\end{figure*}

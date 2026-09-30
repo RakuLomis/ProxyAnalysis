@@ -1,0 +1,22 @@
+schema_version: 1
+business_root: outputs/content-generalization-20260916/business-01
+mechanism_root: outputs/content-generalization-20260916/mechanism-01
+output_root: outputs/content-generalization-20260916/paired-constraint-01
+cohort_size: 240
+representation: scalar14
+tasks: [six_business, youtube_activity]
+protocols: [SHADOWSOCKS, VLESS]
+lambdas: [0.01, 0.1, 1.0]
+primary_lambda: 0.1
+wrong_shifts: [1, 2, 3]
+model_C: 1.0
+seed: 20260918
+bootstrap_repetitions: 2000
+formal_fit_budget: 320
+engineering_fit_budget: 20
+probability_reconstruction_tolerance: 1.0e-10
+baseline_probability_tolerance: 1.0e-6
+optimizer_gtol: 1.0e-10
+optimizer_ftol: 1.0e-15
+optimizer_maxiter: 10000
+target_fit_allowed: false

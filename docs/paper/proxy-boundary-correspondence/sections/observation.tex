@@ -1,0 +1,19 @@
+\section{Background and Observation Model}
+\subsection{Sides, Entities, and Labels}
+We use \emph{pre} and \emph{post} for the paired entrance- and exit-side observation scopes defined by the collection index. Pre is traffic observed during a proxied session, not a separately captured direct connection without a proxy. A bidirectional TCP conversation is a connection; a unidirectional run consists of consecutive packets in one direction. The prediction unit is an indexed visit aggregating eligible, exclusive TCP pairs, not an individual connection or arbitrary sliding window.
+
+The target label is domain $\times$ activity. The six primary classes are Bing search, MDN documentation, GitHub repository browsing, Wikipedia article browsing, YouTube search, and YouTube video playback. Each class contains five contents. Most domains contribute one activity, so the task is not platform-independent semantic activity recognition. The two YouTube classes provide a limited within-domain distinction, not an independent validation dataset.
+
+\subsection{Training and Inference Permissions}
+During development, paired visits provide pre and post statistics, content membership, and activity labels. These resources allow fitting a source classifier and a post-to-pre adapter. At inference, methods B--H use only the indexed post feature vector, except that A is a deliberately separate pre-side diagnostic. Evaluation subsequently reads labels and, for reconstruction diagnostics, held-out pre values. Test pre values never enter post prediction, normalization, target construction, or model selection in the frozen experiment.
+
+The inference constraint concerns numerical prediction, not discovery of the traffic object. Eligible post objects are selected using offline collection indices. Thus the study uses an \emph{offline index-assisted post} observation model. It does not solve stream discovery, association of arbitrary background connections with a visit, or online segmentation without an index. Figure~\ref{fig:boundary} makes this distinction explicit.
+
+\begin{figure*}[t]
+\centering\includegraphics[width=\textwidth]{observation-boundary.pdf}
+\caption{Observation and permission boundaries. Indexed paired traffic is available for development. Classification consumes only the selected post vector; labels and test pre remain in an evaluation branch. Offline object selection is retained rather than presented as solved online identification.}
+\label{fig:boundary}
+\end{figure*}
+
+\subsection{Identity Metadata and Deployment Confounding}
+IP addresses, ports, SNI, domain strings, content IDs, and pairing IDs are not predictive input dimensions. Some of these fields are nevertheless necessary to reconstruct entities, assign labels, or audit correspondence. Their absence from model inputs does not imply the absence of deployment cues: packetization, timing, or volume can vary with deployment conditions. SS and VLESS denote the observed deployments, not randomized interventions isolating their protocol specifications. Hy2 measurements in the broader collection use a different carrier scope and are not pooled into the strict TCP classification cohort.

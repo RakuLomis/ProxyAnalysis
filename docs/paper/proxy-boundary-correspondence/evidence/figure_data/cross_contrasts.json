@@ -1,0 +1,882 @@
+[
+  {
+    "source_protocol": "SHADOWSOCKS",
+    "domain": "source",
+    "contrast": "F-B",
+    "type": "same_visit_method",
+    "primary": false,
+    "independent_contents": 30,
+    "bootstrap_repetitions": 2000,
+    "macro_f1_gain": 0.688631884590095,
+    "macro_f1_ci": [
+      0.6043488331025096,
+      0.7856382350303885
+    ],
+    "balanced_accuracy_gain": 0.6166666666666667,
+    "balanced_accuracy_ci": [
+      0.5416666666666665,
+      0.7
+    ],
+    "ce_bits_gain": 16.722499168635213,
+    "ce_bits_ci": [
+      14.734473127975049,
+      18.89141243557894
+    ],
+    "brier_gain": 1.1784831092349906,
+    "brier_ci": [
+      1.027842696109329,
+      1.3295434864411744
+    ],
+    "interval_scope": "unadjusted descriptive, conditional on fitted models"
+  },
+  {
+    "source_protocol": "SHADOWSOCKS",
+    "domain": "source",
+    "contrast": "H-B",
+    "type": "same_visit_method",
+    "primary": false,
+    "independent_contents": 30,
+    "bootstrap_repetitions": 2000,
+    "macro_f1_gain": 0.6880574636347442,
+    "macro_f1_ci": [
+      0.6150958633405398,
+      0.7770895563975129
+    ],
+    "balanced_accuracy_gain": 0.6166666666666667,
+    "balanced_accuracy_ci": [
+      0.55,
+      0.6916666666666667
+    ],
+    "ce_bits_gain": 16.71035733432031,
+    "ce_bits_ci": [
+      14.7115721398459,
+      18.90812401030828
+    ],
+    "brier_gain": 1.17761327633249,
+    "brier_ci": [
+      1.0217055267548898,
+      1.330268929312735
+    ],
+    "interval_scope": "unadjusted descriptive, conditional on fitted models"
+  },
+  {
+    "source_protocol": "SHADOWSOCKS",
+    "domain": "source",
+    "contrast": "H-F",
+    "type": "same_visit_method",
+    "primary": false,
+    "independent_contents": 30,
+    "bootstrap_repetitions": 2000,
+    "macro_f1_gain": -0.0005744209553507629,
+    "macro_f1_ci": [
+      -0.034646680285229735,
+      0.033978048260881334
+    ],
+    "balanced_accuracy_gain": 0.0,
+    "balanced_accuracy_ci": [
+      -0.03333333333333344,
+      0.03333333333333344
+    ],
+    "ce_bits_gain": -0.012141834314903899,
+    "ce_bits_ci": [
+      -0.11186113911287324,
+      0.08997091622710605
+    ],
+    "brier_gain": -0.0008698329025006168,
+    "brier_ci": [
+      -0.03683063043313929,
+      0.03838365457557203
+    ],
+    "interval_scope": "unadjusted descriptive, conditional on fitted models"
+  },
+  {
+    "source_protocol": "SHADOWSOCKS",
+    "domain": "source",
+    "contrast": "F-E",
+    "type": "same_visit_method",
+    "primary": false,
+    "independent_contents": 30,
+    "bootstrap_repetitions": 2000,
+    "macro_f1_gain": -0.03279408674145501,
+    "macro_f1_ci": [
+      -0.07888686488898596,
+      0.009311016790063619
+    ],
+    "balanced_accuracy_gain": -0.033333333333333215,
+    "balanced_accuracy_ci": [
+      -0.07500000000000007,
+      0.008333333333333526
+    ],
+    "ce_bits_gain": -0.021316691812914734,
+    "ce_bits_ci": [
+      -0.1619389207989071,
+      0.14126313820039618
+    ],
+    "brier_gain": -0.01679591735776556,
+    "brier_ci": [
+      -0.058595138598800035,
+      0.024592578469719482
+    ],
+    "interval_scope": "unadjusted descriptive, conditional on fitted models"
+  },
+  {
+    "source_protocol": "SHADOWSOCKS",
+    "domain": "source",
+    "contrast": "H-E",
+    "type": "same_visit_method",
+    "primary": false,
+    "independent_contents": 30,
+    "bootstrap_repetitions": 2000,
+    "macro_f1_gain": -0.03336850769680577,
+    "macro_f1_ci": [
+      -0.09267942475116135,
+      0.01834562103897496
+    ],
+    "balanced_accuracy_gain": -0.033333333333333215,
+    "balanced_accuracy_ci": [
+      -0.09166666666666667,
+      0.016874999999999127
+    ],
+    "ce_bits_gain": -0.03345852612781863,
+    "ce_bits_ci": [
+      -0.22225001759980112,
+      0.18083945120946537
+    ],
+    "brier_gain": -0.017665750260266178,
+    "brier_ci": [
+      -0.07291439819236492,
+      0.03660256319949986
+    ],
+    "interval_scope": "unadjusted descriptive, conditional on fitted models"
+  },
+  {
+    "source_protocol": "SHADOWSOCKS",
+    "domain": "target",
+    "contrast": "F-B",
+    "type": "same_visit_method",
+    "primary": true,
+    "independent_contents": 30,
+    "bootstrap_repetitions": 2000,
+    "macro_f1_gain": -0.014646757478479933,
+    "macro_f1_ci": [
+      -0.16298592771975026,
+      0.12795552511973363
+    ],
+    "balanced_accuracy_gain": -0.016666666666666663,
+    "balanced_accuracy_ci": [
+      -0.175,
+      0.125
+    ],
+    "ce_bits_gain": 6.887100594631183,
+    "ce_bits_ci": [
+      4.819507396021889,
+      9.102157348390525
+    ],
+    "brier_gain": 0.20777565585574698,
+    "brier_ci": [
+      -0.049230706712257405,
+      0.44204965208167957
+    ],
+    "interval_scope": "unadjusted descriptive, conditional on fitted models"
+  },
+  {
+    "source_protocol": "SHADOWSOCKS",
+    "domain": "target",
+    "contrast": "H-B",
+    "type": "same_visit_method",
+    "primary": true,
+    "independent_contents": 30,
+    "bootstrap_repetitions": 2000,
+    "macro_f1_gain": 0.01821525539272184,
+    "macro_f1_ci": [
+      -0.1064298111324868,
+      0.14478353457857593
+    ],
+    "balanced_accuracy_gain": 0.04166666666666663,
+    "balanced_accuracy_ci": [
+      -0.0918750000000001,
+      0.16666666666666663
+    ],
+    "ce_bits_gain": 6.930363129423524,
+    "ce_bits_ci": [
+      4.9026928867251,
+      9.121236042091581
+    ],
+    "brier_gain": 0.3103995719963184,
+    "brier_ci": [
+      0.08060414901698301,
+      0.5201441313731143
+    ],
+    "interval_scope": "unadjusted descriptive, conditional on fitted models"
+  },
+  {
+    "source_protocol": "SHADOWSOCKS",
+    "domain": "target",
+    "contrast": "H-F",
+    "type": "same_visit_method",
+    "primary": false,
+    "independent_contents": 30,
+    "bootstrap_repetitions": 2000,
+    "macro_f1_gain": 0.03286201287120177,
+    "macro_f1_ci": [
+      -0.029362952949636614,
+      0.10461957914058441
+    ],
+    "balanced_accuracy_gain": 0.05833333333333329,
+    "balanced_accuracy_ci": [
+      0.0,
+      0.1166666666666667
+    ],
+    "ce_bits_gain": 0.04326253479234099,
+    "ce_bits_ci": [
+      -0.1546980678201512,
+      0.2560573035860195
+    ],
+    "brier_gain": 0.10262391614057143,
+    "brier_ci": [
+      0.044297667157317526,
+      0.16363979238776818
+    ],
+    "interval_scope": "unadjusted descriptive, conditional on fitted models"
+  },
+  {
+    "source_protocol": "SHADOWSOCKS",
+    "domain": "target",
+    "contrast": "F-E",
+    "type": "same_visit_method",
+    "primary": false,
+    "independent_contents": 30,
+    "bootstrap_repetitions": 2000,
+    "macro_f1_gain": -0.11199412137608739,
+    "macro_f1_ci": [
+      -0.20685918410118376,
+      -0.021182181707087334
+    ],
+    "balanced_accuracy_gain": -0.09166666666666662,
+    "balanced_accuracy_ci": [
+      -0.1916666666666667,
+      0.008333333333333304
+    ],
+    "ce_bits_gain": 1.1718060831040589,
+    "ce_bits_ci": [
+      0.5274931127401344,
+      1.7887064595022018
+    ],
+    "brier_gain": -0.04000524011887541,
+    "brier_ci": [
+      -0.18044930466169246,
+      0.09030107910439285
+    ],
+    "interval_scope": "unadjusted descriptive, conditional on fitted models"
+  },
+  {
+    "source_protocol": "SHADOWSOCKS",
+    "domain": "target",
+    "contrast": "H-E",
+    "type": "same_visit_method",
+    "primary": false,
+    "independent_contents": 30,
+    "bootstrap_repetitions": 2000,
+    "macro_f1_gain": -0.07913210850488561,
+    "macro_f1_ci": [
+      -0.16636294275551305,
+      0.01537635450936841
+    ],
+    "balanced_accuracy_gain": -0.033333333333333326,
+    "balanced_accuracy_ci": [
+      -0.13333333333333336,
+      0.06666666666666665
+    ],
+    "ce_bits_gain": 1.2150686178963999,
+    "ce_bits_ci": [
+      0.5992463165814008,
+      1.7969433770851773
+    ],
+    "brier_gain": 0.06261867602169602,
+    "brier_ci": [
+      -0.05187360062887944,
+      0.17912297364842808
+    ],
+    "interval_scope": "unadjusted descriptive, conditional on fitted models"
+  },
+  {
+    "source_protocol": "SHADOWSOCKS",
+    "contrast": "target-source",
+    "arm": "A",
+    "type": "matched_content_domain",
+    "independent_contents": 30,
+    "pairing": "same content, different captured visits",
+    "macro_f1_gain": -0.6634083540190083,
+    "macro_f1_ci": [
+      -0.7415661940037689,
+      -0.5879320237186362
+    ],
+    "balanced_accuracy_gain": -0.5916666666666667,
+    "balanced_accuracy_ci": [
+      -0.6583333333333334,
+      -0.5166666666666666
+    ],
+    "ce_bits_gain": -4.857109908738729,
+    "ce_bits_ci": [
+      -5.835045206126455,
+      -3.9981172845652915
+    ],
+    "brier_gain": -0.9100842656487058,
+    "brier_ci": [
+      -1.0099210826528744,
+      -0.7991637124991948
+    ]
+  },
+  {
+    "source_protocol": "SHADOWSOCKS",
+    "contrast": "target-source",
+    "arm": "B",
+    "type": "matched_content_domain",
+    "independent_contents": 30,
+    "pairing": "same content, different captured visits",
+    "macro_f1_gain": 0.13847715419804243,
+    "macro_f1_ci": [
+      0.0647984451865964,
+      0.20297856627752564
+    ],
+    "balanced_accuracy_gain": 0.10000000000000009,
+    "balanced_accuracy_ci": [
+      0.024999999999999967,
+      0.17500000000000004
+    ],
+    "ce_bits_gain": 7.377342788212541,
+    "ce_bits_ci": [
+      5.641657287609251,
+      9.071809889223587
+    ],
+    "brier_gain": 0.27185380522240643,
+    "brier_ci": [
+      0.12544002709055505,
+      0.41647362836332164
+    ]
+  },
+  {
+    "source_protocol": "SHADOWSOCKS",
+    "contrast": "target-source",
+    "arm": "F",
+    "type": "matched_content_domain",
+    "independent_contents": 30,
+    "pairing": "same content, different captured visits",
+    "macro_f1_gain": -0.5648014878705324,
+    "macro_f1_ci": [
+      -0.6469021874732525,
+      -0.49732689715295386
+    ],
+    "balanced_accuracy_gain": -0.5333333333333333,
+    "balanced_accuracy_ci": [
+      -0.6166666666666667,
+      -0.45833333333333337
+    ],
+    "ce_bits_gain": -2.458055785791489,
+    "ce_bits_ci": [
+      -3.0533028532463895,
+      -1.9225501369603974
+    ],
+    "brier_gain": -0.6988536481568371,
+    "brier_ci": [
+      -0.829712048963079,
+      -0.5870258571967473
+    ]
+  },
+  {
+    "source_protocol": "SHADOWSOCKS",
+    "contrast": "target-source",
+    "arm": "H",
+    "type": "matched_content_domain",
+    "independent_contents": 30,
+    "pairing": "same content, different captured visits",
+    "macro_f1_gain": -0.5313650540439798,
+    "macro_f1_ci": [
+      -0.6088681934446951,
+      -0.45405020261036966
+    ],
+    "balanced_accuracy_gain": -0.47500000000000003,
+    "balanced_accuracy_ci": [
+      -0.5583333333333333,
+      -0.39166666666666666
+    ],
+    "ce_bits_gain": -2.402651416684244,
+    "ce_bits_ci": [
+      -3.009149615994814,
+      -1.9006053196715311
+    ],
+    "brier_gain": -0.5953598991137652,
+    "brier_ci": [
+      -0.6979340482535853,
+      -0.4992626973645823
+    ]
+  },
+  {
+    "source_protocol": "SHADOWSOCKS",
+    "contrast": "target-source",
+    "arm": "E",
+    "type": "matched_content_domain",
+    "independent_contents": 30,
+    "pairing": "same content, different captured visits",
+    "macro_f1_gain": -0.48560145323590004,
+    "macro_f1_ci": [
+      -0.5766936388801311,
+      -0.3927114989777249
+    ],
+    "balanced_accuracy_gain": -0.4749999999999999,
+    "balanced_accuracy_ci": [
+      -0.5666666666666667,
+      -0.375
+    ],
+    "ce_bits_gain": -3.6511785607084626,
+    "ce_bits_ci": [
+      -4.551188099050171,
+      -2.808587777713702
+    ],
+    "brier_gain": -0.6756443253957274,
+    "brier_ci": [
+      -0.797319870672208,
+      -0.5540619589182495
+    ]
+  },
+  {
+    "source_protocol": "VLESS",
+    "domain": "source",
+    "contrast": "F-B",
+    "type": "same_visit_method",
+    "primary": false,
+    "independent_contents": 30,
+    "bootstrap_repetitions": 2000,
+    "macro_f1_gain": 0.6399068793254841,
+    "macro_f1_ci": [
+      0.5852057670311781,
+      0.695837566764478
+    ],
+    "balanced_accuracy_gain": 0.525,
+    "balanced_accuracy_ci": [
+      0.46666666666666673,
+      0.5833333333333333
+    ],
+    "ce_bits_gain": 10.292919317818546,
+    "ce_bits_ci": [
+      8.485502624593838,
+      11.959584080790043
+    ],
+    "brier_gain": 0.9443453625472508,
+    "brier_ci": [
+      0.8499740952947987,
+      1.0591534549947093
+    ],
+    "interval_scope": "unadjusted descriptive, conditional on fitted models"
+  },
+  {
+    "source_protocol": "VLESS",
+    "domain": "source",
+    "contrast": "H-B",
+    "type": "same_visit_method",
+    "primary": false,
+    "independent_contents": 30,
+    "bootstrap_repetitions": 2000,
+    "macro_f1_gain": 0.6475415472655526,
+    "macro_f1_ci": [
+      0.5815589538382687,
+      0.7136377501105646
+    ],
+    "balanced_accuracy_gain": 0.5333333333333332,
+    "balanced_accuracy_ci": [
+      0.4666666666666666,
+      0.6000000000000001
+    ],
+    "ce_bits_gain": 10.29133485369527,
+    "ce_bits_ci": [
+      8.464253193260669,
+      11.962752607749065
+    ],
+    "brier_gain": 0.9467271914038465,
+    "brier_ci": [
+      0.8461934803308687,
+      1.0650896608347997
+    ],
+    "interval_scope": "unadjusted descriptive, conditional on fitted models"
+  },
+  {
+    "source_protocol": "VLESS",
+    "domain": "source",
+    "contrast": "H-F",
+    "type": "same_visit_method",
+    "primary": false,
+    "independent_contents": 30,
+    "bootstrap_repetitions": 2000,
+    "macro_f1_gain": 0.007634667940068507,
+    "macro_f1_ci": [
+      -0.02585629534631654,
+      0.04193068316484661
+    ],
+    "balanced_accuracy_gain": 0.008333333333333193,
+    "balanced_accuracy_ci": [
+      -0.025000000000000022,
+      0.04166666666666674
+    ],
+    "ce_bits_gain": -0.0015844641232758416,
+    "ce_bits_ci": [
+      -0.041439676853860824,
+      0.04572135350986336
+    ],
+    "brier_gain": 0.0023818288565957413,
+    "brier_ci": [
+      -0.01496715407407146,
+      0.021149319973018374
+    ],
+    "interval_scope": "unadjusted descriptive, conditional on fitted models"
+  },
+  {
+    "source_protocol": "VLESS",
+    "domain": "source",
+    "contrast": "F-E",
+    "type": "same_visit_method",
+    "primary": false,
+    "independent_contents": 30,
+    "bootstrap_repetitions": 2000,
+    "macro_f1_gain": -0.05142741539135243,
+    "macro_f1_ci": [
+      -0.09498704386861673,
+      -0.000981602307467317
+    ],
+    "balanced_accuracy_gain": -0.050000000000000044,
+    "balanced_accuracy_ci": [
+      -0.09166666666666679,
+      -2.220446049250313e-16
+    ],
+    "ce_bits_gain": -0.12230117400944679,
+    "ce_bits_ci": [
+      -0.27837427951378263,
+      0.03952119068189362
+    ],
+    "brier_gain": -0.05626579883446382,
+    "brier_ci": [
+      -0.0940402374616937,
+      -0.019141616092975787
+    ],
+    "interval_scope": "unadjusted descriptive, conditional on fitted models"
+  },
+  {
+    "source_protocol": "VLESS",
+    "domain": "source",
+    "contrast": "H-E",
+    "type": "same_visit_method",
+    "primary": false,
+    "independent_contents": 30,
+    "bootstrap_repetitions": 2000,
+    "macro_f1_gain": -0.04379274745128392,
+    "macro_f1_ci": [
+      -0.10287608852264642,
+      0.008006768632701184
+    ],
+    "balanced_accuracy_gain": -0.04166666666666685,
+    "balanced_accuracy_ci": [
+      -0.09999999999999987,
+      0.008333333333333304
+    ],
+    "ce_bits_gain": -0.12388563813272263,
+    "ce_bits_ci": [
+      -0.30885027530728676,
+      0.06926601123552328
+    ],
+    "brier_gain": -0.05388396997786808,
+    "brier_ci": [
+      -0.10406874127067418,
+      -0.005543805229050344
+    ],
+    "interval_scope": "unadjusted descriptive, conditional on fitted models"
+  },
+  {
+    "source_protocol": "VLESS",
+    "domain": "target",
+    "contrast": "F-B",
+    "type": "same_visit_method",
+    "primary": true,
+    "independent_contents": 30,
+    "bootstrap_repetitions": 2000,
+    "macro_f1_gain": 0.18849716705407754,
+    "macro_f1_ci": [
+      0.08026412730268621,
+      0.31306807892335925
+    ],
+    "balanced_accuracy_gain": 0.13333333333333325,
+    "balanced_accuracy_ci": [
+      0.025000000000000078,
+      0.24999999999999972
+    ],
+    "ce_bits_gain": 2.027059950782106,
+    "ce_bits_ci": [
+      0.7085185851050284,
+      3.4727733851185074
+    ],
+    "brier_gain": 0.3092908890170909,
+    "brier_ci": [
+      0.13750271244749024,
+      0.48345321058251367
+    ],
+    "interval_scope": "unadjusted descriptive, conditional on fitted models"
+  },
+  {
+    "source_protocol": "VLESS",
+    "domain": "target",
+    "contrast": "H-B",
+    "type": "same_visit_method",
+    "primary": true,
+    "independent_contents": 30,
+    "bootstrap_repetitions": 2000,
+    "macro_f1_gain": 0.24055624248443702,
+    "macro_f1_ci": [
+      0.11424312404346885,
+      0.3673471678708475
+    ],
+    "balanced_accuracy_gain": 0.1916666666666667,
+    "balanced_accuracy_ci": [
+      0.07500000000000001,
+      0.3000000000000001
+    ],
+    "ce_bits_gain": 2.317954110708008,
+    "ce_bits_ci": [
+      0.9463128151197135,
+      3.7389700525938503
+    ],
+    "brier_gain": 0.3680587440933587,
+    "brier_ci": [
+      0.19509644280629268,
+      0.5438566593575714
+    ],
+    "interval_scope": "unadjusted descriptive, conditional on fitted models"
+  },
+  {
+    "source_protocol": "VLESS",
+    "domain": "target",
+    "contrast": "H-F",
+    "type": "same_visit_method",
+    "primary": false,
+    "independent_contents": 30,
+    "bootstrap_repetitions": 2000,
+    "macro_f1_gain": 0.05205907543035948,
+    "macro_f1_ci": [
+      -0.01753911917534101,
+      0.11894552064504213
+    ],
+    "balanced_accuracy_gain": 0.05833333333333346,
+    "balanced_accuracy_ci": [
+      -0.008333333333333415,
+      0.1250000000000001
+    ],
+    "ce_bits_gain": 0.29089415992590206,
+    "ce_bits_ci": [
+      -0.12910099397890554,
+      0.7406770247083875
+    ],
+    "brier_gain": 0.058767855076267805,
+    "brier_ci": [
+      0.004913637579154127,
+      0.11375311560512665
+    ],
+    "interval_scope": "unadjusted descriptive, conditional on fitted models"
+  },
+  {
+    "source_protocol": "VLESS",
+    "domain": "target",
+    "contrast": "F-E",
+    "type": "same_visit_method",
+    "primary": false,
+    "independent_contents": 30,
+    "bootstrap_repetitions": 2000,
+    "macro_f1_gain": 0.1797957906082474,
+    "macro_f1_ci": [
+      0.0891288839254266,
+      0.2630018356888775
+    ],
+    "balanced_accuracy_gain": 0.1999999999999999,
+    "balanced_accuracy_ci": [
+      0.125,
+      0.2666666666666667
+    ],
+    "ce_bits_gain": 2.140098419190541,
+    "ce_bits_ci": [
+      1.3819507065906425,
+      2.9290405603970537
+    ],
+    "brier_gain": 0.45448920548177685,
+    "brier_ci": [
+      0.35144942120446987,
+      0.5514550869622018
+    ],
+    "interval_scope": "unadjusted descriptive, conditional on fitted models"
+  },
+  {
+    "source_protocol": "VLESS",
+    "domain": "target",
+    "contrast": "H-E",
+    "type": "same_visit_method",
+    "primary": false,
+    "independent_contents": 30,
+    "bootstrap_repetitions": 2000,
+    "macro_f1_gain": 0.2318548660386069,
+    "macro_f1_ci": [
+      0.13664796320537068,
+      0.3280429902193963
+    ],
+    "balanced_accuracy_gain": 0.25833333333333336,
+    "balanced_accuracy_ci": [
+      0.16666666666666674,
+      0.34166666666666673
+    ],
+    "ce_bits_gain": 2.430992579116443,
+    "ce_bits_ci": [
+      1.4551441465632708,
+      3.460635444280564
+    ],
+    "brier_gain": 0.5132570605580447,
+    "brier_ci": [
+      0.3919615286691733,
+      0.6298229335956438
+    ],
+    "interval_scope": "unadjusted descriptive, conditional on fitted models"
+  },
+  {
+    "source_protocol": "VLESS",
+    "contrast": "target-source",
+    "arm": "A",
+    "type": "matched_content_domain",
+    "independent_contents": 30,
+    "pairing": "same content, different captured visits",
+    "macro_f1_gain": -0.5117590530731126,
+    "macro_f1_ci": [
+      -0.5557363085758605,
+      -0.46662804180925793
+    ],
+    "balanced_accuracy_gain": -0.4583333333333332,
+    "balanced_accuracy_ci": [
+      -0.5083333333333334,
+      -0.4083333333333332
+    ],
+    "ce_bits_gain": -3.533280237499172,
+    "ce_bits_ci": [
+      -4.483177495434462,
+      -2.7999254814439842
+    ],
+    "brier_gain": -0.7121907432796819,
+    "brier_ci": [
+      -0.7833554088151943,
+      -0.6432999576027942
+    ]
+  },
+  {
+    "source_protocol": "VLESS",
+    "contrast": "target-source",
+    "arm": "B",
+    "type": "matched_content_domain",
+    "independent_contents": 30,
+    "pairing": "same content, different captured visits",
+    "macro_f1_gain": 0.11523689273689275,
+    "macro_f1_ci": [
+      -0.0006212531330012656,
+      0.22040461663541044
+    ],
+    "balanced_accuracy_gain": 0.04999999999999999,
+    "balanced_accuracy_ci": [
+      -0.05833333333333329,
+      0.15020833333333228
+    ],
+    "ce_bits_gain": 4.588607502077369,
+    "ce_bits_ci": [
+      3.3476475787865234,
+      5.984127056366915
+    ],
+    "brier_gain": 0.1294644631533377,
+    "brier_ci": [
+      -0.03848734457943995,
+      0.3063029160940859
+    ]
+  },
+  {
+    "source_protocol": "VLESS",
+    "contrast": "target-source",
+    "arm": "F",
+    "type": "matched_content_domain",
+    "independent_contents": 30,
+    "pairing": "same content, different captured visits",
+    "macro_f1_gain": -0.3361728195345137,
+    "macro_f1_ci": [
+      -0.4366223851954451,
+      -0.23791040454036294
+    ],
+    "balanced_accuracy_gain": -0.3416666666666668,
+    "balanced_accuracy_ci": [
+      -0.4416666666666666,
+      -0.2416666666666668
+    ],
+    "ce_bits_gain": -3.6772518649590706,
+    "ce_bits_ci": [
+      -4.892538347808317,
+      -2.2578766679194215
+    ],
+    "brier_gain": -0.5055900103768222,
+    "brier_ci": [
+      -0.6300258430021856,
+      -0.37560632862978854
+    ]
+  },
+  {
+    "source_protocol": "VLESS",
+    "contrast": "target-source",
+    "arm": "H",
+    "type": "matched_content_domain",
+    "independent_contents": 30,
+    "pairing": "same content, different captured visits",
+    "macro_f1_gain": -0.29174841204422275,
+    "macro_f1_ci": [
+      -0.3852803517237655,
+      -0.19963680297851383
+    ],
+    "balanced_accuracy_gain": -0.2916666666666665,
+    "balanced_accuracy_ci": [
+      -0.3750000000000001,
+      -0.20812500000000095
+    ],
+    "ce_bits_gain": -3.384773240909893,
+    "ce_bits_ci": [
+      -4.5077372189892255,
+      -2.1013083297205806
+    ],
+    "brier_gain": -0.4492039841571501,
+    "brier_ci": [
+      -0.5778195216432548,
+      -0.32084351256780974
+    ]
+  },
+  {
+    "source_protocol": "VLESS",
+    "contrast": "target-source",
+    "arm": "E",
+    "type": "matched_content_domain",
+    "independent_contents": 30,
+    "pairing": "same content, different captured visits",
+    "macro_f1_gain": -0.5673960255341135,
+    "macro_f1_ci": [
+      -0.6446650332057281,
+      -0.4848905301835922
+    ],
+    "balanced_accuracy_gain": -0.5916666666666668,
+    "balanced_accuracy_ci": [
+      -0.6666666666666665,
+      -0.5083333333333333
+    ],
+    "ce_bits_gain": -5.939651458159059,
+    "ce_bits_ci": [
+      -7.157058253199072,
+      -4.743946231899811
+    ],
+    "brier_gain": -1.0163450146930628,
+    "brier_ci": [
+      -1.1334623920881828,
+      -0.8838098183876606
+    ]
+  }
+]

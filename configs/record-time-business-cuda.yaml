@@ -1,0 +1,14 @@
+schema_version: 1
+training_device: cuda
+inference_device: cuda
+allow_cpu_fallback: false
+dtype: float32
+amp: false
+tf32: false
+deterministic_algorithms: true
+cache_supervised_batches_on_gpu: true
+max_cached_visit_batches: 32
+clear_cache_when_preprocessing_changes: true
+vectorized_sequence_pooling: true
+effective_batch_unchanged: 24
+benchmark_scope: outer_fold_0_training_only

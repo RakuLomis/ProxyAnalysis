@@ -1,0 +1,72 @@
+{
+  "scalar14": [
+    "packet_count",
+    "transport_bytes",
+    "ip_bytes",
+    "up_transport_bytes",
+    "down_transport_bytes",
+    "burst_count",
+    "fr_runs",
+    "fr_switches",
+    "fr_runs_per_packet",
+    "up_byte_fraction",
+    "transition_p_pm",
+    "direction_entropy",
+    "length_median",
+    "iat_median_us"
+  ],
+  "length_bins": [
+    0,
+    1,
+    32,
+    64,
+    128,
+    256,
+    512,
+    768,
+    1024,
+    1280,
+    1440,
+    1460,
+    1500,
+    2048,
+    4096,
+    8192,
+    16384,
+    65536
+  ],
+  "iat_edges_us": [
+    0,
+    1,
+    2,
+    5,
+    10,
+    20,
+    50,
+    100,
+    200,
+    500,
+    1000,
+    2000,
+    5000,
+    10000,
+    20000,
+    50000,
+    100000,
+    200000,
+    500000,
+    1000000,
+    5000000,
+    30000000
+  ],
+  "curve": {
+    "grid_points": 101,
+    "interpolation": "previous"
+  },
+  "sources": {
+    "src\\proxy_analysis\\paired_information\\reference_retrain.py": "da3a5456cb7548169e84737a1b1c02429fff0dbbed01c930689b4f9a1e08ec05",
+    "configs\\feature-defaults.yaml": "6d766cbfd5098b2982868d513db8d0ad3e398920e54b326334d3d8903a55901c",
+    "src\\proxy_analysis\\crosscontent\\business_representations.py": "faaece834d29e923367f3f6740386f73749640b4a60a2d3059ac6ddddbf79afe",
+    "src\\proxy_analysis\\crosscontent\\group_anchor_reliability.py": "5e70c6a04f3373a4069a28abcabf92ae9e5a5bee5fac9629e4cb3c261a58184e"
+  }
+}

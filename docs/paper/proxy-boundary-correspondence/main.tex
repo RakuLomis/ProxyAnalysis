@@ -1,0 +1,36 @@
+\RequirePackage[T1]{fontenc}
+\documentclass[journal]{IEEEtran}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsthm,booktabs,graphicx,array,url}
+\usepackage[hidelinks]{hyperref}
+\ifdefined\XeTeXversion\AtBeginDocument{\special{pdf:minorversion 7}}\fi
+\graphicspath{{figures/generated/}}
+\newtheorem{proposition}{Proposition}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\R}{\mathbb{R}}
+\input{tables/numbers}
+\title{Across the Proxy Boundary: Task-Dependent Traffic Correspondence and the Limits of Model Reuse}
+\author{Research Draft---Author Information Withheld}
+\markboth{RESEARCH DRAFT, SEPTEMBER 2026}{Across the Proxy Boundary}
+\begin{document}
+\raggedbottom
+\maketitle
+\begin{abstract}
+Encrypted proxies alter traffic statistics while retaining some correspondence between observations on their two sides. Whether this correspondence enables a classifier trained at the proxy entrance to operate on exit-side traffic is less clear. We study this question through paired measurement and controlled model reuse, rather than assuming that recoverable traffic structure is automatically useful for classification. Our main cohort contains 240 visits to 30 contents across six domain--activity classes and two observed deployments, with five content-disjoint folds. A fixed source classifier achieves a macro-F1 of \FOneA{} on entrance observations but only \FOneB{} when directly applied to exit observations. Coordinate-wise statistical calibration recovers \FOneC{}. Adding a source-decision preservation objective, without increasing mapping capacity, raises macro-F1 to \FOneF{} even as statistical reconstruction error increases. Replacing visit-level targets with content--deployment centers further separates reconstruction fidelity from classification utility; its pooled performance is close to, but not established as equivalent to, instance-based controls. Finally, source-only fitting reveals asymmetric cross-deployment reuse and substantial degradation of the source classifier even on target-deployment entrance traffic. These results identify task objective, correspondence granularity, and deployment conditions as distinct constraints on exploiting paired traffic. They do not establish universal pairing benefits, deployment-invariant representations, or an index-free online attack.
+\end{abstract}
+\begin{IEEEkeywords}
+Encrypted traffic analysis, proxy traffic, paired observations, model reuse, distribution shift, traffic measurement.
+\end{IEEEkeywords}
+\input{sections/introduction}
+\input{sections/observation}
+\input{sections/measurement}
+\input{sections/framework}
+\input{sections/analysis}
+\input{sections/evaluation}
+\input{sections/related}
+\input{sections/discussion}
+\section{Conclusion}
+Traffic correspondence across a proxy boundary is a useful measurement and learning resource, but its utility depends on the downstream decision and deployment. In the observed cohort, statistical calibration partly restores a fixed source classifier, and decision-aware calibration improves classification without improving full statistical recovery. Coarsening training targets changes reconstruction fidelity and deployment-specific outcomes without a corresponding pooled classification collapse. Source-only cross-deployment evaluation exposes an additional limitation: the entrance classifier itself does not remain reliable across deployments. The evidence supports a task-dependent account of cross-side model reuse, not universal benefits of exact pairing or a deployment-independent attack. Future validation requires genuinely external environments and observation models that do not rely on offline object selection.
+\bibliographystyle{IEEEtran}
+\bibliography{references}
+\end{document}

@@ -1,0 +1,34 @@
+version: 1
+dataset: TrafficTracer-content-generalization-20260916
+protocol: HYSTERIA2
+labels:
+  - github.com::repository_view
+  - youtube.com::search_results_view
+  - wikipedia.org::article_view
+  - youtube.com::video_playback
+  - developer.mozilla.org::document_view
+repetitions: [1, 2, 4, 5]
+expected_visits: 100
+expected_contents: 25
+folds: 5
+target_groups: all_unordered_label_pairs
+rotations: 6
+rotation_offset: label_position_in_config_modulo_6
+calibration_contents_per_auxiliary_label: 2
+seeds: [20260918, 20260919, 20260920]
+features: [W_up, W_down, P_up, P_down, R_up, R_down]
+payload_upper_bound: 65527
+ridge_alpha: 1.0
+views: 8
+arms: [raw, center, marginal, paired, cyclic, group, reference]
+classification_hidden: 32
+classification_steps: 1000
+classification_batch: 24
+classification_lr: 0.001
+classification_weight_l2: 0.0001
+bootstrap_draws: 10000
+primary_comparisons: [paired-raw, paired-group]
+primary_family_size: 2
+secondary_family_size: 20
+device: cuda
+training_requires_qualification_gate: true

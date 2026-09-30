@@ -1,0 +1,10 @@
+version: 1
+seed: early-stage-v1
+load_edges: [0, 4096, 16384, 65536, 262144, 1048576]
+max_pairs: 72
+max_files: 144
+max_bytes: 2147483648
+early_display_runs: 12
+classifier_training: false
+phase_rule_selection_by_similarity: false
+historical_commit: fcacc8696dfd574d0faa2770c5d3151e21dd9bbc

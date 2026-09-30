@@ -1,0 +1,71 @@
+\RequirePackage[T1]{fontenc}
+\documentclass[journal]{IEEEtran}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,booktabs,graphicx,array,url}
+\usepackage[hidelinks]{hyperref}
+\title{Supplementary Material: Across the Proxy Boundary}
+\author{Research Draft---Author Information Withheld}
+\makeatletter
+\setlength{\@dblfptop}{0pt}
+\setlength{\@dblfpsep}{16pt}
+\setlength{\@dblfpbot}{0pt plus 1fil}
+\makeatother
+\begin{document}\raggedbottom\maketitle
+\section{Scope and Reproduction}
+This supplement retains measurements and controls that would otherwise obscure the main question. It does not introduce new training, expand the eligible cohort, or select additional calibration weights. All machine-readable sources are listed with SHA-256 digests in the accompanying evidence manifest. Figure generation reads saved JSON artifacts, not manually transcribed Markdown tables. The source repository's large experiment outputs remain local; small aggregate snapshots used by the manuscript are included for audit.
+
+The primary cohort is six domain--activity classes, five contents per class, four repetitions, and two deployments. The 240 visits yield 30 independent content groups for resampling. Five content folds give 192/48 train/test visits for jointly seen deployments, or 96 source training visits, 24 source holdout visits, and 24 target holdout visits for source-only fitting. The target deployment's 96 other visits are excluded from numerical fitting. There is no additional validation set or test-driven early stopping in these fixed logistic/affine experiments.
+
+\section{Measurement Detail}
+Table~\ref{tab:measure} includes all six preselected measurements. The first four rows per deployment report exponential nested medians of strict natural-log ratios; the last two report JS divergence in bits. MAD and IQR describe repetition dispersion within contents, then take a median across contents. They are not uncertainty bars or estimates of variance components. The SS payload ratio near one should not be described as exact application-byte conservation. Observed transport payload includes the representation and retransmission semantics of the frozen extractor.
+\begin{table*}[t]\centering\caption{Primary-cohort transformation summaries.}\label{tab:measure}\small\input{tables/transform}\end{table*}
+
+The 299-visit sensitivity cohort preserves the major aggregate directions but overlaps the main cohort. The September 14 strict historical subset uses 14 resources, not the same 30 contents. Its typical SS packet ratio is 1.6363 versus 1.6746 in September 16; VLESS ratios are 1.2664 and 1.2453. Five resources overlap after preserving content-specific URL query semantics. Similarity across these batches cannot isolate date or protocol effects from content, action, and network differences.
+
+\section{Exact Representation and Preprocessing}
+Table~\ref{tab:scalars} lists the first 14 columns in source order. They are followed by 19 length-bin probabilities, 23 IAT-bin probabilities, and 101 normalized cumulative samples, yielding 157 dimensions. Each histogram is normalized separately on each side, including tail bins; an empty block is represented as missing before training-only imputation. The cumulative curve normalizes both time and byte axes with previous-value interpolation. Raw scalar coordinates, not their log transforms, enter the classifiers before imputation and standardization. A historical transformation representation used log1p differences for scale features; that is distinct from both this classifier input and the strict log-ratio measurement analysis.
+
+\begin{table}[t]\centering\caption{Scalar coordinates exported from the frozen representation code.}\label{tab:scalars}\small\input{tables/scalar_dictionary}\end{table}
+
+The length boundaries in bytes are [0, 1, 32, 64, 128, 256, 512, 768, 1024, 1280, 1440, 1460, 1500, 2048, 4096, 8192, 16384, 65536], with tail handling retained. IAT boundaries in microseconds are [0, 1, 2, 5, 10, 20, 50, 100, 200, 500, 1000, 2000, 5000, 10000, 20000, 50000, 100000, 200000, 500000, 1000000, 5000000, 30000000]. The machine-readable feature contract preserves these arrays without typesetting ambiguity. Effective recovery dimensions are selected from training pre variance using the frozen $10^{-12}$ numerical threshold; no test variance determines the mask.
+
+\section{Feature Utility and Earlier Representation Results}
+Table~\ref{tab:utility} gives all post logistic utility controls. Each row is independently fitted under the fixed content partition; deleting a group is not test-time masking. Only-group and deletion comparisons answer different questions. The classifier's regularization is fixed rather than optimized for each input dimensionality, which bounds the interpretation of these diagnostics.
+\begin{table}[t]\centering\caption{Complete pooled utility controls.}\label{tab:utility}\small\input{tables/utility}\end{table}
+
+Earlier neural recovery heads consume all 157 post features, whereas the univariate Ridge baseline consumes only the matching post coordinate. G1 Ridge/R4 skills are 0.9933/0.8892; G6 skills are 0.9879/0.8365. G4 and G5 neural recovery exceed the univariate baselines. These are not equal-input-capacity algorithm comparisons and do not establish that linear models are generally superior or that an encoder has irreversibly discarded information.
+
+The descriptive training-side hierarchy decomposition separates business means, within-business content differences, and within-content visit residuals. For G6, pre visit-level energy shares are approximately 0.5072 in SS and 0.7519 in VLESS, with corresponding cross-side residual correlations 0.9940 and 0.9869. The group also contains business and content structure. This does not make all visit residuals label-irrelevant noise. Training folds overlap, and constrained cyclic residual mismatches are not independent resamples; their differences are not information or pure-noise proportions.
+
+For natural-pair SSL, the six-class fine-tuned true-pair model had F1 0.9018 versus a supervised reference of 0.9017, without a clear joint F1/CE advantage. A separate two-class YouTube MLP experiment in SS-to-VLESS produced F1 0.5811 with a pre teacher versus 0.3440 for its hard-label baseline. This local positive result is retained, but it is not directly comparable to the six-class A--H classifiers. The experiments differ in objective, representation use, learner, and task scope.
+
+\section{Calibration Sensitivity and Target Interpretation}
+The primary decision weight remains one. At $\lambda=0.1$, true/mismatched decision calibration has pooled F1 0.8440/0.8196; at $\lambda=10$, the corresponding values are 0.8534/0.8655. The primary true/mismatched values are 0.8535/0.8656. These observations do not justify selecting a new setting by target performance. Lambda zero reproduces the inherited true/mismatched statistical recovery objective rather than a newly normalized approximation.
+
+The center target uses the four repeats in each training content--deployment group. The group average is computed independently within each outer training partition. All original post inputs remain present; only both pre recovery and source-score targets are replaced. No test content center is constructed or queried. A source model trained on labels gives all four training repetitions the same predicted class in each group, but scores differ. This is an in-sample property, not evidence that held-out scores or classes must agree.
+
+The original statistical mapper can output values outside physical constraints. Full/C had 31 visits with at least one negative constrained coordinate, 209 with a unit-interval violation, and 240 with a nonmonotone cumulative curve. These are at-least-one violation counts under the saved numerical threshold, not magnitudes of violation. Decision-aware mappings also violate constraints. No output projection was performed; fidelity and task results refer to the unprojected vectors.
+
+\section{Complete Cross-Deployment Metrics}
+Table~\ref{tab:crossall} reports both domains rather than only favorable target results. Each row summarizes 120 out-of-fold visits, and the same visit contributes to several method rows. The table therefore does not represent 2,400 independent samples. E in the exported table is denoted $E_s$ here and uses source post supervision only.
+\begin{table}[t]\centering\caption{All source-only fitting results. CE is in bits.}\label{tab:crossall}\scriptsize\input{tables/cross}\end{table}
+\begin{table*}[t]\centering\caption{Target-side paired contrasts. Positive CE gain denotes a reduction. Intervals are conditional, unadjusted content-bootstrap intervals.}\label{tab:crossci}\small\input{tables/cross_contrasts}\end{table*}
+
+H--F has target F1 differences 0.0329 and 0.0521 for SS-to-VLESS and VLESS-to-SS, but both intervals cross zero. Brier favors H in these comparisons, whereas F1 and CE do not establish superiority. Point estimates cannot establish noninferiority or equivalence without a prespecified acceptable difference.
+
+Under SS-only fitting, the source B CE has eight floored observations and an uncapped value 18.1405 rather than 17.3039. Under VLESS-only fitting, source B has one floored observation and uncapped CE 10.8702 rather than 10.8288. In VLESS-to-SS, F/H each has one floor event. All other primary cross-deployment arms are unaffected by this floor. The finite-learner CE interpretation in the main text does not substitute these clipped empirical losses into a population information identity.
+
+\section{Per-Class Cross-Deployment Boundary}
+\begin{table*}[t]\centering\caption{Target macro-class components: per-class F1, 20 visits per class and direction.}\label{tab:classes}\small\input{tables/cross_classes}\end{table*}
+Class-specific failures matter. In SS-to-VLESS, F has zero F1 for YouTube playback despite its probability-loss improvement at the aggregate level. In VLESS-to-SS, improved pooled F1 does not imply that Bing improves. Class counts are small, and these rows are descriptive rather than separately powered hypothesis tests.
+
+\section{A Short Derivation of the Center Identity}
+Use common coordinates with fixed positive-semidefinite metric $M$. Expanding $\|q_i-\mu_g-\epsilon_i\|_M^2-\|q_i-\mu_g\|_M^2$ gives $\epsilon_i^{\mathsf T}M\epsilon_i-2(q_i-\mu_g)^{\mathsf T}M\epsilon_i$. Since $\sum_{i\in g}\epsilon_i=0$, replacing $q_i-\mu_g$ in the cross-term by $q_i-\bar q_g$ does not change the group sum. Summing over groups yields the main-text identity. The same regularizer cancels. Incomplete targets, unequal observation weights, or coordinate-specific masks require matching weighted centers; the unweighted identity should not be applied indiscriminately.
+
+For a fixed input and averaging over every target in a group, the residual cross-term vanishes and the difference from a center loss is constant in the prediction. A cyclic donor retains a particular input--residual association and generally does not have this equivalence. Neither result says that the residual is causally irrelevant to labels.
+
+\section{Implementation Checks and Remaining Documentation}
+The cross-deployment stage's existing audit reports 270 passing tests, independent QR and forward checks, source-member isolation, and unchanged prior A--H hashes. The paper build adds separate evidence consistency tests and artifact hashes; it does not claim to rerun all historical experiments. The original permission-separated packages distinguish fitting data, post-only inference inputs, and evaluation-only pre/labels. Operating-system file invisibility is not claimed.
+
+Authors must still confirm the deployment inventory for publication, collection authorization, any applicable ethical review, and the release policy for trace identifiers. These are submission requirements, not silently filled facts. The writing reference supplied by the authors influenced the problem--challenge--framework--controlled-evaluation organization, not empirical claims, diagram content, or copied prose. No acknowledgments, funding records, submission dates, or acceptance information are fabricated.
+\end{document}

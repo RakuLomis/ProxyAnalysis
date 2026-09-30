@@ -1,0 +1,79 @@
+[
+  {
+    "split": "test",
+    "arm": "F",
+    "target_relation": "true",
+    "rows": 240,
+    "target_mse": 0.3736564115533645,
+    "source_mse": 0.37365641155336443,
+    "centered_logit_mse": 2.439953174652167,
+    "source_class_agreement": 0.8583333333333333,
+    "source_probability_l1": 0.3702893850830219
+  },
+  {
+    "split": "test",
+    "arm": "G",
+    "target_relation": "true",
+    "rows": 240,
+    "target_mse": 0.7973793641140668,
+    "source_mse": 0.7973793641140667,
+    "centered_logit_mse": 4.341886211762157,
+    "source_class_agreement": 0.8541666666666666,
+    "source_probability_l1": 0.4370368000716035
+  },
+  {
+    "split": "test",
+    "arm": "H",
+    "target_relation": "true",
+    "rows": 240,
+    "target_mse": 0.6240334516726302,
+    "source_mse": 0.6240334516726302,
+    "centered_logit_mse": 3.711064768803806,
+    "source_class_agreement": 0.8541666666666666,
+    "source_probability_l1": 0.40385499463405833
+  },
+  {
+    "split": "train",
+    "arm": "F",
+    "target_relation": "true",
+    "rows": 960,
+    "target_mse": 0.36506100722979085,
+    "source_mse": 0.36506100722979085,
+    "centered_logit_mse": 2.2340960403979158,
+    "source_class_agreement": 0.9302083333333333,
+    "source_probability_l1": 0.31234923140983245
+  },
+  {
+    "split": "train",
+    "arm": "G",
+    "target_relation": "true",
+    "rows": 960,
+    "target_mse": 0.6193744698846948,
+    "source_mse": 0.6193744698846948,
+    "centered_logit_mse": 3.4689937405235747,
+    "source_class_agreement": 0.8958333333333334,
+    "source_probability_l1": 0.41047098306773694
+  },
+  {
+    "split": "train",
+    "arm": "H",
+    "target_relation": "center",
+    "rows": 960,
+    "target_mse": 0.5428290614477057,
+    "source_mse": 0.5428290614477057,
+    "centered_logit_mse": 3.1152501035172837,
+    "source_class_agreement": 0.9229166666666667,
+    "source_probability_l1": 0.3974608839407277
+  },
+  {
+    "split": "train",
+    "arm": "H",
+    "target_relation": "true",
+    "rows": 960,
+    "target_mse": 0.4899521953033016,
+    "source_mse": 0.4899521953033016,
+    "centered_logit_mse": 2.997919953701919,
+    "source_class_agreement": 0.9229166666666667,
+    "source_probability_l1": 0.37207256206643463
+  }
+]

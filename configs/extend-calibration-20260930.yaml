@@ -1,0 +1,11 @@
+version: 1
+dataset_root: Datasets/extend
+output: outputs/extend-calibration-20260930/run-01
+report: docs/extend-calibration-20260930/gate-G1.md
+stage: qualification_only
+proposed_repetitions: [1, 2, 3, 4]
+excluded_main_domains: [bilibili.com]
+training_authorized: false
+hy2_same_carrier_exception_approved: false
+cuda_required_for_learning: true
+raw_packet_hashes_deferred_to_extraction: true

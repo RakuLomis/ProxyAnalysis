@@ -1,0 +1,9 @@
+version: 1
+input_run: outputs/protocol-normalization-0914-0916/run-01
+output_run: outputs/protocol-normalization-targeted-diagnostics-0914-0916/run-01
+report: docs/protocol-normalization/targeted-diagnostics-20260923
+thresholds: [0, 64, 256, 1024]
+main_route: proxy
+training_allowed: false
+protocol_correction_allowed: false
+evidence_source: operator_retrospective_confirmation

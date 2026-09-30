@@ -1,0 +1,28 @@
+schema_version: 1
+business_root: outputs/content-generalization-20260916/business-01
+mechanism_root: outputs/content-generalization-20260916/mechanism-01
+output_root: outputs/content-generalization-20260916/student-capacity-01
+cohort_size: 240
+teacher_scheme: 0
+representations: [scalar14, distribution157]
+tasks: [six_business, youtube_activity]
+protocols: [SHADOWSOCKS, VLESS]
+arms: [M0, M1, M2, M3]
+alpha: 0.5
+hidden_width: 32
+steps: 1000
+learning_rate: 0.001
+adam_betas: [0.9, 0.999]
+adam_eps: 1.0e-8
+weight_l2: 1.0e-4
+seeds: [20260918, 20260919, 20260920, 20260921, 20260922]
+device: cpu
+dtype: float64
+threads: 1
+formal_fit_budget: 800
+engineering_fit_budget: 16
+bootstrap_repetitions: 2000
+seed: 20260918
+probability_tolerance: 1.0e-10
+target_fit_allowed: false
+early_stopping: false

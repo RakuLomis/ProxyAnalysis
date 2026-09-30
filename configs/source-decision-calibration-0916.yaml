@@ -1,0 +1,14 @@
+schema_version: 1
+source_config: configs/source-transfer-0916.yaml
+output_root: outputs/source-decision-calibration-0916/run-01
+folds: 5
+lambdas: [0, 0.1, 1, 10]
+primary_lambda: 1
+alpha: 1
+subset: Full
+bootstrap_repetitions: 2000
+bootstrap_seed: 20260919
+solve_budget: 40
+device: cpu
+dtype: float64
+threads: 1

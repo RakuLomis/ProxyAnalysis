@@ -1,0 +1,28 @@
+schema_version: 1
+business_root: outputs/content-generalization-20260916/business-01
+historical_root: outputs/content-generalization-20260916/natural-pair-ssl-01
+output_root: outputs/group-anchor-0916/run-01
+observation_scope: offline_index_assisted_post
+tasks: [six_business]
+seeds: [20260918, 20260919, 20260920]
+arms: [R0, R1, R2, R3, R4, R5, R6]
+steps: 1000
+engineering_steps: 100
+learning_rate: 0.001
+mask_rate: 0.05
+vicreg_weights: [25.0, 25.0, 1.0]
+variance_eps: 0.0001
+weight_l2: 0.0001
+probe_C: 1.0
+ridge_alpha: 1.0
+numerical_eps: 1.0e-12
+anchor_lambda: 1.0
+huber_beta: 1.0
+bootstrap_repetitions: 2000
+formal_stages: 285
+engineering_fits: 6
+device: cpu
+dtype: float64
+threads: 1
+early_stopping: false
+target_fit_allowed: false

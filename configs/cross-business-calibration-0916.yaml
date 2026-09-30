@@ -1,0 +1,24 @@
+version: 1
+role_salt: cross-business-calibration-20260928-v1
+deployments: [SHADOWSOCKS, VLESS]
+seeds: [20260918, 20260919, 20260920]
+rotations: 8
+calibration_contents: 6
+views: 8
+neighbors: 8
+ridge_alpha: 1.0
+max_redraws: 32
+first_invalid_gate: 0.10
+fallback_gate: 0.01
+gate_groups: [protocol, business_group, arm, business_role]
+classification_steps: 1000
+classification_batch: 24
+classification_lr: 0.001
+classification_weight_l2: 0.0001
+classification_scale: C_pre_only
+device: cuda
+bootstrap_draws: 10000
+primary_comparisons: [X4-X1, X4-X6]
+primary_metric: F1_new_from_full_six_class_confusion
+primary_family_size: 4
+practical_delta_reference: 0.01

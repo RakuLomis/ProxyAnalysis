@@ -1,0 +1,56 @@
+\section{Evaluation}
+\subsection{Protocol, Metrics, and Uncertainty}
+All main comparisons use the frozen five-fold content partition and Full157 features. Fits use CPU float64 with one numerical thread in the Pytorch312 environment. The final calibration experiments do not require CUDA or neural optimization. F1 is macro-averaged across the six classes; CE uses base-two logarithms and the inherited probability floor of $10^{-15}$; Brier is the sum of squared class-probability errors; balanced accuracy averages class recall. Pooled F1 is computed from pooled out-of-fold predictions, not by averaging deployment F1 values.
+
+Paired comparisons use 2,000 bootstrap resamples of contents, stratified by business class, with seed 20260919. All visits belonging to a sampled content move together. Reported 95\% intervals are unadjusted and conditional on the fitted models: the bootstrap does not retrain models or account for historical method selection. The five training folds overlap and are not five independent experimental repetitions. Unless otherwise specified, positive CE gain means baseline loss minus candidate loss, whereas positive F1 gain means candidate F1 minus baseline F1.
+
+The pipeline retains member and provenance checks, separated prediction/evaluation inputs, and numerical replay. In the cross-deployment stage, 20 independent augmented-QR checks agree with fitted adapters to a maximum parameter difference of $3.26\times10^{-14}$; replay of 2,400 predictions has maximum numerical difference $3.27\times10^{-13}$ and identical classes. These are implementation checks, not evidence of population generalization. Existing connection-identity audits are reused; this paper build does not perform another full raw-packet scan.
+
+\subsection{Direct Transfer and Statistical Calibration}
+Table~\ref{tab:ah} and Fig.~\ref{fig:ah} report A--H. The source classifier performs well on held-out pre (A: \FOneA{}) but poorly on post passed through the same source preprocessing (B: \FOneB{}). Switching A to B turns 117 of 240 previously correct predictions into errors and corrects only one previously incorrect prediction. This is a decision-level failure, not merely a change in average feature magnitude.
+
+\begin{table}[t]\centering\caption{Joint-deployment, content-held-out results. F1 is macro-F1; BA is balanced accuracy.}\label{tab:ah}
+\small\input{tables/ah}\end{table}
+\begin{figure*}[t]\centering\includegraphics[width=\textwidth]{ah-performance.pdf}
+\caption{A--H under pooled and deployment-specific evaluation. Each panel uses the same held-out visits within its scope. The high direct-transfer loss is retained; probability and classification metrics are not conflated.}\label{fig:ah}\end{figure*}
+
+Statistical calibration C restores F1 to \FOneC{}. Its gain over B is 0.3132, with interval $[0.2469,0.3813]$. C also exceeds cyclic-mismatch D by 0.1229, interval $[0.0777,0.1719]$. Therefore precise correspondence has observable value for this recovery objective. However, C remains below pre-reference A and post-supervised E (\FOneE{}). From B to C, 96 errors are corrected and 24 correct predictions are lost. A low-dimensional mapping thus offers partial reuse, not complete recovery of source decisions.
+
+\subsection{Changing the Objective Without Increasing Capacity}
+Adding the centered-logit term gives F1 \FOneF{} for F, a gain of 0.0848 over C with interval $[0.0552,0.1195]$. CE decreases from 0.9264 to 0.6549 bits, and its improvement interval is also positive. This comparison fixes the source classifier, affine capacity, training visits, and principal coordinates; the intervention is the calibration objective.
+
+Crucially, F's statistical MSE increases from 0.2200 to 0.3737, while centered-logit MSE decreases from 3.7327 to 2.4400. Figure~\ref{fig:tradeoff} and Table~\ref{tab:fidelity} show that prioritizing decision-related directions can improve business prediction while sacrificing average statistical fidelity. This is a controlled method comparison, not a causal regression of F1 against MSE.
+
+\begin{figure*}[t]\centering\includegraphics[width=\textwidth]{paired-contrasts.pdf}
+\caption{Selected frozen comparisons: point estimates and paired content-bootstrap intervals. F1 gains and CE reductions have different units. Intervals are descriptive, unadjusted, and conditional on fitted models; crossing zero does not establish equivalence.}\label{fig:contrasts}\end{figure*}
+\begin{figure*}[t]\centering\includegraphics[width=\textwidth]{recovery-task.pdf}
+\caption{Statistical and source-score recovery versus task performance for C/F/G/H. Each point is a complete method, not an independent sample from a fitted trend. Lower reconstruction error does not induce a universal ranking of macro-F1.}\label{fig:tradeoff}\end{figure*}
+\begin{table}[t]\centering\caption{Held-out recovery against true same-visit pre; agreement is with A's predicted class, not the true label.}\label{tab:fidelity}
+\small\input{tables/fidelity}\end{table}
+
+Yet F does not clearly exceed G, which has F1 \FOneG{} and CE 0.6550. The pooled F--G intervals cross zero for both metrics. This does not invalidate C's advantage over D: instead, the use of precise pairing changes with the objective. The observed improvement cannot be attributed entirely to exact visit correspondence. Results at $\lambda=0.1$ and 10 are retained in the supplement without selecting a new primary setting after seeing outcomes.
+
+\subsection{Changing Correspondence Granularity}
+H predicts content--deployment centers during fitting and obtains F1 \FOneH{} and CE 0.6231. H--F has F1 difference 0.0111 with interval $[-0.0135,0.0336]$; H--G is $-0.0010$ with interval $[-0.0185,0.0170]$. No equivalence margin was specified, so these are inconclusive superiority comparisons, not equivalence results. H's lower CE than G has interval $[0.0079,0.0611]$, but this probability-loss result does not establish classification superiority.
+
+H has statistical MSE 0.6240 and logit MSE 3.7111, both worse than F. Coarser targets therefore sacrifice visit-level recovery without a commensurate pooled classification decline in this task. Within the outer training groups, all four repetitions have identical source-predicted classes, although their source scores differ. That observation is training-only: the source classifier is also 100\% correct there, and the result must not be generalized to held-out repetition agreement.
+
+Deployment-specific results prevent a stronger conclusion. In SS, H's F1 is 0.8636 versus F's 0.8075; in VLESS, H is 0.8640 versus F's 0.8994, and F has better probability metrics. Averaging these patterns would conceal an important exception. Moreover, center targets change target dispersion as well as matching granularity. The experiment does not isolate a pure information quantity attached to instance identity.
+
+\subsection{Cross-Deployment Reuse}
+Figure~\ref{fig:cross} contrasts source and target holdouts for the same source-only models; complete values are in the supplement. In SS-to-VLESS, A/B/F/H/$E_s$ have target F1 0.3032/0.3503/0.3356/0.3685/0.4476. Neither F nor H shows a positive F1 interval relative to B, although both reduce CE substantially. In VLESS-to-SS, corresponding F1 values are 0.4299/0.3653/0.5538/0.6059/0.3740. F--B gains 0.1885 with interval $[0.0803,0.3131]$; H--B gains 0.2406 with interval $[0.1142,0.3673]$. Both also improve over $E_s$ in that direction.
+
+\begin{figure*}[t]\centering\includegraphics[width=\textwidth]{cross-deployment.pdf}
+\caption{Source-only fitting followed by source and target content-held-out evaluation. Models and preprocessing are identical across the two bars for each arm. $E_s$ is trained on source post labels only. CE uses the frozen probability-floor convention.}\label{fig:cross}\end{figure*}
+
+The source-side limitation is pronounced. An SS-trained pre classifier has F1 0.9666 on held-out SS pre and 0.3032 on target VLESS pre. The reverse direction drops from 0.9416 to 0.4299. The bootstrap intervals for both differences are negative. Thus the adapter is not the only transfer bottleneck: the fixed source decision rule is itself deployment-dependent. This evidence supports an additional constraint on fidelity-based reuse, not a proof that all useful adaptation must reproduce target pre exactly.
+
+Figure~\ref{fig:changes} illustrates decision-level effects. In SS-to-VLESS, B-to-F fixes 26 errors but introduces 28; B-to-H fixes 27 and introduces 22. In VLESS-to-SS, B-to-H fixes 36 and introduces 13. The latter benefit is not universal across classes: Bing does not share the aggregate improvement. Likewise, the SS-to-VLESS YouTube classes remain difficult. The supplement reports per-class results rather than letting a favorable class conceal failure elsewhere.
+
+\begin{figure*}[t]\centering\includegraphics[width=\textwidth]{decision-changes.pdf}
+\caption{Repairs and newly introduced errors on the same target visits. Different deployments are never paired as if they were the same capture. Wrong-to-wrong class changes are excluded from both categories.}\label{fig:changes}\end{figure*}
+
+F/H target CE remains above the uniform six-class value $\log_2 6\approx2.585$ in both directions. Thus F1 gains do not imply well-calibrated probabilities. Uncapped logit CE is retained separately: VLESS-to-SS F/H each has one probability-floor event, yielding uncapped CE 4.2632/3.9726 rather than reported 4.2131/3.9222. This matters for interpreting highly confident mistakes.
+
+\subsection{Relationship to Earlier Learning Experiments}
+Earlier work in this project examined distillation, natural-pair SSL, and group-recovery objectives. They are not a chronological sequence culminating in a universally stronger H. Six-class natural-pair fine-tuning achieved F1 0.9018 versus supervised 0.9017 without a clear joint F1/CE gain. Conversely, a local two-class YouTube MLP experiment with the 157-dimensional representation improved SS-to-VLESS F1 from 0.3440 to 0.5811 with a pre teacher and exceeded ordinary post and mismatched controls. These distinct setups demonstrate both a local positive result and limits to generality. They cannot be pooled with A--H as a common leaderboard or used to dismiss paired learning as a whole.

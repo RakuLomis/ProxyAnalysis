@@ -1,0 +1,12 @@
+schema_version: 1
+business_config: configs/content-generalization-20260916-business.yaml
+output_root: outputs/content-generalization-20260916/mechanism-01
+cohort_size: 240
+teacher_scheme: 0
+representations: [scalar14, distribution157]
+alphas: [0.1, 0.25, 0.5]
+label_smoothing: 0.1
+probability_tolerance: 1.0e-10
+bootstrap_repetitions: 2000
+seed: 20260917
+fresh_fit_budget: 1140

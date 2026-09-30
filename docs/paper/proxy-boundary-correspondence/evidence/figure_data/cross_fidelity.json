@@ -1,0 +1,74 @@
+[
+  {
+    "source_protocol": "SHADOWSOCKS",
+    "domain": "source",
+    "arm": "F",
+    "target_mse": 0.44900024318031734,
+    "source_mse": 0.44900024318031734,
+    "centered_logit_mse": 1.7918701876999183,
+    "source_class_agreement": 0.9
+  },
+  {
+    "source_protocol": "SHADOWSOCKS",
+    "domain": "source",
+    "arm": "H",
+    "target_mse": 0.8464568657005195,
+    "source_mse": 0.8464568657005194,
+    "centered_logit_mse": 2.6525934142287135,
+    "source_class_agreement": 0.8833333333333333
+  },
+  {
+    "source_protocol": "SHADOWSOCKS",
+    "domain": "target",
+    "arm": "F",
+    "target_mse": 6.491759494039132,
+    "source_mse": 6.491759494039132,
+    "centered_logit_mse": 21.692698694122107,
+    "source_class_agreement": 0.31666666666666665
+  },
+  {
+    "source_protocol": "SHADOWSOCKS",
+    "domain": "target",
+    "arm": "H",
+    "target_mse": 6.860244706180227,
+    "source_mse": 6.860244706180227,
+    "centered_logit_mse": 20.34222057805323,
+    "source_class_agreement": 0.425
+  },
+  {
+    "source_protocol": "VLESS",
+    "domain": "source",
+    "arm": "F",
+    "target_mse": 0.36805233862981834,
+    "source_mse": 0.36805233862981823,
+    "centered_logit_mse": 1.770152872742496,
+    "source_class_agreement": 0.9166666666666666
+  },
+  {
+    "source_protocol": "VLESS",
+    "domain": "source",
+    "arm": "H",
+    "target_mse": 0.7017788497572243,
+    "source_mse": 0.7017788497572243,
+    "centered_logit_mse": 2.514524168558688,
+    "source_class_agreement": 0.95
+  },
+  {
+    "source_protocol": "VLESS",
+    "domain": "target",
+    "arm": "F",
+    "target_mse": 5.531884114854735,
+    "source_mse": 5.531884114854735,
+    "centered_logit_mse": 49.44038869586619,
+    "source_class_agreement": 0.3333333333333333
+  },
+  {
+    "source_protocol": "VLESS",
+    "domain": "target",
+    "arm": "H",
+    "target_mse": 9.001603607831372,
+    "source_mse": 9.001603607831369,
+    "centered_logit_mse": 55.327082952805846,
+    "source_class_agreement": 0.31666666666666665
+  }
+]

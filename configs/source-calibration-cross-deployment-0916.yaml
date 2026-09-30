@@ -1,0 +1,18 @@
+schema_version: 1
+center_config: configs/source-center-control-0916.yaml
+output_root: outputs/source-calibration-cross-deployment-0916/run-01
+directions: [SHADOWSOCKS, VLESS]
+folds: 5
+arms: [A, B, F, H, E]
+classifier_C: 1.0
+classifier_tol: 1.0e-8
+classifier_max_iter: 10000
+alpha: 1.0
+lambda: 1.0
+bootstrap_repetitions: 2000
+bootstrap_seed: 20260919
+new_classifier_fits: 20
+new_calibration_fits: 20
+threads: 1
+device: cpu
+dtype: float64

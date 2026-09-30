@@ -1,0 +1,118 @@
+"""Explain raw-window warnings; does not change or bypass the extraction gate."""
+import json
+import collections
+from pathlib import Path
+import pandas as pd
+from prepare import read, write, sha, ROOT, OUT as PRIOR
+from window_extract import OUT, DOC, summarize
+
+
+def main():
+    contract=read(OUT/'contract.json')
+    for path,h in contract['files'].items(): assert sha(path)==h
+    visits=pd.read_parquet(PRIOR/'candidate-visits.parquet')
+    missing=[]; replay=[]
+    for row in visits.itertuples():
+        dest=OUT/'sessions'/row.session_id; info=read(dest/'complete.json')
+        raw=Path(row.session_path)
+        for side in ['pre','post']:
+            e=pd.read_parquet(dest/(side+'-events.parquet'))
+            values=summarize(e.itertuples(index=False,name=None))
+            actual=next(x for x in info['summaries'] if x['side']==side)
+            assert all(actual[k]==v for k,v in values.items())
+            assert e.timestamp_ns.ge(info['start_ns']).all() and e.timestamp_ns.lt(info['end_ns']).all()
+            assert not e.raw_packet_ordinal.duplicated().any()
+            assert abs(values['R_up']-values['R_down'])<=1
+            for d in ['up','down']:
+                assert 0<=values['R_'+d]<=values['P_'+d]<=values['W_'+d]<=65527*values['P_'+d]
+            replay.append(dict(session_id=row.session_id,side=side,events=len(e),passed=True,
+                               event_hash=sha(dest/(side+'-events.parquet'))))
+        members=pd.read_parquet(dest/'members.parquet')
+        if (members.packets==0).any():
+            events=[json.loads(s) for s in (raw/'raw/mihomo-trace.jsonl').read_text(encoding='utf-8').splitlines() if s.strip()]
+            for cid in members[members.packets==0].conn_id:
+                related=[e for e in events if e.get('conn_id')==cid or e.get('logical_conn_id')==cid]
+                connects=[e for e in related if e['type'] in ['tcp_connect','udp_connect']]
+                t=min(int(pd.Timestamp(e['ts']).value) for e in connects) if connects else None
+                lastpre=next(s['last_packet_ns'] for s in info['raw_stats'] if s['side']=='pre')
+                lastpost=next(s['last_packet_ns'] for s in info['raw_stats'] if s['side']=='post')
+                missing.append(dict(session_id=row.session_id,conn_id=cid,content_id=row.content_id,
+                                    connect_ns=t,last_pre_observed_ns=lastpre,last_post_observed_ns=lastpost,
+                                    after_pre_last_ms=(t-lastpre)/1e6 if t else None,
+                                    after_post_last_ms=(t-lastpost)/1e6 if t else None,
+                                    connect_inside_external_window=t is not None and info['start_ns']<=t<info['end_ns'],
+                                    packet_count=0,filled_or_replaced=False))
+    pd.DataFrame(replay).to_parquet(OUT/'event-replay-audit.parquet',index=False)
+    pd.DataFrame(missing).to_parquet(OUT/'missing-member-review.parquet',index=False)
+    refs=pd.read_parquet(PRIOR/'cross-attempt-references.parquet')
+    refs=refs[(~refs.is_owner)&refs.is_candidate]
+    packets=pd.read_parquet(OUT/'carrier-window-packets.parquet')
+    cross=refs[['session_id','carrier_id','event_types']].merge(packets,on=['session_id','carrier_id'],how='left')
+    cross['packets']=cross.packets.fillna(0).astype(int)
+    cross.to_parquet(OUT/'cross-candidate-packet-review.parquet',index=False)
+    active=cross[cross.packets>0]
+    assert not active.selected_main.any()
+    captures=pd.read_parquet(OUT/'capture-audit.parquet')
+    assert captures.sha256.nunique()==len(captures)
+    completed=[read(OUT/'sessions'/sid/'complete.json') for sid in visits.session_id]
+    ranges=sorted((r['start_ns'],r['end_ns'],r['session_id']) for r in completed)
+    overlaps=[(a[2],b[2]) for a,b in zip(ranges,ranges[1:]) if b[0]<a[1]]
+    result={'status':'awaiting_tail_member_policy','replayed_sides':len(replay),
+            'raw_capture_files':len(captures),'raw_file_hashes_unique':True,
+            'overlapping_candidate_windows':len(overlaps),'cross_candidate_lifecycle_rows':len(cross),
+            'old_carrier_packets_in_later_windows':int(cross.packets.sum()),
+            'old_carrier_packets_included_in_later_main_input':0,
+            'unobserved_members':len(missing),'generated_views':0,'trained_models':0,
+            'original_extraction_gate_preserved':True,'degraded_wikipedia_override_applied':True}
+    write(OUT/'window-review.json',result)
+    r=missing[0] if missing else {}
+    report=f'''# HFC-W 窗口观测版：原始包审核报告
+
+## 执行范围
+
+已按用户确认采用独立manifest UTC会话窗口，保留五类、25内容、100访问及原折；Wikipedia降级访问保留原状态并登记有效标签覆盖。原严格版失败台账不变。
+
+扫描200份raw/tun.pcap及raw/phys.pcap，共11,563,564,804字节。入口由完整flow-index成员定位，主post由carrier路径定位，不使用请求索引子集或pre首尾裁post。没有使用Wireshark内置特征。
+
+## 已完成产物与核验
+
+- 200份两侧事件序列及200行六维W/P/R摘要已生成，数据尚未进入任何拟合或分类器。
+- 200侧事件重算与摘要完全一致；包序号无重复；时间均在固定半开窗口内；计数与全局方向段必要约束通过。
+- 200份raw文件hash互不重复，100候选的外部会话窗口无重叠。主carrier没有重复纳入两个访问的模型候选范围。这是已审计文件/范围的证据，不是所有历史流量隔离的绝对证明。
+- 未发现所选包截断、分片、超出登记长度上界或方向冲突；采集丢包计数历史上仍unknown，不能声称捕获无丢包。
+- 5条跨候选生命周期引用在后续窗口合计找到{result['old_carrier_packets_in_later_windows']}个旧carrier包。这些包全部排除在后续访问主carrier摘要之外；没有将其重复累计成另一个业务的post。详见cross-candidate-packet-review.parquet。
+- 所有操作为包/台账解析，CPU执行；未启动生成、CUDA模型拟合或分类训练。
+
+## 唯一未通过项：一个窗口尾部成员无入口观测
+
+访问GitHub python/cpython、重复1，session `1d5e7275-4ff2-4836-a1ed-fda753879679`，成员`c310dd91-14f2-4ad3-b9bc-b2a4ac174c16`。
+
+它的tcp_connect在UTC 2026-09-16 03:06:56.595113505，位于外部会话窗口内，但晚于raw TUN最后观测包约{r.get('after_pre_last_ms',0):.3f}ms，晚于raw physical最后观测包约{r.get('after_post_last_ms',0):.3f}ms。完整原始TUN未找到该成员的包；不能用索引match成功替代实际包证据。
+
+这与捕获尾部不完整相容，但最后观测包不等于capture-stop，因此不能据此断言它必然发生于捕获停止之后。没有独立时钟桥接，未把单调时钟stop强行转换到UTC。
+
+它没有被补零成一条伪事件，也没有被删除并宣称输入全集完整。99访问无此警告；该访问其余观测形成的摘要已保存，但原始window-gate仍为false。
+
+## 需要确认的最后一个测量口径
+
+推荐保留完整100访问，将该成员的无观测作为明确的窗口缺失标记，**不作为分类特征**；仅对实际观测到的包计算摘要，不尝试恢复缺失量。这样与真实捕获不完美的窗口任务一致，但进一步限制为“实际捕获摘要的增广”，不能说每个已登记成员在pre均有观测。
+
+若接受，应独立登记此例处理与通过理由后才打开训练门；不改原审核计数。若要求每个成员至少有一个包，则必须维持暂停；不能自动删掉这次访问或用重复3替换。
+
+本轮没有新的分类分数。请勿将99/100资格通过解释为99%的模型准确率。
+
+## 复现与文件
+
+- `eval/hy2_carrier_calibration/window_extract.py`：四进程原始包扫描，contract一致时可恢复。
+- `eval/hy2_carrier_calibration/window_review.py`：事件/摘要重放、唯一文件和时间窗检查、跨访问背景包核对及尾部缺口说明。
+- `outputs/hy2-window-calibration-0916/run-01/`：事件缓存、side-summaries、capture-audit、成员、carrier台账、window-gate、window-review及上述复核表。
+- 登记：`plan/hy2-window-observation-amendment-20260928.md`。
+
+保留限制：98个载体起点未知、历史成员carry-in不能完全排除、仅既有Hy2部署与已知访问边界、离线carrier筛选、无外部盲测。
+'''
+    (DOC/'measurement-audit.md').write_text(report,encoding='utf-8')
+    write(OUT/'review-provenance.json',{'script_hash':sha(Path(__file__)),
+          'report_hash':sha(DOC/'measurement-audit.md'),'window_gate_hash':sha(OUT/'window-gate.json')})
+    print(json.dumps(result),flush=True)
+
+if __name__=='__main__':main()

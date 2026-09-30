@@ -1,0 +1,24 @@
+version: 1
+seeds: [20260918, 20260919, 20260920]
+deployments: [SHADOWSOCKS, VLESS]
+features: [U_up, U_down, E_up, E_down, R_up, R_down]
+fixed_feature: F
+outer_folds: 5
+inner_folds: 4
+views: 8
+neighbor_contents: 8
+ridge_alpha: 1.0
+ridge_objective: mean_over_visits_squared_euclidean_error_plus_alpha_weight_norm
+ridge_dtype: float64
+ridge_device: cuda
+max_redraws: 32
+rounding: nearest_ties_to_even
+max_exact_integer: 9007199254740991
+first_invalid_gate: 0.10
+fallback_gate: 0.01
+gate_scope: each_deployment_and_arm_pooled_outer_train_oof_views_all_seeds
+classification_steps: 1000
+classification_batch: 24
+classification_lr: 0.001
+classification_weight_l2: 0.0001
+classification_device: cuda

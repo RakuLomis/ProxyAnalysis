@@ -1,0 +1,222 @@
+[
+  {
+    "split": "test",
+    "arm": "C",
+    "target_relation": "true",
+    "rows": 240,
+    "target_mse": 0.2199786399644539,
+    "source_mse": 0.2199786399644539,
+    "centered_logit_mse": 3.7326870386458086,
+    "source_class_agreement": 0.7875,
+    "source_probability_l1": 0.5807663979595955
+  },
+  {
+    "split": "test",
+    "arm": "D",
+    "target_relation": "true",
+    "rows": 240,
+    "target_mse": 0.6878188583518424,
+    "source_mse": 0.6878188583518424,
+    "centered_logit_mse": 7.0137433540480885,
+    "source_class_agreement": 0.65,
+    "source_probability_l1": 0.820555670362873
+  },
+  {
+    "split": "test",
+    "arm": "decision_true_lambda_0",
+    "target_relation": "true",
+    "rows": 240,
+    "target_mse": 0.21997863996445394,
+    "source_mse": 0.2199786399644539,
+    "centered_logit_mse": 3.7326870386458086,
+    "source_class_agreement": 0.7875,
+    "source_probability_l1": 0.5807663979595955
+  },
+  {
+    "split": "test",
+    "arm": "decision_true_lambda_0.1",
+    "target_relation": "true",
+    "rows": 240,
+    "target_mse": 0.24931510041487967,
+    "source_mse": 0.24931510041487967,
+    "centered_logit_mse": 2.7222874484903703,
+    "source_class_agreement": 0.85,
+    "source_probability_l1": 0.4240098641115106
+  },
+  {
+    "split": "test",
+    "arm": "decision_true_lambda_1",
+    "target_relation": "true",
+    "rows": 240,
+    "target_mse": 0.3736564115533645,
+    "source_mse": 0.37365641155336443,
+    "centered_logit_mse": 2.439953174652167,
+    "source_class_agreement": 0.8583333333333333,
+    "source_probability_l1": 0.3702893850830219
+  },
+  {
+    "split": "test",
+    "arm": "decision_true_lambda_10",
+    "target_relation": "true",
+    "rows": 240,
+    "target_mse": 0.7419041711818739,
+    "source_mse": 0.7419041711818738,
+    "centered_logit_mse": 2.4323736591757505,
+    "source_class_agreement": 0.8666666666666667,
+    "source_probability_l1": 0.35869502748810567
+  },
+  {
+    "split": "test",
+    "arm": "decision_wrong_lambda_0",
+    "target_relation": "true",
+    "rows": 240,
+    "target_mse": 0.6878188583518423,
+    "source_mse": 0.6878188583518423,
+    "centered_logit_mse": 7.013743354048088,
+    "source_class_agreement": 0.65,
+    "source_probability_l1": 0.820555670362873
+  },
+  {
+    "split": "test",
+    "arm": "decision_wrong_lambda_0.1",
+    "target_relation": "true",
+    "rows": 240,
+    "target_mse": 0.6685621234275682,
+    "source_mse": 0.6685621234275682,
+    "centered_logit_mse": 4.790919874127327,
+    "source_class_agreement": 0.8125,
+    "source_probability_l1": 0.5363221848696191
+  },
+  {
+    "split": "test",
+    "arm": "decision_wrong_lambda_1",
+    "target_relation": "true",
+    "rows": 240,
+    "target_mse": 0.7973793641140668,
+    "source_mse": 0.7973793641140667,
+    "centered_logit_mse": 4.341886211762157,
+    "source_class_agreement": 0.8541666666666666,
+    "source_probability_l1": 0.4370368000716035
+  },
+  {
+    "split": "test",
+    "arm": "decision_wrong_lambda_10",
+    "target_relation": "true",
+    "rows": 240,
+    "target_mse": 1.71374990832911,
+    "source_mse": 1.7137499083291101,
+    "centered_logit_mse": 4.36753522556243,
+    "source_class_agreement": 0.8541666666666666,
+    "source_probability_l1": 0.42075536799452506
+  },
+  {
+    "split": "train",
+    "arm": "C",
+    "target_relation": "true",
+    "rows": 960,
+    "target_mse": 0.2128386249747584,
+    "source_mse": 0.2128386249747584,
+    "centered_logit_mse": 3.7865386333994375,
+    "source_class_agreement": 0.8354166666666667,
+    "source_probability_l1": 0.5649364663766957
+  },
+  {
+    "split": "train",
+    "arm": "D",
+    "target_relation": "wrong",
+    "rows": 960,
+    "target_mse": 0.8304919820596349,
+    "source_mse": 0.8304919820596349,
+    "centered_logit_mse": 8.579845962183454,
+    "source_class_agreement": 0.6875,
+    "source_probability_l1": 0.8611264332387136
+  },
+  {
+    "split": "train",
+    "arm": "decision_true_lambda_0",
+    "target_relation": "true",
+    "rows": 960,
+    "target_mse": 0.2128386249747584,
+    "source_mse": 0.2128386249747584,
+    "centered_logit_mse": 3.7865386333994375,
+    "source_class_agreement": 0.8354166666666667,
+    "source_probability_l1": 0.5649364663766957
+  },
+  {
+    "split": "train",
+    "arm": "decision_true_lambda_0.1",
+    "target_relation": "true",
+    "rows": 960,
+    "target_mse": 0.24055437361824344,
+    "source_mse": 0.24055437361824347,
+    "centered_logit_mse": 2.637037774108523,
+    "source_class_agreement": 0.9145833333333333,
+    "source_probability_l1": 0.3899258697036323
+  },
+  {
+    "split": "train",
+    "arm": "decision_true_lambda_1",
+    "target_relation": "true",
+    "rows": 960,
+    "target_mse": 0.36506100722979085,
+    "source_mse": 0.36506100722979085,
+    "centered_logit_mse": 2.2340960403979158,
+    "source_class_agreement": 0.9302083333333333,
+    "source_probability_l1": 0.31234923140983245
+  },
+  {
+    "split": "train",
+    "arm": "decision_true_lambda_10",
+    "target_relation": "true",
+    "rows": 960,
+    "target_mse": 0.7030626772093372,
+    "source_mse": 0.7030626772093372,
+    "centered_logit_mse": 2.1291149440894195,
+    "source_class_agreement": 0.9375,
+    "source_probability_l1": 0.2880091301022405
+  },
+  {
+    "split": "train",
+    "arm": "decision_wrong_lambda_0",
+    "target_relation": "wrong",
+    "rows": 960,
+    "target_mse": 0.8304919820596349,
+    "source_mse": 0.8304919820596349,
+    "centered_logit_mse": 8.579845962183454,
+    "source_class_agreement": 0.6875,
+    "source_probability_l1": 0.8611264332387135
+  },
+  {
+    "split": "train",
+    "arm": "decision_wrong_lambda_0.1",
+    "target_relation": "wrong",
+    "rows": 960,
+    "target_mse": 0.882935185136501,
+    "source_mse": 0.882935185136501,
+    "centered_logit_mse": 6.500641844415811,
+    "source_class_agreement": 0.8395833333333333,
+    "source_probability_l1": 0.5550902863530502
+  },
+  {
+    "split": "train",
+    "arm": "decision_wrong_lambda_1",
+    "target_relation": "wrong",
+    "rows": 960,
+    "target_mse": 1.1060484088379308,
+    "source_mse": 1.1060484088379308,
+    "centered_logit_mse": 5.788056327377211,
+    "source_class_agreement": 0.8958333333333334,
+    "source_probability_l1": 0.4199170031724981
+  },
+  {
+    "split": "train",
+    "arm": "decision_wrong_lambda_10",
+    "target_relation": "wrong",
+    "rows": 960,
+    "target_mse": 2.038324100100762,
+    "source_mse": 2.038324100100762,
+    "centered_logit_mse": 5.525875093188249,
+    "source_class_agreement": 0.9135416666666667,
+    "source_probability_l1": 0.37993676929887327
+  }
+]

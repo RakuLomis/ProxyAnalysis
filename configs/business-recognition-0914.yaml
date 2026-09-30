@@ -1,0 +1,17 @@
+schema_version: 1
+source_root: outputs/paired-information-0914/run-01
+identity_root: outputs/paired-value-next-stage-0914/run-01/raw-and-pair-audit
+output_root: outputs/business-recognition-0914/run-01
+feature_config: configs/feature-defaults.yaml
+seeds: [20260918, 20260919, 20260920]
+steps: 1000
+learning_rate: 0.001
+weight_l2: 0.0001
+prefix_seconds: 8
+linear_C: 1.0
+linear_max_iter: 10000
+linear_tol: 0.00000001
+observation_scope: offline_index_assisted_post
+scenario: multi_seen_known_content_repeat_holdout
+primary_fit_budget_if_prefix_passes: 40
+auxiliary_fit_budget: 10

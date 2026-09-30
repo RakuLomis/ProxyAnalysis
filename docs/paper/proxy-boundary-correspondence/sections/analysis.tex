@@ -1,0 +1,46 @@
+\section{Analytical Interpretation}
+This section gives standard identities and elementary consequences that organize the experiments. They are not claims of a new information-theoretic bound or empirical estimates of mutual information.
+
+\subsection{Accessible Prediction Is Not Additional Shannon Information}
+Let $(A,B,Y,U)\sim\mathcal P_c$ denote pre features, post features, label, and content in deployment $c$. We do not assume $A\perp c$ or a Markov chain $Y\to A\to B$. Under a fixed trained mapping $Z=r_\theta(B)$ and independently evaluated data, the data-processing inequality gives
+\begin{equation}I(Y;Z\mid\theta)\le I(Y;B\mid\theta).
+\end{equation}
+A classifier can nevertheless perform better on $Z$ because the representation is more compatible with its restricted decision rule. This motivates a finite-learner interpretation, consistent with computationally constrained information frameworks~\cite{vinfo}, rather than claiming that calibration creates Shannon information.
+
+For a normalized predictor $q$ and logarithms of base two,
+\begin{align}
+ \E[-\log_2 q(Y\mid B)]&=H(Y\mid B)\nonumber\\
+ &\quad+\E_B D_{\mathrm{KL},2}(P(Y\mid B)\|q(Y\mid B)).
+\end{align}
+The equality concerns population, uncapped cross-entropy. Empirical CE, finite fitting error, and probability-floor clipping are separate issues. Neither CE differences nor recovery skill are reported as mutual information or predictive $\mathcal V$-information. Conditional information such as $I(Y;A\mid B)$ remains a conceptual question, not an estimated result.
+
+\subsection{Recovery and Decision Geometry}
+The source posterior depends on relative logits. If $P_KW(\widehat z-z)=0$, the two logit vectors differ by a common scalar and their softmax probabilities agree. This does not require $\widehat z=z$. The centered projection has rank at most $K-1$, but this algebraic fact does not imply that all business information has five intrinsic dimensions.
+
+In common source coordinates, write recovery distortion as $e^{\mathsf T}Q_{\mathrm{rec}}e$ and decision distortion as $\|P_KWe\|^2/(K-1)$. Then the combined quadratic metric is
+\begin{equation}
+ M=Q_{\mathrm{rec}}+\frac{\lambda}{K-1}W^{\mathsf T}P_KW.
+\end{equation}
+If $z=Ct+d_0$, then $Q_{\mathrm{rec}}=C^{-\mathsf T}C^{-1}/d$ on effective coordinates. It reduces to $I/d$ only when the relevant scales agree. Keeping this metric and the transformed slope regularizer explicit is necessary to preserve Eq.~\eqref{eq:rec}.
+
+\subsection{What a Center Target Removes}
+For equal-weight, complete targets within group $g$, let $a_i=\mu_g+\epsilon_i$, $\sum_{i\in g}\epsilon_i=0$, and let $q_i$ be the prediction in the same coordinates. With fixed $M$, the instance-minus-center data-loss difference is
+\begin{align}
+ L_{\rm inst}-L_{\rm center}
+ &=\frac1n\sum_i\epsilon_i^{\mathsf T}M\epsilon_i\nonumber\\
+ &\quad-\frac2n\sum_g\sum_{i\in g}(q_i-\overline q_g)^{\mathsf T}M\epsilon_i.\label{eq:center}
+\end{align}
+The common regularizer cancels. Thus instance targets additionally reward alignment with group-centered target residuals. This is not a decomposition into causal signal and noise. Averaging squared error over \emph{all} possible within-group targets is equivalent, up to a prediction-independent constant, to using the center. A single cyclic donor does not perform that averaging and is not identical to H.
+
+\subsection{Separating Deployment and Calibration Risks}
+Let $R_s^-$ be source-entrance 0--1 risk, $R_t^-$ the same classifier's target-entrance risk, and $R_t^+$ its risk on mapped target post. The accounting identity
+\begin{equation}
+ R_t^+=R_s^-+(R_t^--R_s^-)+(R_t^+-R_t^-)
+\end{equation}
+separates two comparisons without claiming causal attribution; either difference may be negative. It is not an identity for macro-F1.
+
+For completeness, let $m(A_t)$ be the top-two margin of $WA_t+\beta$, $e=r(B_t)-A_t$, and $D=\E\|P_KWe\|_2^2<\infty$. For any $\tau>0$, deterministic tie-breaking and the pairwise score perturbation bound give
+\begin{equation}
+ R_t^+\le R_t^-+P(m(A_t)\le\tau)+\frac{2D}{\tau^2}.\label{eq:margin}
+\end{equation}
+Indeed, outside the small-margin event a changed winner requires $\|P_KWe\|_2\ge\tau/\sqrt2$; Markov's inequality bounds that event. The bound can be loose and requires offline target-pre information. It is explanatory, not a deployment-time certificate. Here $D$ is unnormalized; it is five times the reported six-class centered-logit MSE under matching averaging. Target-pre accuracy is also not an upper bound: a map may change an incorrect source decision into a correct one.

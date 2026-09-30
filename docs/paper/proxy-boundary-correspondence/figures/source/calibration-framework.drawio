@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile host="app.diagrams.net" type="device">
+  <diagram id="calibration-framework" name="calibration-framework">
+    <mxGraphModel dx="1100" dy="500" grid="1" gridSize="10" page="0" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="split" value="Split by content first&#10;&#10;All repeats, sides and&#10;parent connections move together" style="rounded=1;whiteSpace=wrap;html=0;fillColor=#FFF2CC;strokeColor=#476378;fontSize=17;fontFamily=Helvetica;" vertex="1" parent="1">
+          <mxGeometry x="20" y="35" width="270" height="245" as="geometry" />
+        </mxCell>
+        <mxCell id="pre" value="Training pre + labels&#10;Fit source scaler and h-minus&#10;Freeze W and intercept" style="rounded=1;whiteSpace=wrap;html=0;fillColor=#DAE8FC;strokeColor=#476378;fontSize=17;fontFamily=Helvetica;" vertex="1" parent="1">
+          <mxGeometry x="355" y="20" width="270" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="post" value="Training post&#10;Fit post preprocessing" style="rounded=1;whiteSpace=wrap;html=0;fillColor=#DAE8FC;strokeColor=#476378;fontSize=17;fontFamily=Helvetica;" vertex="1" parent="1">
+          <mxGeometry x="355" y="170" width="270" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="target" value="Training targets&#10;F: same visit&#10;G: cyclic same-content donor&#10;H: content-deployment center" style="rounded=1;whiteSpace=wrap;html=0;fillColor=#E1D5E7;strokeColor=#476378;fontSize=17;fontFamily=Helvetica;" vertex="1" parent="1">
+          <mxGeometry x="700" y="25" width="280" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="map" value="Fit diagonal affine adapter&#10;Statistical + decision loss&#10;298 parameters; lambda = 1" style="rounded=1;whiteSpace=wrap;html=0;fillColor=#D5E8D4;strokeColor=#476378;fontSize=17;fontFamily=Helvetica;" vertex="1" parent="1">
+          <mxGeometry x="700" y="220" width="280" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="test" value="Held-out post only&#10;Training-fitted preprocessing" style="rounded=1;whiteSpace=wrap;html=0;fillColor=#DAE8FC;strokeColor=#476378;fontSize=17;fontFamily=Helvetica;" vertex="1" parent="1">
+          <mxGeometry x="355" y="365" width="270" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="out" value="Frozen adapter then h-minus&#10;Activity probabilities" style="rounded=1;whiteSpace=wrap;html=0;fillColor=#D5E8D4;strokeColor=#476378;fontSize=17;fontFamily=Helvetica;" vertex="1" parent="1">
+          <mxGeometry x="700" y="365" width="280" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="e0" value="train" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;fontSize=14;fontFamily=Helvetica;strokeColor=#476378;dashed=0;exitX=1;exitY=0.08;entryX=0;entryY=0.5;" edge="1" parent="1" source="split" target="pre">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" value="train" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;fontSize=14;fontFamily=Helvetica;strokeColor=#476378;dashed=0;exitX=1;exitY=0.6;entryX=0;entryY=0.5;" edge="1" parent="1" source="split" target="post">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" value="pre coordinates" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;fontSize=14;fontFamily=Helvetica;strokeColor=#476378;dashed=0;" edge="1" parent="1" source="pre" target="target">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" value="targets and frozen W" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;fontSize=14;fontFamily=Helvetica;strokeColor=#476378;dashed=0;" edge="1" parent="1" source="target" target="map">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" value="inputs" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;fontSize=14;fontFamily=Helvetica;strokeColor=#476378;dashed=0;" edge="1" parent="1" source="post" target="map">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" value="held-out contents" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;fontSize=14;fontFamily=Helvetica;strokeColor=#476378;dashed=1;exitX=0.5;exitY=1;entryX=0;entryY=0.5;" edge="1" parent="1" source="split" target="test">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" value="post vector" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;fontSize=14;fontFamily=Helvetica;strokeColor=#476378;dashed=0;" edge="1" parent="1" source="test" target="out">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e7" value="frozen parameters" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;fontSize=14;fontFamily=Helvetica;strokeColor=#476378;dashed=0;" edge="1" parent="1" source="map" target="out">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,143 @@
+{
+  "new_model_fits": 0,
+  "python": "3.12.8",
+  "matplotlib": "3.10.3",
+  "sources": {
+    "ah": {
+      "path": "outputs/source-center-control-0916/run-01/report/metrics.json",
+      "sha256": "c934ffe6be0c4cd4d9bb45597edbdb33048027e0be1367401a010fa547435823"
+    },
+    "fidelity": {
+      "path": "outputs/source-center-control-0916/run-01/report/fidelity-summary.json",
+      "sha256": "62b4dad041dcfadcabb9589429f09e0092ea76407748f8e12e25c455038bac46"
+    },
+    "decision_fidelity": {
+      "path": "outputs/source-decision-calibration-0916/run-01/report/fidelity-summary.json",
+      "sha256": "2c4fe467db7081d36316d1aa22c9ada0bd5f0d9fd978f24121c695374321eda0"
+    },
+    "contrasts": {
+      "path": "outputs/mechanism-evidence-0916/claim-ledger.json",
+      "sha256": "14aeae5f56509109a4b5ee80ceb852d6e9ae3418de7a51b08c16efdd90dee948"
+    },
+    "joint": {
+      "path": "outputs/group-anchor-diagnostics-0916/run-01/report/joint-diagnostics.json",
+      "sha256": "df3275d2b2397a4b18d3b872c914aedd6418de69f295d42313192634fdac0f9e"
+    },
+    "utility": {
+      "path": "outputs/group-anchor-diagnostics-0916/run-01/report/utility-metrics.json",
+      "sha256": "a79030c06463a2a1a32e669eec3e973fada815c51bc280af6d07991248aa850e"
+    },
+    "transform": {
+      "path": "outputs/content-generalization-20260916/mechanism-01/p4-transformation/group-summary.json",
+      "sha256": "e6837e57d70a741e92cea769e0bb9af6056fb16246de44c83dd8104df00975d4"
+    },
+    "cross": {
+      "path": "outputs/source-calibration-cross-deployment-0916/run-01/report/metrics.json",
+      "sha256": "3cd48ed4a5b915e08f0dc6c619ec3164484dd718320772bd0b7176390201ffb6"
+    },
+    "cross_contrasts": {
+      "path": "outputs/source-calibration-cross-deployment-0916/run-01/report/contrasts.json",
+      "sha256": "90282b1d0cb563d06e5c611b1719b9a707672aad1e7ec4bb40eafb04411db396"
+    },
+    "cross_flips": {
+      "path": "outputs/source-calibration-cross-deployment-0916/run-01/report/decision-flips.json",
+      "sha256": "95e2c4fa43f014c6cf0060368aa6a48e3185a72cf4cff8eca923f2038efaf59f"
+    },
+    "cross_fidelity": {
+      "path": "outputs/source-calibration-cross-deployment-0916/run-01/report/fidelity-summary.json",
+      "sha256": "89ca41e5e23d09fc870a22858212a1ccccf98d98de21ff29a80d4280f8ff0f23"
+    },
+    "cross_classes": {
+      "path": "outputs/source-calibration-cross-deployment-0916/run-01/report/per-class.json",
+      "sha256": "5ff44703c6fe1c84dc9cc5670e0063f9ffd25129ec618869fad71acab786a6e5"
+    },
+    "source_flips": {
+      "path": "outputs/source-transfer-0916/run-01/report/decision-flips.json",
+      "sha256": "806e23e636267ed1883224d54b8496c395e56196d23fc41992632bd65962969e"
+    },
+    "decision_flips": {
+      "path": "outputs/source-decision-calibration-0916/run-01/report/decision-flips.json",
+      "sha256": "f0263772a22b8e42a11ebcd775de06b5a680ef06db5a44f2cb6baa9436280e31"
+    },
+    "center_flips": {
+      "path": "outputs/source-center-control-0916/run-01/report/decision-flips.json",
+      "sha256": "ea8de716439b2dd578b753dd741b3c455e73651b6aba56bee68bce42708c326a"
+    }
+  },
+  "context_reports": {
+    "docs/0916-dataset-and-experiments-summary-20260917.md": "8de5affce61aeed6af04cb9e2a56e14a8d6f8b4b97272d6e2b3d1abc08fdcd55",
+    "docs/0916-transformation-replication-results-20260918.md": "688fffca1e96c3f7ea8545ce2fe60801fe4ab08413b110fc0644d1a94de19fa6",
+    "docs/0916-group-anchor-controlled-diagnostics-results-20260919.md": "8b798f1d3ea2a88d95c851133725d8de7463a43b2f0a47b7147d63504dc6d179",
+    "docs/0916-source-classifier-cross-side-transfer-results.md": "b8e7a38df969d0977dfd082e44fa5433881f466fb27817a287071d8e5d80dc8f",
+    "docs/0916-source-decision-aware-calibration-results.md": "aa0b615fc7429857ee7fc4e86525b79bd85521714dbea6c57eecf0fc2c01872e",
+    "docs/0916-source-score-hierarchy-center-control-results.md": "e8efb5ff6dfe9365f4e6157f4651dacf8c5c2a471279855e4a702cc7ed5f674a",
+    "docs/0916-source-calibration-cross-deployment-results.md": "78b67bc9ff24bf56c9715b271cfcdf06b46f271a992853736f9846382c799ffd",
+    "docs/0916-natural-pair-ssl-results-20260918.md": "992a8661828843b01414c1bd69d557a6f559b48b587d90d5e28e3045d2de5975",
+    "docs/0916-MLP-detailed-experiment-record-20260918.md": "6b5667b7307f283049b46ba236a68179862863e1af546a020b55ea2426dee255"
+  },
+  "audit_sources": {
+    "outputs\\source-transfer-0916\\run-01\\audit\\validation.json": "208f2bc5f672a1060aa48d12bc915e62ffe44933d17d739375bf38b106eec05c",
+    "outputs\\source-decision-calibration-0916\\run-01\\audit\\validation.json": "5cdd4d56e9b01b2bd7b7f2504de84dbca4455f2d20f27e922c02f0b14065c8e4",
+    "outputs\\source-center-control-0916\\run-01\\audit\\validation.json": "4d2c913d2f62b1b47c9c111665fe250a2b57bf7d60249f1a9f6f8cf82a6f88ef",
+    "outputs\\source-calibration-cross-deployment-0916\\run-01\\audit\\validation.json": "af31eac5adab5b2fe3c6cc9a821ccd4e77528882d0db93428e59d6e20483c2d6",
+    "outputs\\group-anchor-diagnostics-0916\\run-01\\audit\\validation.json": "7c2f960fd9bd871b1bcd7930b0902e6d617e28ee2dd2e3359b3091c98c7e5b28"
+  },
+  "figure_sources": {
+    "transformations": [
+      "transform"
+    ],
+    "group-utility": [
+      "joint"
+    ],
+    "ah-performance": [
+      "ah"
+    ],
+    "paired-contrasts": [
+      "contrasts"
+    ],
+    "recovery-task": [
+      "decision_fidelity",
+      "fidelity",
+      "ah"
+    ],
+    "cross-deployment": [
+      "cross"
+    ],
+    "decision-changes": [
+      "cross_flips"
+    ]
+  },
+  "manuscript_and_generated_files": {
+    "main.tex": "e1bfc5d03f05ac6d8b5c6c2eda578f4c74b1cd256bdc5597b4ef1861526859be",
+    "references.bib": "70173c4a1f7427aee5b3bf86e2bb234cd3fca994da78fe5c96c1fd4c8fb269c4",
+    "supplement.tex": "efc4a3ce34e066fab81cef1231ea781e60474164fa69bb689c2d4e9963d60feb",
+    "sections\\analysis.tex": "10663f47349d7af97d8a5fa9d90ba7c2aa9388d928b69d2d2043571179a7bad2",
+    "sections\\discussion.tex": "bf42df75c9997958ab5ddbaed8cd6e84e1cfc5b339aef8f03f81083b13f38811",
+    "sections\\evaluation.tex": "3f23a9319f69b337376f4bd4fceef7b3a66cf609b25937d8c3b637c933a26d3a",
+    "sections\\framework.tex": "8add3b252f5404d117ad0f5384a7ec876257a09882f1890d7fe7ceece3bf237c",
+    "sections\\introduction.tex": "bf2768d70c2c19ba804485beaab68470da41b11efd56b8e1e34d7e90bf1b12f7",
+    "sections\\measurement.tex": "2a6fa9e1c767bfb003668b0132d86e099d8ae59f45c44fec4a2d625c7e0002c6",
+    "sections\\observation.tex": "5c8917cf2f0ceb7f99e3f2924f8b8c186034ad6475133488c219b3ddd0203ce2",
+    "sections\\related.tex": "b226a527ea8836f1028b18c5fe73900bfe44830bf2c0e4ab80355ee0a494d5eb",
+    "tables\\ah.tex": "acd0ea4c52cdc354c9074f4f11eebedbc79976074d391bb684a4c0971fef5120",
+    "tables\\cross.tex": "0c0bb40d275ad82159905fe2ce2435de2a7582c062a6baa7c2c242b4b3ebdfe0",
+    "tables\\cross_classes.tex": "0e945783a5f56f48e3803f3b52689d4769495f66fc64db50e8787870dab76982",
+    "tables\\cross_contrasts.tex": "520f4e94846a457d352f950e60189ca0ce70c02ee2d60e65a89ba771d90d4430",
+    "tables\\fidelity.tex": "6cb1c625e8f2d3b9e1cfdc3d2d1f9870b0f98fc8e89d1dc78caca562cc550ea5",
+    "tables\\numbers.tex": "8d662385ef6fc822576bbe3a3b4ad89eea887d5079badb76d04bb96e763d97f1",
+    "tables\\scalar_dictionary.tex": "1dad1de01949b6e87b34ea3b70c5ba440d30da7e79ae3a073059213ed50dde95",
+    "tables\\transform.tex": "d30f7904da915a91632c45aa2d327738b9b2524ed3a315df79a9e9272f1b46e2",
+    "tables\\utility.tex": "eef623285efcbaec149919fa401a7ea575f8614824831e656e81b29e7b8e7820",
+    "figures\\generated\\ah-performance.pdf": "5333bd953c294e393d37d6653933fa8ff8e5364a8efac81e3eee3d1521f2fe49",
+    "figures\\generated\\calibration-framework.pdf": "5d09773acfa5e3f19c4d9174565161128adebb8c7d67fa8b99f52f5f8a2ec0fe",
+    "figures\\generated\\cross-deployment.pdf": "6a1603da7e26154df37d806b956f02bc2af82c02eeb0e24db0954d557e99addb",
+    "figures\\generated\\decision-changes.pdf": "8e2d0e836a55ca09218d45516c92dd273c74114ad358723414e14a62d3cdb298",
+    "figures\\generated\\group-utility.pdf": "96e6d101c09afd4489c140a0f92028db1908e9d4bcdb173f851872b657698a0b",
+    "figures\\generated\\observation-boundary.pdf": "6d20483d03484f32ce0ed09372dee539fd3b2f47ccab32bab7b121edf2bcdfde",
+    "figures\\generated\\paired-contrasts.pdf": "fceb9c6d4e0af3253c85b0f85c6acb9430c1345325e8da59ea819b15617862bd",
+    "figures\\generated\\recovery-task.pdf": "21f3417b0534654672d58a965c161a9162af57d6d4ed20e51599bac43a5707ed",
+    "figures\\generated\\transformations.pdf": "1902f1c205e6e0b25726c4d056b33fc0814ae6e9e6694a2a214149bb16ef8f6b",
+    "figures\\source\\calibration-framework.drawio": "4d91f48f11972241da712b46629e6b65aa4d756abb9e044a8950707201a30335",
+    "figures\\source\\observation-boundary.drawio": "73e3cd7dc85c48b84064a988b8abd8e2bfa14e51690f24973e55c30739089715"
+  }
+}

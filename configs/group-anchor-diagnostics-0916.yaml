@@ -1,0 +1,22 @@
+schema_version: 1
+anchor_config: configs/group-anchor-0916.yaml
+anchor_root: outputs/group-anchor-0916/run-01
+business_root: outputs/content-generalization-20260916/business-01
+output_root: outputs/group-anchor-diagnostics-0916/run-01
+seeds: [20260918, 20260919, 20260920]
+arms: [R3, R4, R5, R6]
+folds: 5
+classifier_C: 1.0
+classifier_max_iter: 10000
+classifier_tol: 1.0e-8
+ridge_alpha: 1.0
+numerical_eps: 1.0e-12
+bootstrap_repetitions: 2000
+bootstrap_seed: 20260918
+classifier_fits: 65
+ridge_fit_limit: 1570
+neural_fits: 0
+observation_scope: offline_index_assisted_post
+device: cpu
+dtype: float64
+threads: 1

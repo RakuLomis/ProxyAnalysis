@@ -1,0 +1,22 @@
+\section{Discussion and Limitations}
+\subsection{What the Evidence Supports}
+The observed traffic has structured correspondence, and a fixed classifier can benefit from an appropriately chosen calibration objective. However, the benefit is conditional on label, representation, deployment, and available correspondence. The fact that F does not exceed G/H in the pooled setting is not a reason to erase C's advantage over D; nor does the latter establish a universal requirement for exact instance targets. These results address different objectives under a deliberately restricted mapping family.
+
+The apparent simplicity of logistic regression is useful for this question: frozen logits make the added objective explicit, and affine mappings make numerical replication straightforward. It is also a limitation. Results for fixed statistics and a restricted adapter do not establish the best attainable performance of sequence models, nonlinear maps, or arbitrary post-only learners. Earlier MLP evidence is retained precisely to avoid equating a limited model-family result with an impossibility statement.
+
+\subsection{Physical Validity and Supervision Cost}
+Adapter outputs can violate nonnegativity, histogram bounds, or cumulative-curve monotonicity. No clipping or projection was added after observing results. These vectors are task-adapted coordinates, not physically valid reconstructed traffic, and the results do not establish reversible proxy transformations. Task benefit and physical plausibility are different requirements.
+
+F/G/H inherit label information through $W$. H also requires knowing which training observations share content and deployment, even without visit-level pairing. Moreover, exact correspondence permits transferring pre labels to post and fitting E. Consequently, the experiments demonstrate reuse under a fixed source model, not a proven annotation saving over all alternatives. Deployment-ready savings in labeling, computation, or collection effort require a separately specified cost model.
+
+\subsection{Validity and Generalization}
+Only two existing strict TCP deployments enter the main task. Protocol, server, implementation, path, and collection conditions are not independently randomized. Historical measurements across September 14 and 16 do not remove those confounders. The source-only experiment excludes target numerical data from fitting, but both deployments have already been used to develop the research direction. This is not a fresh external blind test.
+
+The cohort contains only five contents per class, and most labels distinguish domains as well as activity. It is a closed-set visit-level study. The intervals condition on saved models and are not adjusted for the many historical analyses. They do not capture model-selection uncertainty or future environment shifts. No prespecified equivalence margin supports calling F/G/H equivalent. Repeated visits and overlapping sensitivity cohorts do not increase the number of independent contents.
+
+Engineering audits reduce specific leakage risks, including splitting a content's paired observations across fitting and testing. They do not prove that every possible environmental shortcut has been eliminated. Excluding identity fields prevents one direct shortcut but cannot remove deployment-related structure already encoded in traffic statistics. Likewise, a prediction interface that rejects test pre does not make the offline object-selection step an operational attack.
+
+\subsection{Ethics, Reproducibility, and Scope}
+This reference draft reports existing research captures and introduces no additional interception or deployment. Packet captures and identity metadata are not embedded in the manuscript artifact; figures are regenerated from aggregate saved results. A public release should review payload and endpoint sensitivity, collection authorization, and any applicable institutional requirements. Formal ethics approval, participant consent, or unrestricted data-release rights are not asserted without author confirmation.
+
+The accompanying artifact records source hashes and generates empirical plots and tables without fitting models. The remaining unvalidated settings include true direct-to-proxy transfer, single-flow classification, index-free online segmentation, and new VPS, network, date, or client environments. These are boundaries of the present evidence rather than capabilities implied by a high closed-set score.

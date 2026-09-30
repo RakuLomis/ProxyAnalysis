@@ -1,0 +1,14 @@
+schema_version: 1
+input_registry: outputs/itemwise-statistics-0914-0916/run-01/item-registry.parquet
+output_root: outputs/protocol-normalization-0914-0916/run-01
+report_root: docs/protocol-normalization
+expected_attempts: 1002
+expected_selected: 987
+byte_thresholds: [0, 64, 256, 1024]
+sequence_span_limit: 2147483648
+curve_grid_points: 101
+payload_persistence: forbidden
+secret_export: forbidden
+model_training: false
+unknown_stack_policy: unavailable_not_default
+strict_scope: exclusive_tcp_pair

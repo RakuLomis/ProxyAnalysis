@@ -1,0 +1,380 @@
+[
+  {
+    "protocol": "SHADOWSOCKS",
+    "subset": "Full",
+    "ce_bits": 0.6342755896143188,
+    "macro_f1": 0.865924896669441,
+    "balanced_accuracy": 0.8666666666666666,
+    "brier": 0.2087646132143684,
+    "visits": 120
+  },
+  {
+    "protocol": "SHADOWSOCKS",
+    "subset": "Minus-G1",
+    "ce_bits": 0.657470306223668,
+    "macro_f1": 0.8571944171699374,
+    "balanced_accuracy": 0.8583333333333334,
+    "brier": 0.2249389432415492,
+    "visits": 120
+  },
+  {
+    "protocol": "SHADOWSOCKS",
+    "subset": "Minus-G2",
+    "ce_bits": 0.6335377781773134,
+    "macro_f1": 0.865924896669441,
+    "balanced_accuracy": 0.8666666666666666,
+    "brier": 0.2118001793989064,
+    "visits": 120
+  },
+  {
+    "protocol": "SHADOWSOCKS",
+    "subset": "Minus-G3",
+    "ce_bits": 0.640336506247948,
+    "macro_f1": 0.882174636089912,
+    "balanced_accuracy": 0.8833333333333333,
+    "brier": 0.21853504699010612,
+    "visits": 120
+  },
+  {
+    "protocol": "SHADOWSOCKS",
+    "subset": "Minus-G4",
+    "ce_bits": 0.8750964957822548,
+    "macro_f1": 0.7914775603799994,
+    "balanced_accuracy": 0.7916666666666666,
+    "brier": 0.29139685190095815,
+    "visits": 120
+  },
+  {
+    "protocol": "SHADOWSOCKS",
+    "subset": "Minus-G5",
+    "ce_bits": 0.58736526188745,
+    "macro_f1": 0.8751615593079007,
+    "balanced_accuracy": 0.875,
+    "brier": 0.1932762831025706,
+    "visits": 120
+  },
+  {
+    "protocol": "SHADOWSOCKS",
+    "subset": "Minus-G6",
+    "ce_bits": 0.46549517497427984,
+    "macro_f1": 0.9166614550760892,
+    "balanced_accuracy": 0.9166666666666666,
+    "brier": 0.14963550335697953,
+    "visits": 120
+  },
+  {
+    "protocol": "SHADOWSOCKS",
+    "subset": "Only-G1",
+    "ce_bits": 1.058888836009652,
+    "macro_f1": 0.6544116364494516,
+    "balanced_accuracy": 0.6833333333333332,
+    "brier": 0.44810815892684924,
+    "visits": 120
+  },
+  {
+    "protocol": "SHADOWSOCKS",
+    "subset": "Only-G2",
+    "ce_bits": 1.4848701940258773,
+    "macro_f1": 0.5256759021464904,
+    "balanced_accuracy": 0.5499999999999999,
+    "brier": 0.5472739882547731,
+    "visits": 120
+  },
+  {
+    "protocol": "SHADOWSOCKS",
+    "subset": "Only-G3",
+    "ce_bits": 0.9395069299107875,
+    "macro_f1": 0.7887692504627988,
+    "balanced_accuracy": 0.7999999999999999,
+    "brier": 0.3447109809837184,
+    "visits": 120
+  },
+  {
+    "protocol": "SHADOWSOCKS",
+    "subset": "Only-G4",
+    "ce_bits": 0.5826357645513165,
+    "macro_f1": 0.8251094434021263,
+    "balanced_accuracy": 0.8249999999999998,
+    "brier": 0.23635770529442304,
+    "visits": 120
+  },
+  {
+    "protocol": "SHADOWSOCKS",
+    "subset": "Only-G5",
+    "ce_bits": 1.555026014880545,
+    "macro_f1": 0.6366015868621019,
+    "balanced_accuracy": 0.6416666666666667,
+    "brier": 0.49127629386319255,
+    "visits": 120
+  },
+  {
+    "protocol": "SHADOWSOCKS",
+    "subset": "Only-G6",
+    "ce_bits": 2.4427101859176976,
+    "macro_f1": 0.5197510126774778,
+    "balanced_accuracy": 0.5333333333333333,
+    "brier": 0.6887518085953963,
+    "visits": 120
+  },
+  {
+    "protocol": "SHADOWSOCKS",
+    "subset": "Prior",
+    "ce_bits": 2.584962500721155,
+    "macro_f1": 0.047619047619047616,
+    "balanced_accuracy": 0.16666666666666666,
+    "brier": 0.8333333333333338,
+    "visits": 120
+  },
+  {
+    "protocol": "VLESS",
+    "subset": "Full",
+    "ce_bits": 0.4124624837809738,
+    "macro_f1": 0.949717672856312,
+    "balanced_accuracy": 0.9500000000000001,
+    "brier": 0.11341291731138718,
+    "visits": 120
+  },
+  {
+    "protocol": "VLESS",
+    "subset": "Minus-G1",
+    "ce_bits": 0.41739789068101363,
+    "macro_f1": 0.9417811649198042,
+    "balanced_accuracy": 0.9416666666666665,
+    "brier": 0.11785724928366455,
+    "visits": 120
+  },
+  {
+    "protocol": "VLESS",
+    "subset": "Minus-G2",
+    "ce_bits": 0.4124522564993217,
+    "macro_f1": 0.949717672856312,
+    "balanced_accuracy": 0.9500000000000001,
+    "brier": 0.11404356059592156,
+    "visits": 120
+  },
+  {
+    "protocol": "VLESS",
+    "subset": "Minus-G3",
+    "ce_bits": 0.42106879312955325,
+    "macro_f1": 0.9415972702237143,
+    "balanced_accuracy": 0.9416666666666665,
+    "brier": 0.11751996002516182,
+    "visits": 120
+  },
+  {
+    "protocol": "VLESS",
+    "subset": "Minus-G4",
+    "ce_bits": 0.6380044677820675,
+    "macro_f1": 0.8924777866317407,
+    "balanced_accuracy": 0.8916666666666667,
+    "brier": 0.1881130199197543,
+    "visits": 120
+  },
+  {
+    "protocol": "VLESS",
+    "subset": "Minus-G5",
+    "ce_bits": 0.37578878773814756,
+    "macro_f1": 0.9329007713154055,
+    "balanced_accuracy": 0.9333333333333335,
+    "brier": 0.10701879180203057,
+    "visits": 120
+  },
+  {
+    "protocol": "VLESS",
+    "subset": "Minus-G6",
+    "ce_bits": 0.541762086749391,
+    "macro_f1": 0.86520761722944,
+    "balanced_accuracy": 0.8666666666666667,
+    "brier": 0.19672526835244225,
+    "visits": 120
+  },
+  {
+    "protocol": "VLESS",
+    "subset": "Only-G1",
+    "ce_bits": 1.5194828377968084,
+    "macro_f1": 0.4546065783607312,
+    "balanced_accuracy": 0.4916666666666667,
+    "brier": 0.5969366967005675,
+    "visits": 120
+  },
+  {
+    "protocol": "VLESS",
+    "subset": "Only-G2",
+    "ce_bits": 1.7856030316920026,
+    "macro_f1": 0.6366329121763904,
+    "balanced_accuracy": 0.6416666666666667,
+    "brier": 0.5714267188793737,
+    "visits": 120
+  },
+  {
+    "protocol": "VLESS",
+    "subset": "Only-G3",
+    "ce_bits": 1.277687250807129,
+    "macro_f1": 0.6391793480935081,
+    "balanced_accuracy": 0.65,
+    "brier": 0.4800737792955171,
+    "visits": 120
+  },
+  {
+    "protocol": "VLESS",
+    "subset": "Only-G4",
+    "ce_bits": 0.7627039756219005,
+    "macro_f1": 0.8055742989953516,
+    "balanced_accuracy": 0.8083333333333335,
+    "brier": 0.2820395323546722,
+    "visits": 120
+  },
+  {
+    "protocol": "VLESS",
+    "subset": "Only-G5",
+    "ce_bits": 1.5583589861612988,
+    "macro_f1": 0.5983562712575758,
+    "balanced_accuracy": 0.5916666666666667,
+    "brier": 0.5507579880096833,
+    "visits": 120
+  },
+  {
+    "protocol": "VLESS",
+    "subset": "Only-G6",
+    "ce_bits": 1.2894296792491922,
+    "macro_f1": 0.8412666406852454,
+    "balanced_accuracy": 0.8416666666666667,
+    "brier": 0.3346560163625607,
+    "visits": 120
+  },
+  {
+    "protocol": "VLESS",
+    "subset": "Prior",
+    "ce_bits": 2.584962500721155,
+    "macro_f1": 0.047619047619047616,
+    "balanced_accuracy": 0.16666666666666666,
+    "brier": 0.8333333333333338,
+    "visits": 120
+  },
+  {
+    "protocol": "pooled",
+    "subset": "Full",
+    "ce_bits": 0.5233690366976463,
+    "macro_f1": 0.9082187320935562,
+    "balanced_accuracy": 0.9083333333333333,
+    "brier": 0.16108876526287777,
+    "visits": 240
+  },
+  {
+    "protocol": "pooled",
+    "subset": "Minus-G1",
+    "ce_bits": 0.5374340984523408,
+    "macro_f1": 0.8999255192117358,
+    "balanced_accuracy": 0.8999999999999999,
+    "brier": 0.17139809626260685,
+    "visits": 240
+  },
+  {
+    "protocol": "pooled",
+    "subset": "Minus-G2",
+    "ce_bits": 0.5229950173383175,
+    "macro_f1": 0.9082187320935562,
+    "balanced_accuracy": 0.9083333333333333,
+    "brier": 0.16292186999741395,
+    "visits": 240
+  },
+  {
+    "protocol": "pooled",
+    "subset": "Minus-G3",
+    "ce_bits": 0.5307026496887507,
+    "macro_f1": 0.9122825181017866,
+    "balanced_accuracy": 0.9125,
+    "brier": 0.168027503507634,
+    "visits": 240
+  },
+  {
+    "protocol": "pooled",
+    "subset": "Minus-G4",
+    "ce_bits": 0.7565504817821612,
+    "macro_f1": 0.8420236936059721,
+    "balanced_accuracy": 0.8416666666666667,
+    "brier": 0.2397549359103562,
+    "visits": 240
+  },
+  {
+    "protocol": "pooled",
+    "subset": "Minus-G5",
+    "ce_bits": 0.4815770248127988,
+    "macro_f1": 0.9040064853883419,
+    "balanced_accuracy": 0.9041666666666668,
+    "brier": 0.15014753745230056,
+    "visits": 240
+  },
+  {
+    "protocol": "pooled",
+    "subset": "Minus-G6",
+    "ce_bits": 0.5036286308618354,
+    "macro_f1": 0.8912047374466671,
+    "balanced_accuracy": 0.8916666666666666,
+    "brier": 0.17318038585471088,
+    "visits": 240
+  },
+  {
+    "protocol": "pooled",
+    "subset": "Only-G1",
+    "ce_bits": 1.28918583690323,
+    "macro_f1": 0.5711428753104433,
+    "balanced_accuracy": 0.5874999999999999,
+    "brier": 0.5225224278137083,
+    "visits": 240
+  },
+  {
+    "protocol": "pooled",
+    "subset": "Only-G2",
+    "ce_bits": 1.63523661285894,
+    "macro_f1": 0.5920425563413928,
+    "balanced_accuracy": 0.5958333333333333,
+    "brier": 0.5593503535670734,
+    "visits": 240
+  },
+  {
+    "protocol": "pooled",
+    "subset": "Only-G3",
+    "ce_bits": 1.1085970903589584,
+    "macro_f1": 0.7195416367277779,
+    "balanced_accuracy": 0.725,
+    "brier": 0.41239238013961776,
+    "visits": 240
+  },
+  {
+    "protocol": "pooled",
+    "subset": "Only-G4",
+    "ce_bits": 0.6726698700866085,
+    "macro_f1": 0.814989955134325,
+    "balanced_accuracy": 0.8166666666666665,
+    "brier": 0.2591986188245476,
+    "visits": 240
+  },
+  {
+    "protocol": "pooled",
+    "subset": "Only-G5",
+    "ce_bits": 1.5566925005209218,
+    "macro_f1": 0.6161123417409967,
+    "balanced_accuracy": 0.6166666666666667,
+    "brier": 0.5210171409364379,
+    "visits": 240
+  },
+  {
+    "protocol": "pooled",
+    "subset": "Only-G6",
+    "ce_bits": 1.866069932583445,
+    "macro_f1": 0.684784924991498,
+    "balanced_accuracy": 0.6875,
+    "brier": 0.5117039124789785,
+    "visits": 240
+  },
+  {
+    "protocol": "pooled",
+    "subset": "Prior",
+    "ce_bits": 2.584962500721155,
+    "macro_f1": 0.047619047619047616,
+    "balanced_accuracy": 0.16666666666666666,
+    "brier": 0.8333333333333337,
+    "visits": 240
+  }
+]

@@ -1,0 +1,54 @@
+\section{Controlled Model-Reuse Framework}
+\subsection{Fixed Source Classifier and Coordinates}
+Let $x^-$ and $x^+$ denote the pre and post visit vectors. Training-only median imputation and standardization define $z^-=T^-(x^-)$ and $v=T^+(x^+)$. The source classifier is
+\begin{equation}
+ h^-(z)=\operatorname{softmax}(Wz+\beta),\quad K=6.
+\end{equation}
+It is a multinomial logistic regression with fixed L2 regularization, $C=1$, LBFGS, tolerance $10^{-8}$, and at most 10,000 iterations. There is no class weighting or hyperparameter search. The classifier remains fixed across A--D and F--H within a fold. Method E independently fits the same classifier family on post training data.
+
+The original statistical target uses a separately recorded training normalization $t^-=U^-(x^-)$. To reproduce that objective exactly, the adapter first outputs $q=a\odot v+b$ in the $U^-$ coordinates and then converts it to source coordinates,
+\begin{equation}\widehat z^-=c\odot q+d_0.\label{eq:coordinate}\end{equation}
+The conversion coefficients are determined from training preprocessing, not fitted on held-out samples. Constant or unusable pre target dimensions are excluded from recovery fitting, and their source-coordinate values follow the stored constant-dimension rule. The observed Full representation has 149 effective recovery dimensions and 298 affine parameters. E retains its own post information; it is not artificially restricted by the pre recovery mask.
+
+Direct transfer B applies the source preprocessing $T^-$ to raw post features. It does not replace the source scaler with a test-post scaler. Calibrated methods use training-fitted $T^+$ followed by Eq.~\eqref{eq:coordinate}. This distinction prevents the apparent success of a method from being caused by mixing standardized coordinate systems.
+
+\subsection{Statistical and Decision-Aware Calibration}
+For training target $t_i$ and $d=149$, the statistical objective is
+\begin{equation}
+ L_{\mathrm{rec}}=\frac{1}{nd}\left[\sum_{i=1}^{n}\|a\odot v_i+b-t_i\|_2^2+\alpha\|a\|_2^2\right],\label{eq:rec}
+\end{equation}
+with $\alpha=1$. The intercept is unpenalized. Missingness and effective-dimension handling reproduce the stored recovery contract; the main cohort supplies complete evaluated targets. The $n$ and $d$ factors are retained rather than silently changing the regularization scale.
+
+Let $P_K=I_K-\boldsymbol{1}\boldsymbol{1}^{\mathsf T}/K$. For a target source vector $z_i^\star$, define
+\begin{equation}
+ L_{\mathrm{dec}}=\frac{1}{n(K-1)}\sum_i\|P_KW(\widehat z_i^--z_i^\star)\|_2^2.
+\end{equation}
+Decision-aware calibration minimizes $L_{\mathrm{rec}}+\lambda L_{\mathrm{dec}}$ with the same diagonal affine mapping. The primary setting is $\lambda=1$; previously specified values 0.1 and 10 are sensitivity analyses, not opportunities to select a target-domain winner. The $\lambda=0$ implementation reproduces C/D numerically. The objective is quadratic in $(a,b)$ because $W$ is frozen, although the decision term couples coordinates in the optimization. Coupled optimization does not add cross-coordinate terms to the inference mapping.
+
+The source classifier was trained with activity labels. Consequently, this is \emph{task-aware} calibration even though the added term reads source scores rather than explicit labels. ``Unsupervised'' would conceal an important source of supervision. Figure~\ref{fig:framework} separates fitting from inference.
+
+\begin{figure*}[t]\centering\includegraphics[width=\textwidth]{calibration-framework.pdf}
+\caption{Controlled calibration workflow. Target construction occurs only within outer training contents. F/G/H retain the same affine capacity and frozen source classifier. H does not look up a content center at inference.}\label{fig:framework}\end{figure*}
+
+\subsection{Correspondence Controls}
+Table~\ref{tab:arms} defines the eight arms. C/F use same-visit targets. D/G assign each input a frozen non-self cyclic donor within the same content and deployment, retaining four inputs and four targets. This donor is not an independent draw from a conditional distribution. H assigns all training inputs within a content--deployment group its mean pre target. Both recovery and decision targets change together. Post inputs are not averaged; H learns one global map and receives neither content identity nor centers at inference.
+
+\begin{table*}[t]\centering\caption{Controlled arms and resource requirements. All classifiers use activity supervision; F/G/H additionally use the resulting source weights in the calibration loss.}\label{tab:arms}
+\small\setlength{\tabcolsep}{5pt}\begin{tabular}{llll}\toprule
+Arm & Classifier & Calibration resource/objective & Actual test input\\\midrule
+A & Fixed pre classifier & None; diagnostic reference & Held-out pre\\
+B & Same pre classifier & None & Raw post through source preprocessing\\
+C & Same pre classifier & Same-visit pairs; statistical recovery & Mapped post\\
+D & Same pre classifier & Cyclic same-content donor; statistical recovery & Mapped post\\
+E & Independently fitted post classifier & Post training labels & Post\\
+F & Same pre classifier & Same-visit pairs; recovery + decision & Mapped post\\
+G & Same pre classifier & Cyclic donor; recovery + decision & Mapped post\\
+H & Same pre classifier & Content--deployment centers; recovery + decision & Mapped post\\\bottomrule
+\end{tabular}\end{table*}
+
+Exact pairs can themselves be coarsened into H targets. Therefore, a benefit of H would concern how correspondence is used, not a theorem that less available information is better. Furthermore, exact pairs allow pre labels to be transferred to post for E. We have not established a reduction in annotation cost. The controlled question is preservation of an existing source decision rule under a restricted adapter, not whether calibration dominates retraining with the same label resources.
+
+\subsection{Source-Only Cross-Deployment Fitting}
+For each direction and outer fold, only the source deployment's 96 training visits from 24 contents fit preprocessing, classifiers, and F/H. The same six held-out contents yield 24 source and 24 target visits. The target deployment's remaining 96 visits are registered as forbidden fitting members, not used for adaptation. Each direction has its own models and scalers. E becomes $E_s$, a post classifier trained only in the source deployment, not the jointly trained E or a target-supervised oracle.
+
+All ten contexts retain 149 recovery dimensions and 298 parameters. The experiment adds 20 logistic classifiers and 20 adapters, with no neural training. Alpha and C remain fixed when training size decreases from 192 to 96. For this reason, changes from old jointly trained models cannot be attributed solely to deployment shift. The principal shift comparison uses the \emph{same newly fitted model} on source and target held-out contents.

@@ -1,0 +1,24 @@
+schema_version: 1
+cohort_visits: 120
+protocol: VLESS
+max_capture_files: 2370
+max_unique_capture_bytes: 21474836480
+seeds: [20260918, 20260919, 20260920]
+supervised_arms: [S0, S1, S2, S3, S4]
+ssl_arms: [L1, L2, L3, L4]
+steps: 1000
+engineering_steps: 20
+learning_rate: 0.001
+effective_batch: 24
+chunk_bytes: 1024
+convolution_width: 32
+compute_chunk_tokens: 2048
+mask_rate: 0.05
+vicreg_weights: [25.0, 25.0, 1.0]
+variance_eps: 0.0001
+weight_l2: 0.0001
+bootstrap_repetitions: 2000
+observation_scope: offline_index_assisted_post
+preferred_device: cuda
+dtype: float32
+strict_all_120_visits: true

@@ -1,0 +1,1483 @@
+[
+  {
+    "id": "C1",
+    "section": "measurement",
+    "claim": "Descriptive repeated changes",
+    "source": "outputs/content-generalization-20260916/mechanism-01/p4-transformation/group-summary.json",
+    "selector": {
+      "cohort": "0916_240",
+      "level": "all"
+    },
+    "evidence": [
+      {
+        "cohort": "0916_240",
+        "protocol": "VLESS",
+        "metric": "packet_count",
+        "level": "all",
+        "group": "all",
+        "contents": 30,
+        "valid_contents": 30,
+        "median_content_delta": 0.2193445539483417,
+        "exp_median_content_delta": 1.2452602621190012,
+        "median_within_content_MAD": 0.04650396140695201,
+        "median_within_content_IQR": 0.09541591805707458,
+        "content_category_counts": {
+          "above_1.1": 21,
+          "within_0.9_1.1": 9
+        },
+        "positive_median_contents": 25,
+        "negative_median_contents": 5,
+        "all_repetitions_positive_contents": 22,
+        "all_repetitions_negative_contents": 0,
+        "mean_content_repetition_band_fraction": 0.21666666666666667
+      },
+      {
+        "cohort": "0916_240",
+        "protocol": "VLESS",
+        "metric": "transport_bytes",
+        "level": "all",
+        "group": "all",
+        "contents": 30,
+        "valid_contents": 30,
+        "median_content_delta": 0.05724799476688081,
+        "exp_median_content_delta": 1.058918384053507,
+        "median_within_content_MAD": 0.003366542155294084,
+        "median_within_content_IQR": 0.014475698217092749,
+        "content_category_counts": {
+          "above_1.1": 4,
+          "within_0.9_1.1": 26
+        },
+        "positive_median_contents": 30,
+        "negative_median_contents": 0,
+        "all_repetitions_positive_contents": 30,
+        "all_repetitions_negative_contents": 0,
+        "mean_content_repetition_band_fraction": 0.8166666666666667
+      },
+      {
+        "cohort": "0916_240",
+        "protocol": "VLESS",
+        "metric": "burst_count",
+        "level": "all",
+        "group": "all",
+        "contents": 30,
+        "valid_contents": 30,
+        "median_content_delta": 0.06951502632742221,
+        "exp_median_content_delta": 1.0719881691289712,
+        "median_within_content_MAD": 0.08150712772224866,
+        "median_within_content_IQR": 0.15033766561349587,
+        "content_category_counts": {
+          "above_1.1": 13,
+          "below_0.9": 4,
+          "within_0.9_1.1": 13
+        },
+        "positive_median_contents": 21,
+        "negative_median_contents": 9,
+        "all_repetitions_positive_contents": 7,
+        "all_repetitions_negative_contents": 2,
+        "mean_content_repetition_band_fraction": 0.375
+      },
+      {
+        "cohort": "0916_240",
+        "protocol": "VLESS",
+        "metric": "fr_runs",
+        "level": "all",
+        "group": "all",
+        "contents": 30,
+        "valid_contents": 30,
+        "median_content_delta": 0.20722236183217954,
+        "exp_median_content_delta": 1.2302561033693282,
+        "median_within_content_MAD": 0.013052821830301181,
+        "median_within_content_IQR": 0.026191587080601292,
+        "content_category_counts": {
+          "above_1.1": 29,
+          "within_0.9_1.1": 1
+        },
+        "positive_median_contents": 30,
+        "negative_median_contents": 0,
+        "all_repetitions_positive_contents": 30,
+        "all_repetitions_negative_contents": 0,
+        "mean_content_repetition_band_fraction": 0.041666666666666664
+      },
+      {
+        "cohort": "0916_240",
+        "protocol": "VLESS",
+        "metric": "length_js",
+        "level": "all",
+        "group": "all",
+        "contents": 30,
+        "valid_contents": 30,
+        "median_content_delta": 0.06265905741445918,
+        "exp_median_content_delta": null,
+        "median_within_content_MAD": 0.00994378467622967,
+        "median_within_content_IQR": 0.02485745433734931,
+        "content_category_counts": {
+          "above_0.05": 16,
+          "within_0.05": 14
+        },
+        "positive_median_contents": 30,
+        "negative_median_contents": 0,
+        "all_repetitions_positive_contents": 30,
+        "all_repetitions_negative_contents": 0,
+        "mean_content_repetition_band_fraction": 0.475
+      },
+      {
+        "cohort": "0916_240",
+        "protocol": "VLESS",
+        "metric": "iat_js",
+        "level": "all",
+        "group": "all",
+        "contents": 30,
+        "valid_contents": 30,
+        "median_content_delta": 0.07824765047184849,
+        "exp_median_content_delta": null,
+        "median_within_content_MAD": 0.013411500093226184,
+        "median_within_content_IQR": 0.023633024775036288,
+        "content_category_counts": {
+          "above_0.05": 30
+        },
+        "positive_median_contents": 30,
+        "negative_median_contents": 0,
+        "all_repetitions_positive_contents": 30,
+        "all_repetitions_negative_contents": 0,
+        "mean_content_repetition_band_fraction": 0.10833333333333334
+      },
+      {
+        "cohort": "0916_240",
+        "protocol": "SHADOWSOCKS",
+        "metric": "packet_count",
+        "level": "all",
+        "group": "all",
+        "contents": 30,
+        "valid_contents": 30,
+        "median_content_delta": 0.515585040557514,
+        "exp_median_content_delta": 1.6746179346757404,
+        "median_within_content_MAD": 0.055192387554040434,
+        "median_within_content_IQR": 0.09376563540007568,
+        "content_category_counts": {
+          "above_1.1": 30
+        },
+        "positive_median_contents": 30,
+        "negative_median_contents": 0,
+        "all_repetitions_positive_contents": 30,
+        "all_repetitions_negative_contents": 0,
+        "mean_content_repetition_band_fraction": 0.008333333333333333
+      },
+      {
+        "cohort": "0916_240",
+        "protocol": "SHADOWSOCKS",
+        "metric": "transport_bytes",
+        "level": "all",
+        "group": "all",
+        "contents": 30,
+        "valid_contents": 30,
+        "median_content_delta": 0.019375893403960256,
+        "exp_median_content_delta": 1.0195648242886526,
+        "median_within_content_MAD": 0.0032585939564448493,
+        "median_within_content_IQR": 0.006123099549143316,
+        "content_category_counts": {
+          "within_0.9_1.1": 30
+        },
+        "positive_median_contents": 29,
+        "negative_median_contents": 1,
+        "all_repetitions_positive_contents": 27,
+        "all_repetitions_negative_contents": 0,
+        "mean_content_repetition_band_fraction": 1.0
+      },
+      {
+        "cohort": "0916_240",
+        "protocol": "SHADOWSOCKS",
+        "metric": "burst_count",
+        "level": "all",
+        "group": "all",
+        "contents": 30,
+        "valid_contents": 30,
+        "median_content_delta": 0.5601453619561572,
+        "exp_median_content_delta": 1.750926999972172,
+        "median_within_content_MAD": 0.05828826001291928,
+        "median_within_content_IQR": 0.12244115774169752,
+        "content_category_counts": {
+          "above_1.1": 30
+        },
+        "positive_median_contents": 30,
+        "negative_median_contents": 0,
+        "all_repetitions_positive_contents": 30,
+        "all_repetitions_negative_contents": 0,
+        "mean_content_repetition_band_fraction": 0.0
+      },
+      {
+        "cohort": "0916_240",
+        "protocol": "SHADOWSOCKS",
+        "metric": "fr_runs",
+        "level": "all",
+        "group": "all",
+        "contents": 30,
+        "valid_contents": 30,
+        "median_content_delta": 0.05458175407421062,
+        "exp_median_content_delta": 1.0560988132652356,
+        "median_within_content_MAD": 0.025534871502402037,
+        "median_within_content_IQR": 0.05083049221128151,
+        "content_category_counts": {
+          "above_1.1": 6,
+          "within_0.9_1.1": 24
+        },
+        "positive_median_contents": 30,
+        "negative_median_contents": 0,
+        "all_repetitions_positive_contents": 20,
+        "all_repetitions_negative_contents": 0,
+        "mean_content_repetition_band_fraction": 0.75
+      },
+      {
+        "cohort": "0916_240",
+        "protocol": "SHADOWSOCKS",
+        "metric": "length_js",
+        "level": "all",
+        "group": "all",
+        "contents": 30,
+        "valid_contents": 30,
+        "median_content_delta": 0.3509431723499778,
+        "exp_median_content_delta": null,
+        "median_within_content_MAD": 0.02453719430385043,
+        "median_within_content_IQR": 0.04166885656866376,
+        "content_category_counts": {
+          "above_0.05": 30
+        },
+        "positive_median_contents": 30,
+        "negative_median_contents": 0,
+        "all_repetitions_positive_contents": 30,
+        "all_repetitions_negative_contents": 0,
+        "mean_content_repetition_band_fraction": 0.0
+      },
+      {
+        "cohort": "0916_240",
+        "protocol": "SHADOWSOCKS",
+        "metric": "iat_js",
+        "level": "all",
+        "group": "all",
+        "contents": 30,
+        "valid_contents": 30,
+        "median_content_delta": 0.1973086176592257,
+        "exp_median_content_delta": null,
+        "median_within_content_MAD": 0.01539149509836741,
+        "median_within_content_IQR": 0.031157886420200037,
+        "content_category_counts": {
+          "above_0.05": 30
+        },
+        "positive_median_contents": 30,
+        "negative_median_contents": 0,
+        "all_repetitions_positive_contents": 30,
+        "all_repetitions_negative_contents": 0,
+        "mean_content_repetition_band_fraction": 0.0
+      }
+    ],
+    "boundary": "No protocol causal attribution; no ICC or equivalence claim"
+  },
+  {
+    "id": "C2",
+    "section": "measurement",
+    "claim": "Recoverability and task utility differ",
+    "source": "outputs/group-anchor-diagnostics-0916/run-01/report/joint-diagnostics.json",
+    "selector": {
+      "protocol": "pooled"
+    },
+    "evidence": [
+      {
+        "protocol": "pooled",
+        "group": "G1",
+        "historical_inner_skill_mean": 0.9906952594882259,
+        "historical_pooled_mean_is_deployment_average": true,
+        "only_group": {
+          "protocol": "pooled",
+          "subset": "Only-G1",
+          "ce_bits": 1.28918583690323,
+          "macro_f1": 0.5711428753104433,
+          "balanced_accuracy": 0.5874999999999999,
+          "brier": 0.5225224278137083,
+          "visits": 240
+        },
+        "deletion_increment": {
+          "protocol": "pooled",
+          "group": "G1",
+          "comparison": "Full-minus-Minus-G1",
+          "f1_gain": 0.008293212881820389,
+          "f1_ci": [
+            -0.004472490691880082,
+            0.024777938068687305
+          ],
+          "ce_gain_bits": 0.014065061754694453,
+          "ce_ci": [
+            -0.011641246762988063,
+            0.03822092713061153
+          ],
+          "independent_contents": 30,
+          "bootstrap_repetitions": 2000,
+          "multiplicity": "unadjusted descriptive intervals, not confirmatory tests"
+        },
+        "heldout_recovery": [
+          {
+            "split": "test",
+            "relation": "true",
+            "protocol": "pooled",
+            "group": "G1",
+            "model": "R4",
+            "mse": 0.11355274666884842,
+            "huber": 0.04417169765626401,
+            "null_mse": 1.0251785037062244,
+            "null_huber": 0.3934586811308067,
+            "skill_mse": 0.8892361220428124,
+            "content_fold_blocks": 30,
+            "training_blocks_overlap_across_folds": false
+          },
+          {
+            "split": "test",
+            "relation": "true",
+            "protocol": "pooled",
+            "group": "G1",
+            "model": "Ridge-true",
+            "mse": 0.006916734423854061,
+            "huber": 0.0034583672119270306,
+            "null_mse": 1.0251785037062244,
+            "null_huber": 0.3934586811308067,
+            "skill_mse": 0.9932531413808925,
+            "content_fold_blocks": 30,
+            "training_blocks_overlap_across_folds": false
+          }
+        ],
+        "hierarchy": []
+      },
+      {
+        "protocol": "pooled",
+        "group": "G2",
+        "historical_inner_skill_mean": 0.8452240125804309,
+        "historical_pooled_mean_is_deployment_average": true,
+        "only_group": {
+          "protocol": "pooled",
+          "subset": "Only-G2",
+          "ce_bits": 1.63523661285894,
+          "macro_f1": 0.5920425563413928,
+          "balanced_accuracy": 0.5958333333333333,
+          "brier": 0.5593503535670734,
+          "visits": 240
+        },
+        "deletion_increment": {
+          "protocol": "pooled",
+          "group": "G2",
+          "comparison": "Full-minus-Minus-G2",
+          "f1_gain": 0.0,
+          "f1_ci": [
+            0.0,
+            0.0
+          ],
+          "ce_gain_bits": -0.0003740193593287593,
+          "ce_ci": [
+            -0.01134434476156034,
+            0.00989589071162222
+          ],
+          "independent_contents": 30,
+          "bootstrap_repetitions": 2000,
+          "multiplicity": "unadjusted descriptive intervals, not confirmatory tests"
+        },
+        "heldout_recovery": [
+          {
+            "split": "test",
+            "relation": "true",
+            "protocol": "pooled",
+            "group": "G2",
+            "model": "R4",
+            "mse": 0.14245006712383015,
+            "huber": 0.06849781732955369,
+            "null_mse": 1.0135720371044221,
+            "null_huber": 0.3735167994445272,
+            "skill_mse": 0.8594573824956909,
+            "content_fold_blocks": 30,
+            "training_blocks_overlap_across_folds": false
+          },
+          {
+            "split": "test",
+            "relation": "true",
+            "protocol": "pooled",
+            "group": "G2",
+            "model": "Ridge-true",
+            "mse": 0.1433685303081966,
+            "huber": 0.0713683080023755,
+            "null_mse": 1.0135720371044221,
+            "null_huber": 0.3735167994445272,
+            "skill_mse": 0.8585512178120338,
+            "content_fold_blocks": 30,
+            "training_blocks_overlap_across_folds": false
+          }
+        ],
+        "hierarchy": []
+      },
+      {
+        "protocol": "pooled",
+        "group": "G3",
+        "historical_inner_skill_mean": 0.7897875143971815,
+        "historical_pooled_mean_is_deployment_average": true,
+        "only_group": {
+          "protocol": "pooled",
+          "subset": "Only-G3",
+          "ce_bits": 1.1085970903589584,
+          "macro_f1": 0.7195416367277779,
+          "balanced_accuracy": 0.725,
+          "brier": 0.41239238013961776,
+          "visits": 240
+        },
+        "deletion_increment": {
+          "protocol": "pooled",
+          "group": "G3",
+          "comparison": "Full-minus-Minus-G3",
+          "f1_gain": -0.00406378600823043,
+          "f1_ci": [
+            -0.016942643706547376,
+            0.008720555742102726
+          ],
+          "ce_gain_bits": 0.0073336129911043555,
+          "ce_ci": [
+            -0.02133436295155841,
+            0.032311375020165053
+          ],
+          "independent_contents": 30,
+          "bootstrap_repetitions": 2000,
+          "multiplicity": "unadjusted descriptive intervals, not confirmatory tests"
+        },
+        "heldout_recovery": [
+          {
+            "split": "test",
+            "relation": "true",
+            "protocol": "pooled",
+            "group": "G3",
+            "model": "R4",
+            "mse": 0.17343797845178666,
+            "huber": 0.08290400629691899,
+            "null_mse": 1.0122511159662555,
+            "null_huber": 0.3971048784964105,
+            "skill_mse": 0.8286611141087955,
+            "content_fold_blocks": 30,
+            "training_blocks_overlap_across_folds": false
+          },
+          {
+            "split": "test",
+            "relation": "true",
+            "protocol": "pooled",
+            "group": "G3",
+            "model": "Ridge-true",
+            "mse": 0.19730430270902252,
+            "huber": 0.09526627817958275,
+            "null_mse": 1.0122511159662555,
+            "null_huber": 0.3971048784964105,
+            "skill_mse": 0.8050836402183824,
+            "content_fold_blocks": 30,
+            "training_blocks_overlap_across_folds": false
+          }
+        ],
+        "hierarchy": []
+      },
+      {
+        "protocol": "pooled",
+        "group": "G4",
+        "historical_inner_skill_mean": 0.3077578813150711,
+        "historical_pooled_mean_is_deployment_average": true,
+        "only_group": {
+          "protocol": "pooled",
+          "subset": "Only-G4",
+          "ce_bits": 0.6726698700866085,
+          "macro_f1": 0.814989955134325,
+          "balanced_accuracy": 0.8166666666666665,
+          "brier": 0.2591986188245476,
+          "visits": 240
+        },
+        "deletion_increment": {
+          "protocol": "pooled",
+          "group": "G4",
+          "comparison": "Full-minus-Minus-G4",
+          "f1_gain": 0.06619503848758412,
+          "f1_ci": [
+            0.03358083052658568,
+            0.09954354130798578
+          ],
+          "ce_gain_bits": 0.2331814450845148,
+          "ce_ci": [
+            0.15774494609996356,
+            0.3098551339959927
+          ],
+          "independent_contents": 30,
+          "bootstrap_repetitions": 2000,
+          "multiplicity": "unadjusted descriptive intervals, not confirmatory tests"
+        },
+        "heldout_recovery": [
+          {
+            "split": "test",
+            "relation": "true",
+            "protocol": "pooled",
+            "group": "G4",
+            "model": "R4",
+            "mse": 0.408135116194743,
+            "huber": 0.17519260683005516,
+            "null_mse": 1.012600004073354,
+            "null_huber": 0.41641894914585287,
+            "skill_mse": 0.596943398624382,
+            "content_fold_blocks": 30,
+            "training_blocks_overlap_across_folds": false
+          },
+          {
+            "split": "test",
+            "relation": "true",
+            "protocol": "pooled",
+            "group": "G4",
+            "model": "Ridge-true",
+            "mse": 0.7051624937991524,
+            "huber": 0.29719854613798363,
+            "null_mse": 1.012600004073354,
+            "null_huber": 0.41641894914585287,
+            "skill_mse": 0.3036119978643912,
+            "content_fold_blocks": 30,
+            "training_blocks_overlap_across_folds": false
+          }
+        ],
+        "hierarchy": []
+      },
+      {
+        "protocol": "pooled",
+        "group": "G5",
+        "historical_inner_skill_mean": 0.23020965188416476,
+        "historical_pooled_mean_is_deployment_average": true,
+        "only_group": {
+          "protocol": "pooled",
+          "subset": "Only-G5",
+          "ce_bits": 1.5566925005209218,
+          "macro_f1": 0.6161123417409967,
+          "balanced_accuracy": 0.6166666666666667,
+          "brier": 0.5210171409364379,
+          "visits": 240
+        },
+        "deletion_increment": {
+          "protocol": "pooled",
+          "group": "G5",
+          "comparison": "Full-minus-Minus-G5",
+          "f1_gain": 0.004212246705214251,
+          "f1_ci": [
+            -0.020986346858225362,
+            0.03379344460995241
+          ],
+          "ce_gain_bits": -0.04179201188484754,
+          "ce_ci": [
+            -0.10999123597971433,
+            0.027632568406424758
+          ],
+          "independent_contents": 30,
+          "bootstrap_repetitions": 2000,
+          "multiplicity": "unadjusted descriptive intervals, not confirmatory tests"
+        },
+        "heldout_recovery": [
+          {
+            "split": "test",
+            "relation": "true",
+            "protocol": "pooled",
+            "group": "G5",
+            "model": "R4",
+            "mse": 0.4231744448207066,
+            "huber": 0.1800741120104348,
+            "null_mse": 1.0247394758886252,
+            "null_huber": 0.4178515666868907,
+            "skill_mse": 0.5870419216028135,
+            "content_fold_blocks": 30,
+            "training_blocks_overlap_across_folds": false
+          },
+          {
+            "split": "test",
+            "relation": "true",
+            "protocol": "pooled",
+            "group": "G5",
+            "model": "Ridge-true",
+            "mse": 0.7881288653684206,
+            "huber": 0.3322381426300105,
+            "null_mse": 1.0247394758886252,
+            "null_huber": 0.4178515666868907,
+            "skill_mse": 0.23089830741127892,
+            "content_fold_blocks": 30,
+            "training_blocks_overlap_across_folds": false
+          }
+        ],
+        "hierarchy": []
+      },
+      {
+        "protocol": "pooled",
+        "group": "G6",
+        "historical_inner_skill_mean": 0.9818763375406521,
+        "historical_pooled_mean_is_deployment_average": true,
+        "only_group": {
+          "protocol": "pooled",
+          "subset": "Only-G6",
+          "ce_bits": 1.866069932583445,
+          "macro_f1": 0.684784924991498,
+          "balanced_accuracy": 0.6875,
+          "brier": 0.5117039124789785,
+          "visits": 240
+        },
+        "deletion_increment": {
+          "protocol": "pooled",
+          "group": "G6",
+          "comparison": "Full-minus-Minus-G6",
+          "f1_gain": 0.01701399464688913,
+          "f1_ci": [
+            -0.012695652466775365,
+            0.048054395544122025
+          ],
+          "ce_gain_bits": -0.019740405835810933,
+          "ce_ci": [
+            -0.15138417320034758,
+            0.10060152205584116
+          ],
+          "independent_contents": 30,
+          "bootstrap_repetitions": 2000,
+          "multiplicity": "unadjusted descriptive intervals, not confirmatory tests"
+        },
+        "heldout_recovery": [
+          {
+            "split": "test",
+            "relation": "true",
+            "protocol": "pooled",
+            "group": "G6",
+            "model": "R4",
+            "mse": 0.2233649843068611,
+            "huber": 0.0576480922302317,
+            "null_mse": 1.3664577196668455,
+            "null_huber": 0.3525819604462466,
+            "skill_mse": 0.8365372150985253,
+            "content_fold_blocks": 30,
+            "training_blocks_overlap_across_folds": false
+          },
+          {
+            "split": "test",
+            "relation": "true",
+            "protocol": "pooled",
+            "group": "G6",
+            "model": "Ridge-true",
+            "mse": 0.016580163828946757,
+            "huber": 0.006963998862433727,
+            "null_mse": 1.3664577196668455,
+            "null_huber": 0.3525819604462466,
+            "skill_mse": 0.98786631771308,
+            "content_fold_blocks": 30,
+            "training_blocks_overlap_across_folds": false
+          }
+        ],
+        "hierarchy": []
+      }
+    ],
+    "boundary": "Finite fixed learners; not mutual information"
+  },
+  {
+    "id": "C3",
+    "section": "evaluation",
+    "claim": "Direct transfer degrades; statistical calibration partially restores",
+    "source": "outputs/source-center-control-0916/run-01/report/metrics.json",
+    "selector": {
+      "protocol": "pooled"
+    },
+    "evidence": [
+      {
+        "arm": "A",
+        "protocol": "pooled",
+        "ce_bits": 0.24397974258162253,
+        "macro_f1": 0.954656422460974,
+        "balanced_accuracy": 0.9541666666666666,
+        "brier": 0.07853400921587278,
+        "visits": 240,
+        "ce_bits_uncapped": 0.24397974258162253,
+        "ce_floor_visits": 0
+      },
+      {
+        "arm": "B",
+        "protocol": "pooled",
+        "ce_bits": 4.854756540227435,
+        "macro_f1": 0.45551778517057756,
+        "balanced_accuracy": 0.47083333333333327,
+        "brier": 0.8995993856985411,
+        "visits": 240,
+        "ce_bits_uncapped": 4.854756540227435,
+        "ce_floor_visits": 0
+      },
+      {
+        "arm": "C",
+        "protocol": "pooled",
+        "ce_bits": 0.9263803888353586,
+        "macro_f1": 0.768683442161703,
+        "balanced_accuracy": 0.7708333333333334,
+        "brier": 0.32312357302816247,
+        "visits": 240,
+        "ce_bits_uncapped": 0.9263803888353586,
+        "ce_floor_visits": 0
+      },
+      {
+        "arm": "D",
+        "protocol": "pooled",
+        "ce_bits": 1.1962222897094656,
+        "macro_f1": 0.6457734308204738,
+        "balanced_accuracy": 0.65,
+        "brier": 0.4311755747108821,
+        "visits": 240,
+        "ce_bits_uncapped": 1.1962222897094656,
+        "ce_floor_visits": 0
+      },
+      {
+        "arm": "E",
+        "protocol": "pooled",
+        "ce_bits": 0.5233690366976463,
+        "macro_f1": 0.9082187320935562,
+        "balanced_accuracy": 0.9083333333333333,
+        "brier": 0.16108876526287777,
+        "visits": 240,
+        "ce_bits_uncapped": 0.5233690366976463,
+        "ce_floor_visits": 0
+      },
+      {
+        "arm": "F",
+        "protocol": "pooled",
+        "ce_bits": 0.6549156359346562,
+        "macro_f1": 0.8534937646235655,
+        "balanced_accuracy": 0.8541666666666666,
+        "brier": 0.21924724630860826,
+        "visits": 240,
+        "ce_bits_uncapped": 0.6549156359346562,
+        "ce_floor_visits": 0
+      },
+      {
+        "arm": "G",
+        "protocol": "pooled",
+        "ce_bits": 0.6550215573870688,
+        "macro_f1": 0.8656033149704037,
+        "balanced_accuracy": 0.8666666666666667,
+        "brier": 0.22167853065629825,
+        "visits": 240,
+        "ce_bits_uncapped": 0.6550215573870688,
+        "ce_floor_visits": 0
+      },
+      {
+        "arm": "H",
+        "protocol": "pooled",
+        "ce_bits": 0.6231246830357049,
+        "macro_f1": 0.864560786276858,
+        "balanced_accuracy": 0.8666666666666667,
+        "brier": 0.20733363481782383,
+        "visits": 240,
+        "ce_bits_uncapped": 0.623124683035705,
+        "ce_floor_visits": 0
+      }
+    ],
+    "boundary": "Seen deployments and held-out contents"
+  },
+  {
+    "id": "C4",
+    "section": "evaluation",
+    "claim": "Exact pairing beats cyclic mismatch under statistical objective",
+    "source": "outputs/mechanism-evidence-0916/claim-ledger.json",
+    "selector": {
+      "contrast": "C-D"
+    },
+    "evidence": [
+      {
+        "subset": "Full",
+        "protocol": "pooled",
+        "contrast": "C-D",
+        "independent_contents": 30,
+        "bootstrap_repetitions": 2000,
+        "macro_f1_gain": 0.12291001134122925,
+        "macro_f1_ci": [
+          0.07773403812905434,
+          0.17185493463325277
+        ],
+        "balanced_accuracy_gain": 0.12083333333333335,
+        "balanced_accuracy_ci": [
+          0.07916666666666661,
+          0.16666666666666663
+        ],
+        "ce_bits_gain": 0.2698419008741071,
+        "ce_bits_ci": [
+          0.18830725378340693,
+          0.33740717144439003
+        ],
+        "brier_gain": 0.10805200168271961,
+        "brier_ci": [
+          0.07815115220051373,
+          0.13566330463578313
+        ],
+        "interval_scope": "unadjusted descriptive, conditional on fitted models",
+        "path": "outputs\\source-transfer-0916\\run-01\\report\\paired-contrasts.json",
+        "scope": "conditional fitted-model, unadjusted content bootstrap; no equivalence claim"
+      }
+    ],
+    "boundary": "Does not prove exact pairing is necessary under all objectives"
+  },
+  {
+    "id": "C5",
+    "section": "evaluation",
+    "claim": "Decision-aware objective improves task score despite greater statistical MSE",
+    "source": "outputs/source-decision-calibration-0916/run-01/report/fidelity-summary.json",
+    "selector": {
+      "split": "test"
+    },
+    "evidence": [
+      {
+        "split": "test",
+        "arm": "C",
+        "target_relation": "true",
+        "rows": 240,
+        "target_mse": 0.2199786399644539,
+        "source_mse": 0.2199786399644539,
+        "centered_logit_mse": 3.7326870386458086,
+        "source_class_agreement": 0.7875,
+        "source_probability_l1": 0.5807663979595955
+      },
+      {
+        "split": "test",
+        "arm": "D",
+        "target_relation": "true",
+        "rows": 240,
+        "target_mse": 0.6878188583518424,
+        "source_mse": 0.6878188583518424,
+        "centered_logit_mse": 7.0137433540480885,
+        "source_class_agreement": 0.65,
+        "source_probability_l1": 0.820555670362873
+      },
+      {
+        "split": "test",
+        "arm": "decision_true_lambda_0",
+        "target_relation": "true",
+        "rows": 240,
+        "target_mse": 0.21997863996445394,
+        "source_mse": 0.2199786399644539,
+        "centered_logit_mse": 3.7326870386458086,
+        "source_class_agreement": 0.7875,
+        "source_probability_l1": 0.5807663979595955
+      },
+      {
+        "split": "test",
+        "arm": "decision_true_lambda_0.1",
+        "target_relation": "true",
+        "rows": 240,
+        "target_mse": 0.24931510041487967,
+        "source_mse": 0.24931510041487967,
+        "centered_logit_mse": 2.7222874484903703,
+        "source_class_agreement": 0.85,
+        "source_probability_l1": 0.4240098641115106
+      },
+      {
+        "split": "test",
+        "arm": "decision_true_lambda_1",
+        "target_relation": "true",
+        "rows": 240,
+        "target_mse": 0.3736564115533645,
+        "source_mse": 0.37365641155336443,
+        "centered_logit_mse": 2.439953174652167,
+        "source_class_agreement": 0.8583333333333333,
+        "source_probability_l1": 0.3702893850830219
+      },
+      {
+        "split": "test",
+        "arm": "decision_true_lambda_10",
+        "target_relation": "true",
+        "rows": 240,
+        "target_mse": 0.7419041711818739,
+        "source_mse": 0.7419041711818738,
+        "centered_logit_mse": 2.4323736591757505,
+        "source_class_agreement": 0.8666666666666667,
+        "source_probability_l1": 0.35869502748810567
+      },
+      {
+        "split": "test",
+        "arm": "decision_wrong_lambda_0",
+        "target_relation": "true",
+        "rows": 240,
+        "target_mse": 0.6878188583518423,
+        "source_mse": 0.6878188583518423,
+        "centered_logit_mse": 7.013743354048088,
+        "source_class_agreement": 0.65,
+        "source_probability_l1": 0.820555670362873
+      },
+      {
+        "split": "test",
+        "arm": "decision_wrong_lambda_0.1",
+        "target_relation": "true",
+        "rows": 240,
+        "target_mse": 0.6685621234275682,
+        "source_mse": 0.6685621234275682,
+        "centered_logit_mse": 4.790919874127327,
+        "source_class_agreement": 0.8125,
+        "source_probability_l1": 0.5363221848696191
+      },
+      {
+        "split": "test",
+        "arm": "decision_wrong_lambda_1",
+        "target_relation": "true",
+        "rows": 240,
+        "target_mse": 0.7973793641140668,
+        "source_mse": 0.7973793641140667,
+        "centered_logit_mse": 4.341886211762157,
+        "source_class_agreement": 0.8541666666666666,
+        "source_probability_l1": 0.4370368000716035
+      },
+      {
+        "split": "test",
+        "arm": "decision_wrong_lambda_10",
+        "target_relation": "true",
+        "rows": 240,
+        "target_mse": 1.71374990832911,
+        "source_mse": 1.7137499083291101,
+        "centered_logit_mse": 4.36753522556243,
+        "source_class_agreement": 0.8541666666666666,
+        "source_probability_l1": 0.42075536799452506
+      }
+    ],
+    "boundary": "Same capacity; no universal recovery-performance relationship"
+  },
+  {
+    "id": "C6",
+    "section": "evaluation",
+    "claim": "Center target changes fidelity without clear pooled F1 superiority/inferiority",
+    "source": "outputs/source-center-control-0916/run-01/report/fidelity-summary.json",
+    "selector": {
+      "split": "test"
+    },
+    "evidence": [
+      {
+        "split": "test",
+        "arm": "F",
+        "target_relation": "true",
+        "rows": 240,
+        "target_mse": 0.3736564115533645,
+        "source_mse": 0.37365641155336443,
+        "centered_logit_mse": 2.439953174652167,
+        "source_class_agreement": 0.8583333333333333,
+        "source_probability_l1": 0.3702893850830219
+      },
+      {
+        "split": "test",
+        "arm": "G",
+        "target_relation": "true",
+        "rows": 240,
+        "target_mse": 0.7973793641140668,
+        "source_mse": 0.7973793641140667,
+        "centered_logit_mse": 4.341886211762157,
+        "source_class_agreement": 0.8541666666666666,
+        "source_probability_l1": 0.4370368000716035
+      },
+      {
+        "split": "test",
+        "arm": "H",
+        "target_relation": "true",
+        "rows": 240,
+        "target_mse": 0.6240334516726302,
+        "source_mse": 0.6240334516726302,
+        "centered_logit_mse": 3.711064768803806,
+        "source_class_agreement": 0.8541666666666666,
+        "source_probability_l1": 0.40385499463405833
+      }
+    ],
+    "boundary": "No equivalence margin; deployed directions differ"
+  },
+  {
+    "id": "C7",
+    "section": "evaluation",
+    "claim": "Cross-deployment benefit is directional",
+    "source": "outputs/source-calibration-cross-deployment-0916/run-01/report/contrasts.json",
+    "selector": {
+      "domain": "target"
+    },
+    "evidence": [
+      {
+        "source_protocol": "SHADOWSOCKS",
+        "domain": "target",
+        "contrast": "F-B",
+        "type": "same_visit_method",
+        "primary": true,
+        "independent_contents": 30,
+        "bootstrap_repetitions": 2000,
+        "macro_f1_gain": -0.014646757478479933,
+        "macro_f1_ci": [
+          -0.16298592771975026,
+          0.12795552511973363
+        ],
+        "balanced_accuracy_gain": -0.016666666666666663,
+        "balanced_accuracy_ci": [
+          -0.175,
+          0.125
+        ],
+        "ce_bits_gain": 6.887100594631183,
+        "ce_bits_ci": [
+          4.819507396021889,
+          9.102157348390525
+        ],
+        "brier_gain": 0.20777565585574698,
+        "brier_ci": [
+          -0.049230706712257405,
+          0.44204965208167957
+        ],
+        "interval_scope": "unadjusted descriptive, conditional on fitted models"
+      },
+      {
+        "source_protocol": "SHADOWSOCKS",
+        "domain": "target",
+        "contrast": "H-B",
+        "type": "same_visit_method",
+        "primary": true,
+        "independent_contents": 30,
+        "bootstrap_repetitions": 2000,
+        "macro_f1_gain": 0.01821525539272184,
+        "macro_f1_ci": [
+          -0.1064298111324868,
+          0.14478353457857593
+        ],
+        "balanced_accuracy_gain": 0.04166666666666663,
+        "balanced_accuracy_ci": [
+          -0.0918750000000001,
+          0.16666666666666663
+        ],
+        "ce_bits_gain": 6.930363129423524,
+        "ce_bits_ci": [
+          4.9026928867251,
+          9.121236042091581
+        ],
+        "brier_gain": 0.3103995719963184,
+        "brier_ci": [
+          0.08060414901698301,
+          0.5201441313731143
+        ],
+        "interval_scope": "unadjusted descriptive, conditional on fitted models"
+      },
+      {
+        "source_protocol": "SHADOWSOCKS",
+        "domain": "target",
+        "contrast": "H-F",
+        "type": "same_visit_method",
+        "primary": false,
+        "independent_contents": 30,
+        "bootstrap_repetitions": 2000,
+        "macro_f1_gain": 0.03286201287120177,
+        "macro_f1_ci": [
+          -0.029362952949636614,
+          0.10461957914058441
+        ],
+        "balanced_accuracy_gain": 0.05833333333333329,
+        "balanced_accuracy_ci": [
+          0.0,
+          0.1166666666666667
+        ],
+        "ce_bits_gain": 0.04326253479234099,
+        "ce_bits_ci": [
+          -0.1546980678201512,
+          0.2560573035860195
+        ],
+        "brier_gain": 0.10262391614057143,
+        "brier_ci": [
+          0.044297667157317526,
+          0.16363979238776818
+        ],
+        "interval_scope": "unadjusted descriptive, conditional on fitted models"
+      },
+      {
+        "source_protocol": "SHADOWSOCKS",
+        "domain": "target",
+        "contrast": "F-E",
+        "type": "same_visit_method",
+        "primary": false,
+        "independent_contents": 30,
+        "bootstrap_repetitions": 2000,
+        "macro_f1_gain": -0.11199412137608739,
+        "macro_f1_ci": [
+          -0.20685918410118376,
+          -0.021182181707087334
+        ],
+        "balanced_accuracy_gain": -0.09166666666666662,
+        "balanced_accuracy_ci": [
+          -0.1916666666666667,
+          0.008333333333333304
+        ],
+        "ce_bits_gain": 1.1718060831040589,
+        "ce_bits_ci": [
+          0.5274931127401344,
+          1.7887064595022018
+        ],
+        "brier_gain": -0.04000524011887541,
+        "brier_ci": [
+          -0.18044930466169246,
+          0.09030107910439285
+        ],
+        "interval_scope": "unadjusted descriptive, conditional on fitted models"
+      },
+      {
+        "source_protocol": "SHADOWSOCKS",
+        "domain": "target",
+        "contrast": "H-E",
+        "type": "same_visit_method",
+        "primary": false,
+        "independent_contents": 30,
+        "bootstrap_repetitions": 2000,
+        "macro_f1_gain": -0.07913210850488561,
+        "macro_f1_ci": [
+          -0.16636294275551305,
+          0.01537635450936841
+        ],
+        "balanced_accuracy_gain": -0.033333333333333326,
+        "balanced_accuracy_ci": [
+          -0.13333333333333336,
+          0.06666666666666665
+        ],
+        "ce_bits_gain": 1.2150686178963999,
+        "ce_bits_ci": [
+          0.5992463165814008,
+          1.7969433770851773
+        ],
+        "brier_gain": 0.06261867602169602,
+        "brier_ci": [
+          -0.05187360062887944,
+          0.17912297364842808
+        ],
+        "interval_scope": "unadjusted descriptive, conditional on fitted models"
+      },
+      {
+        "source_protocol": "VLESS",
+        "domain": "target",
+        "contrast": "F-B",
+        "type": "same_visit_method",
+        "primary": true,
+        "independent_contents": 30,
+        "bootstrap_repetitions": 2000,
+        "macro_f1_gain": 0.18849716705407754,
+        "macro_f1_ci": [
+          0.08026412730268621,
+          0.31306807892335925
+        ],
+        "balanced_accuracy_gain": 0.13333333333333325,
+        "balanced_accuracy_ci": [
+          0.025000000000000078,
+          0.24999999999999972
+        ],
+        "ce_bits_gain": 2.027059950782106,
+        "ce_bits_ci": [
+          0.7085185851050284,
+          3.4727733851185074
+        ],
+        "brier_gain": 0.3092908890170909,
+        "brier_ci": [
+          0.13750271244749024,
+          0.48345321058251367
+        ],
+        "interval_scope": "unadjusted descriptive, conditional on fitted models"
+      },
+      {
+        "source_protocol": "VLESS",
+        "domain": "target",
+        "contrast": "H-B",
+        "type": "same_visit_method",
+        "primary": true,
+        "independent_contents": 30,
+        "bootstrap_repetitions": 2000,
+        "macro_f1_gain": 0.24055624248443702,
+        "macro_f1_ci": [
+          0.11424312404346885,
+          0.3673471678708475
+        ],
+        "balanced_accuracy_gain": 0.1916666666666667,
+        "balanced_accuracy_ci": [
+          0.07500000000000001,
+          0.3000000000000001
+        ],
+        "ce_bits_gain": 2.317954110708008,
+        "ce_bits_ci": [
+          0.9463128151197135,
+          3.7389700525938503
+        ],
+        "brier_gain": 0.3680587440933587,
+        "brier_ci": [
+          0.19509644280629268,
+          0.5438566593575714
+        ],
+        "interval_scope": "unadjusted descriptive, conditional on fitted models"
+      },
+      {
+        "source_protocol": "VLESS",
+        "domain": "target",
+        "contrast": "H-F",
+        "type": "same_visit_method",
+        "primary": false,
+        "independent_contents": 30,
+        "bootstrap_repetitions": 2000,
+        "macro_f1_gain": 0.05205907543035948,
+        "macro_f1_ci": [
+          -0.01753911917534101,
+          0.11894552064504213
+        ],
+        "balanced_accuracy_gain": 0.05833333333333346,
+        "balanced_accuracy_ci": [
+          -0.008333333333333415,
+          0.1250000000000001
+        ],
+        "ce_bits_gain": 0.29089415992590206,
+        "ce_bits_ci": [
+          -0.12910099397890554,
+          0.7406770247083875
+        ],
+        "brier_gain": 0.058767855076267805,
+        "brier_ci": [
+          0.004913637579154127,
+          0.11375311560512665
+        ],
+        "interval_scope": "unadjusted descriptive, conditional on fitted models"
+      },
+      {
+        "source_protocol": "VLESS",
+        "domain": "target",
+        "contrast": "F-E",
+        "type": "same_visit_method",
+        "primary": false,
+        "independent_contents": 30,
+        "bootstrap_repetitions": 2000,
+        "macro_f1_gain": 0.1797957906082474,
+        "macro_f1_ci": [
+          0.0891288839254266,
+          0.2630018356888775
+        ],
+        "balanced_accuracy_gain": 0.1999999999999999,
+        "balanced_accuracy_ci": [
+          0.125,
+          0.2666666666666667
+        ],
+        "ce_bits_gain": 2.140098419190541,
+        "ce_bits_ci": [
+          1.3819507065906425,
+          2.9290405603970537
+        ],
+        "brier_gain": 0.45448920548177685,
+        "brier_ci": [
+          0.35144942120446987,
+          0.5514550869622018
+        ],
+        "interval_scope": "unadjusted descriptive, conditional on fitted models"
+      },
+      {
+        "source_protocol": "VLESS",
+        "domain": "target",
+        "contrast": "H-E",
+        "type": "same_visit_method",
+        "primary": false,
+        "independent_contents": 30,
+        "bootstrap_repetitions": 2000,
+        "macro_f1_gain": 0.2318548660386069,
+        "macro_f1_ci": [
+          0.13664796320537068,
+          0.3280429902193963
+        ],
+        "balanced_accuracy_gain": 0.25833333333333336,
+        "balanced_accuracy_ci": [
+          0.16666666666666674,
+          0.34166666666666673
+        ],
+        "ce_bits_gain": 2.430992579116443,
+        "ce_bits_ci": [
+          1.4551441465632708,
+          3.460635444280564
+        ],
+        "brier_gain": 0.5132570605580447,
+        "brier_ci": [
+          0.3919615286691733,
+          0.6298229335956438
+        ],
+        "interval_scope": "unadjusted descriptive, conditional on fitted models"
+      }
+    ],
+    "boundary": "Fit-time isolation, not historically unseen external test"
+  },
+  {
+    "id": "C8",
+    "section": "evaluation",
+    "claim": "Source-entrance model also shifts",
+    "source": "outputs/source-calibration-cross-deployment-0916/run-01/report/metrics.json",
+    "selector": {
+      "arm": "A"
+    },
+    "evidence": [
+      {
+        "source_protocol": "SHADOWSOCKS",
+        "domain": "source",
+        "arm": "A",
+        "ce_bits": 0.2531543988267281,
+        "macro_f1": 0.9666248955722639,
+        "balanced_accuracy": 0.9666666666666667,
+        "brier": 0.06988533114036594,
+        "visits": 120,
+        "ce_bits_uncapped": 0.2531543988267281,
+        "ce_floor_visits": 0
+      },
+      {
+        "source_protocol": "SHADOWSOCKS",
+        "domain": "target",
+        "arm": "A",
+        "ce_bits": 5.1102643075654575,
+        "macro_f1": 0.30321654155325556,
+        "balanced_accuracy": 0.375,
+        "brier": 0.9799695967890718,
+        "visits": 120,
+        "ce_bits_uncapped": 5.1102643075654575,
+        "ce_floor_visits": 0
+      },
+      {
+        "source_protocol": "VLESS",
+        "domain": "source",
+        "arm": "A",
+        "ce_bits": 0.3538340038416768,
+        "macro_f1": 0.9416301855326245,
+        "balanced_accuracy": 0.9416666666666665,
+        "brier": 0.10499721631948856,
+        "visits": 120,
+        "ce_bits_uncapped": 0.3538340038416768,
+        "ce_floor_visits": 0
+      },
+      {
+        "source_protocol": "VLESS",
+        "domain": "target",
+        "arm": "A",
+        "ce_bits": 3.8871142413408486,
+        "macro_f1": 0.42987113245951175,
+        "balanced_accuracy": 0.48333333333333334,
+        "brier": 0.8171879595991705,
+        "visits": 120,
+        "ce_bits_uncapped": 3.8871142413408486,
+        "ce_floor_visits": 0
+      }
+    ],
+    "boundary": "Reference, not upper bound or causal factor isolation"
+  },
+  {
+    "id": "C9",
+    "section": "evaluation",
+    "claim": "Repairs coexist with introduced errors",
+    "source": "outputs/source-calibration-cross-deployment-0916/run-01/report/decision-flips.json",
+    "selector": {
+      "domain": "target"
+    },
+    "evidence": [
+      {
+        "source_protocol": "SHADOWSOCKS",
+        "domain": "target",
+        "transition": "A->F",
+        "correct_correct": 22,
+        "correct_wrong": 23,
+        "wrong_correct": 22,
+        "wrong_wrong": 53,
+        "class_change_rate": 0.6833333333333333,
+        "harm_rate": 0.5111111111111111,
+        "rescue_rate": 0.29333333333333333
+      },
+      {
+        "source_protocol": "SHADOWSOCKS",
+        "domain": "target",
+        "transition": "A->H",
+        "correct_correct": 32,
+        "correct_wrong": 13,
+        "wrong_correct": 19,
+        "wrong_wrong": 56,
+        "class_change_rate": 0.575,
+        "harm_rate": 0.28888888888888886,
+        "rescue_rate": 0.25333333333333335
+      },
+      {
+        "source_protocol": "SHADOWSOCKS",
+        "domain": "target",
+        "transition": "B->F",
+        "correct_correct": 18,
+        "correct_wrong": 28,
+        "wrong_correct": 26,
+        "wrong_wrong": 48,
+        "class_change_rate": 0.7166666666666667,
+        "harm_rate": 0.6086956521739131,
+        "rescue_rate": 0.35135135135135137
+      },
+      {
+        "source_protocol": "SHADOWSOCKS",
+        "domain": "target",
+        "transition": "B->H",
+        "correct_correct": 24,
+        "correct_wrong": 22,
+        "wrong_correct": 27,
+        "wrong_wrong": 47,
+        "class_change_rate": 0.7,
+        "harm_rate": 0.4782608695652174,
+        "rescue_rate": 0.36486486486486486
+      },
+      {
+        "source_protocol": "SHADOWSOCKS",
+        "domain": "target",
+        "transition": "F->H",
+        "correct_correct": 38,
+        "correct_wrong": 6,
+        "wrong_correct": 13,
+        "wrong_wrong": 63,
+        "class_change_rate": 0.2916666666666667,
+        "harm_rate": 0.13636363636363635,
+        "rescue_rate": 0.17105263157894737
+      },
+      {
+        "source_protocol": "VLESS",
+        "domain": "target",
+        "transition": "A->F",
+        "correct_correct": 34,
+        "correct_wrong": 24,
+        "wrong_correct": 32,
+        "wrong_wrong": 30,
+        "class_change_rate": 0.6666666666666666,
+        "harm_rate": 0.41379310344827586,
+        "rescue_rate": 0.5161290322580645
+      },
+      {
+        "source_protocol": "VLESS",
+        "domain": "target",
+        "transition": "A->H",
+        "correct_correct": 36,
+        "correct_wrong": 22,
+        "wrong_correct": 37,
+        "wrong_wrong": 25,
+        "class_change_rate": 0.6833333333333333,
+        "harm_rate": 0.3793103448275862,
+        "rescue_rate": 0.5967741935483871
+      },
+      {
+        "source_protocol": "VLESS",
+        "domain": "target",
+        "transition": "B->F",
+        "correct_correct": 35,
+        "correct_wrong": 15,
+        "wrong_correct": 31,
+        "wrong_wrong": 39,
+        "class_change_rate": 0.55,
+        "harm_rate": 0.3,
+        "rescue_rate": 0.44285714285714284
+      },
+      {
+        "source_protocol": "VLESS",
+        "domain": "target",
+        "transition": "B->H",
+        "correct_correct": 37,
+        "correct_wrong": 13,
+        "wrong_correct": 36,
+        "wrong_wrong": 34,
+        "class_change_rate": 0.5583333333333333,
+        "harm_rate": 0.26,
+        "rescue_rate": 0.5142857142857142
+      },
+      {
+        "source_protocol": "VLESS",
+        "domain": "target",
+        "transition": "F->H",
+        "correct_correct": 63,
+        "correct_wrong": 3,
+        "wrong_correct": 10,
+        "wrong_wrong": 44,
+        "class_change_rate": 0.175,
+        "harm_rate": 0.045454545454545456,
+        "rescue_rate": 0.18518518518518517
+      }
+    ],
+    "boundary": "Same-visit transitions only"
+  }
+]

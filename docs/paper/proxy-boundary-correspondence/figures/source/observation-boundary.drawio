@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile host="app.diagrams.net" type="device">
+  <diagram id="observation-boundary" name="observation-boundary">
+    <mxGraphModel dx="1100" dy="500" grid="1" gridSize="10" page="0" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="pre" value="Indexed pre observation&#10;(proxy-session entrance)" style="rounded=1;whiteSpace=wrap;html=0;fillColor=#DAE8FC;strokeColor=#476378;fontSize=17;fontFamily=Helvetica;" vertex="1" parent="1">
+          <mxGeometry x="20" y="30" width="245" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="proxy" value="Observed proxy deployment&#10;SS or VLESS" style="rounded=1;whiteSpace=wrap;html=0;fillColor=#E1D5E7;strokeColor=#476378;fontSize=17;fontFamily=Helvetica;" vertex="1" parent="1">
+          <mxGeometry x="330" y="30" width="245" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="post" value="Indexed post observation&#10;(paired exit scope)" style="rounded=1;whiteSpace=wrap;html=0;fillColor=#DAE8FC;strokeColor=#476378;fontSize=17;fontFamily=Helvetica;" vertex="1" parent="1">
+          <mxGeometry x="650" y="30" width="245" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="train" value="Development only&#10;Paired statistics + labels&#10;Content-disjoint fitting" style="rounded=1;whiteSpace=wrap;html=0;fillColor=#D5E8D4;strokeColor=#476378;fontSize=17;fontFamily=Helvetica;" vertex="1" parent="1">
+          <mxGeometry x="20" y="195" width="265" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="fit" value="Frozen adapter +&#10;source classifier" style="rounded=1;whiteSpace=wrap;html=0;fillColor=#D5E8D4;strokeColor=#476378;fontSize=17;fontFamily=Helvetica;" vertex="1" parent="1">
+          <mxGeometry x="360" y="195" width="240" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="infer" value="Prediction interface&#10;post vector only" style="rounded=1;whiteSpace=wrap;html=0;fillColor=#D5E8D4;strokeColor=#476378;fontSize=17;fontFamily=Helvetica;" vertex="1" parent="1">
+          <mxGeometry x="680" y="195" width="240" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="audit" value="Evaluation only: held-out pre + labels&#10;No feedback into prediction or selection" style="rounded=1;whiteSpace=wrap;html=0;fillColor=#FFF2CC;strokeColor=#476378;fontSize=17;fontFamily=Helvetica;" vertex="1" parent="1">
+          <mxGeometry x="230" y="370" width="510" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="e0" value="traffic" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;fontSize=14;fontFamily=Helvetica;strokeColor=#476378;dashed=0;" edge="1" parent="1" source="pre" target="proxy">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" value="traffic" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;fontSize=14;fontFamily=Helvetica;strokeColor=#476378;dashed=0;" edge="1" parent="1" source="proxy" target="post">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" value="training partition" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;fontSize=14;fontFamily=Helvetica;strokeColor=#476378;dashed=1;" edge="1" parent="1" source="pre" target="train">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" value="fit" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;fontSize=14;fontFamily=Helvetica;strokeColor=#476378;dashed=0;" edge="1" parent="1" source="train" target="fit">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" value="fixed" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;fontSize=14;fontFamily=Helvetica;strokeColor=#476378;dashed=0;" edge="1" parent="1" source="fit" target="infer">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" value="held-out post" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;fontSize=14;fontFamily=Helvetica;strokeColor=#476378;dashed=0;" edge="1" parent="1" source="post" target="infer">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" value="sealed predictions" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;fontSize=14;fontFamily=Helvetica;strokeColor=#476378;dashed=1;" edge="1" parent="1" source="infer" target="audit">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

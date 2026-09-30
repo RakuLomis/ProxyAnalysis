@@ -1,0 +1,1202 @@
+[
+  {
+    "source_protocol": "SHADOWSOCKS",
+    "domain": "source",
+    "arm": "A",
+    "label": "bing.com::search_results_view",
+    "precision": 1.0,
+    "recall": 0.9,
+    "f1": 0.9473684210526315,
+    "support": 20
+  },
+  {
+    "source_protocol": "SHADOWSOCKS",
+    "domain": "source",
+    "arm": "A",
+    "label": "developer.mozilla.org::document_view",
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "support": 20
+  },
+  {
+    "source_protocol": "SHADOWSOCKS",
+    "domain": "source",
+    "arm": "A",
+    "label": "github.com::repository_view",
+    "precision": 0.95,
+    "recall": 0.95,
+    "f1": 0.95,
+    "support": 20
+  },
+  {
+    "source_protocol": "SHADOWSOCKS",
+    "domain": "source",
+    "arm": "A",
+    "label": "wikipedia.org::article_view",
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "support": 20
+  },
+  {
+    "source_protocol": "SHADOWSOCKS",
+    "domain": "source",
+    "arm": "A",
+    "label": "youtube.com::search_results_view",
+    "precision": 0.95,
+    "recall": 0.95,
+    "f1": 0.95,
+    "support": 20
+  },
+  {
+    "source_protocol": "SHADOWSOCKS",
+    "domain": "source",
+    "arm": "A",
+    "label": "youtube.com::video_playback",
+    "precision": 0.9090909090909091,
+    "recall": 1.0,
+    "f1": 0.9523809523809523,
+    "support": 20
+  },
+  {
+    "source_protocol": "SHADOWSOCKS",
+    "domain": "source",
+    "arm": "B",
+    "label": "bing.com::search_results_view",
+    "precision": 0.2289156626506024,
+    "recall": 0.95,
+    "f1": 0.36893203883495146,
+    "support": 20
+  },
+  {
+    "source_protocol": "SHADOWSOCKS",
+    "domain": "source",
+    "arm": "B",
+    "label": "developer.mozilla.org::document_view",
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "support": 20
+  },
+  {
+    "source_protocol": "SHADOWSOCKS",
+    "domain": "source",
+    "arm": "B",
+    "label": "github.com::repository_view",
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "support": 20
+  },
+  {
+    "source_protocol": "SHADOWSOCKS",
+    "domain": "source",
+    "arm": "B",
+    "label": "wikipedia.org::article_view",
+    "precision": 0.6666666666666666,
+    "recall": 0.2,
+    "f1": 0.3076923076923077,
+    "support": 20
+  },
+  {
+    "source_protocol": "SHADOWSOCKS",
+    "domain": "source",
+    "arm": "B",
+    "label": "youtube.com::search_results_view",
+    "precision": 0.2857142857142857,
+    "recall": 0.4,
+    "f1": 0.3333333333333333,
+    "support": 20
+  },
+  {
+    "source_protocol": "SHADOWSOCKS",
+    "domain": "source",
+    "arm": "B",
+    "label": "youtube.com::video_playback",
+    "precision": 1.0,
+    "recall": 0.15,
+    "f1": 0.2608695652173913,
+    "support": 20
+  },
+  {
+    "source_protocol": "SHADOWSOCKS",
+    "domain": "source",
+    "arm": "E",
+    "label": "bing.com::search_results_view",
+    "precision": 0.9473684210526315,
+    "recall": 0.9,
+    "f1": 0.9230769230769231,
+    "support": 20
+  },
+  {
+    "source_protocol": "SHADOWSOCKS",
+    "domain": "source",
+    "arm": "E",
+    "label": "developer.mozilla.org::document_view",
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "support": 20
+  },
+  {
+    "source_protocol": "SHADOWSOCKS",
+    "domain": "source",
+    "arm": "E",
+    "label": "github.com::repository_view",
+    "precision": 1.0,
+    "recall": 0.9,
+    "f1": 0.9473684210526315,
+    "support": 20
+  },
+  {
+    "source_protocol": "SHADOWSOCKS",
+    "domain": "source",
+    "arm": "E",
+    "label": "wikipedia.org::article_view",
+    "precision": 0.9090909090909091,
+    "recall": 1.0,
+    "f1": 0.9523809523809523,
+    "support": 20
+  },
+  {
+    "source_protocol": "SHADOWSOCKS",
+    "domain": "source",
+    "arm": "E",
+    "label": "youtube.com::search_results_view",
+    "precision": 0.8636363636363636,
+    "recall": 0.95,
+    "f1": 0.9047619047619048,
+    "support": 20
+  },
+  {
+    "source_protocol": "SHADOWSOCKS",
+    "domain": "source",
+    "arm": "E",
+    "label": "youtube.com::video_playback",
+    "precision": 0.8947368421052632,
+    "recall": 0.85,
+    "f1": 0.8717948717948718,
+    "support": 20
+  },
+  {
+    "source_protocol": "SHADOWSOCKS",
+    "domain": "source",
+    "arm": "F",
+    "label": "bing.com::search_results_view",
+    "precision": 1.0,
+    "recall": 0.85,
+    "f1": 0.918918918918919,
+    "support": 20
+  },
+  {
+    "source_protocol": "SHADOWSOCKS",
+    "domain": "source",
+    "arm": "F",
+    "label": "developer.mozilla.org::document_view",
+    "precision": 0.95,
+    "recall": 0.95,
+    "f1": 0.95,
+    "support": 20
+  },
+  {
+    "source_protocol": "SHADOWSOCKS",
+    "domain": "source",
+    "arm": "F",
+    "label": "github.com::repository_view",
+    "precision": 0.8947368421052632,
+    "recall": 0.85,
+    "f1": 0.8717948717948718,
+    "support": 20
+  },
+  {
+    "source_protocol": "SHADOWSOCKS",
+    "domain": "source",
+    "arm": "F",
+    "label": "wikipedia.org::article_view",
+    "precision": 0.9,
+    "recall": 0.9,
+    "f1": 0.9,
+    "support": 20
+  },
+  {
+    "source_protocol": "SHADOWSOCKS",
+    "domain": "source",
+    "arm": "F",
+    "label": "youtube.com::search_results_view",
+    "precision": 0.8181818181818182,
+    "recall": 0.9,
+    "f1": 0.8571428571428571,
+    "support": 20
+  },
+  {
+    "source_protocol": "SHADOWSOCKS",
+    "domain": "source",
+    "arm": "F",
+    "label": "youtube.com::video_playback",
+    "precision": 0.8636363636363636,
+    "recall": 0.95,
+    "f1": 0.9047619047619048,
+    "support": 20
+  },
+  {
+    "source_protocol": "SHADOWSOCKS",
+    "domain": "source",
+    "arm": "H",
+    "label": "bing.com::search_results_view",
+    "precision": 1.0,
+    "recall": 0.95,
+    "f1": 0.9743589743589743,
+    "support": 20
+  },
+  {
+    "source_protocol": "SHADOWSOCKS",
+    "domain": "source",
+    "arm": "H",
+    "label": "developer.mozilla.org::document_view",
+    "precision": 0.8695652173913043,
+    "recall": 1.0,
+    "f1": 0.9302325581395349,
+    "support": 20
+  },
+  {
+    "source_protocol": "SHADOWSOCKS",
+    "domain": "source",
+    "arm": "H",
+    "label": "github.com::repository_view",
+    "precision": 0.9444444444444444,
+    "recall": 0.85,
+    "f1": 0.8947368421052632,
+    "support": 20
+  },
+  {
+    "source_protocol": "SHADOWSOCKS",
+    "domain": "source",
+    "arm": "H",
+    "label": "wikipedia.org::article_view",
+    "precision": 0.8947368421052632,
+    "recall": 0.85,
+    "f1": 0.8717948717948718,
+    "support": 20
+  },
+  {
+    "source_protocol": "SHADOWSOCKS",
+    "domain": "source",
+    "arm": "H",
+    "label": "youtube.com::search_results_view",
+    "precision": 0.85,
+    "recall": 0.85,
+    "f1": 0.85,
+    "support": 20
+  },
+  {
+    "source_protocol": "SHADOWSOCKS",
+    "domain": "source",
+    "arm": "H",
+    "label": "youtube.com::video_playback",
+    "precision": 0.8571428571428571,
+    "recall": 0.9,
+    "f1": 0.8780487804878049,
+    "support": 20
+  },
+  {
+    "source_protocol": "SHADOWSOCKS",
+    "domain": "target",
+    "arm": "A",
+    "label": "bing.com::search_results_view",
+    "precision": 0.625,
+    "recall": 0.5,
+    "f1": 0.5555555555555556,
+    "support": 20
+  },
+  {
+    "source_protocol": "SHADOWSOCKS",
+    "domain": "target",
+    "arm": "A",
+    "label": "developer.mozilla.org::document_view",
+    "precision": 0.4838709677419355,
+    "recall": 0.75,
+    "f1": 0.5882352941176471,
+    "support": 20
+  },
+  {
+    "source_protocol": "SHADOWSOCKS",
+    "domain": "target",
+    "arm": "A",
+    "label": "github.com::repository_view",
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "support": 20
+  },
+  {
+    "source_protocol": "SHADOWSOCKS",
+    "domain": "target",
+    "arm": "A",
+    "label": "wikipedia.org::article_view",
+    "precision": 0.23880597014925373,
+    "recall": 0.8,
+    "f1": 0.367816091954023,
+    "support": 20
+  },
+  {
+    "source_protocol": "SHADOWSOCKS",
+    "domain": "target",
+    "arm": "A",
+    "label": "youtube.com::search_results_view",
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "support": 20
+  },
+  {
+    "source_protocol": "SHADOWSOCKS",
+    "domain": "target",
+    "arm": "A",
+    "label": "youtube.com::video_playback",
+    "precision": 0.6666666666666666,
+    "recall": 0.2,
+    "f1": 0.3076923076923077,
+    "support": 20
+  },
+  {
+    "source_protocol": "SHADOWSOCKS",
+    "domain": "target",
+    "arm": "B",
+    "label": "bing.com::search_results_view",
+    "precision": 0.25,
+    "recall": 0.9,
+    "f1": 0.391304347826087,
+    "support": 20
+  },
+  {
+    "source_protocol": "SHADOWSOCKS",
+    "domain": "target",
+    "arm": "B",
+    "label": "developer.mozilla.org::document_view",
+    "precision": 0.6111111111111112,
+    "recall": 0.55,
+    "f1": 0.5789473684210527,
+    "support": 20
+  },
+  {
+    "source_protocol": "SHADOWSOCKS",
+    "domain": "target",
+    "arm": "B",
+    "label": "github.com::repository_view",
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "support": 20
+  },
+  {
+    "source_protocol": "SHADOWSOCKS",
+    "domain": "target",
+    "arm": "B",
+    "label": "wikipedia.org::article_view",
+    "precision": 0.8333333333333334,
+    "recall": 0.25,
+    "f1": 0.38461538461538464,
+    "support": 20
+  },
+  {
+    "source_protocol": "SHADOWSOCKS",
+    "domain": "target",
+    "arm": "B",
+    "label": "youtube.com::search_results_view",
+    "precision": 0.45454545454545453,
+    "recall": 0.25,
+    "f1": 0.3225806451612903,
+    "support": 20
+  },
+  {
+    "source_protocol": "SHADOWSOCKS",
+    "domain": "target",
+    "arm": "B",
+    "label": "youtube.com::video_playback",
+    "precision": 0.5384615384615384,
+    "recall": 0.35,
+    "f1": 0.42424242424242425,
+    "support": 20
+  },
+  {
+    "source_protocol": "SHADOWSOCKS",
+    "domain": "target",
+    "arm": "E",
+    "label": "bing.com::search_results_view",
+    "precision": 0.8333333333333334,
+    "recall": 0.25,
+    "f1": 0.38461538461538464,
+    "support": 20
+  },
+  {
+    "source_protocol": "SHADOWSOCKS",
+    "domain": "target",
+    "arm": "E",
+    "label": "developer.mozilla.org::document_view",
+    "precision": 0.48148148148148145,
+    "recall": 0.65,
+    "f1": 0.5531914893617021,
+    "support": 20
+  },
+  {
+    "source_protocol": "SHADOWSOCKS",
+    "domain": "target",
+    "arm": "E",
+    "label": "github.com::repository_view",
+    "precision": 0.6153846153846154,
+    "recall": 0.4,
+    "f1": 0.48484848484848486,
+    "support": 20
+  },
+  {
+    "source_protocol": "SHADOWSOCKS",
+    "domain": "target",
+    "arm": "E",
+    "label": "wikipedia.org::article_view",
+    "precision": 0.27419354838709675,
+    "recall": 0.85,
+    "f1": 0.4146341463414634,
+    "support": 20
+  },
+  {
+    "source_protocol": "SHADOWSOCKS",
+    "domain": "target",
+    "arm": "E",
+    "label": "youtube.com::search_results_view",
+    "precision": 1.0,
+    "recall": 0.1,
+    "f1": 0.18181818181818182,
+    "support": 20
+  },
+  {
+    "source_protocol": "SHADOWSOCKS",
+    "domain": "target",
+    "arm": "E",
+    "label": "youtube.com::video_playback",
+    "precision": 1.0,
+    "recall": 0.5,
+    "f1": 0.6666666666666666,
+    "support": 20
+  },
+  {
+    "source_protocol": "SHADOWSOCKS",
+    "domain": "target",
+    "arm": "F",
+    "label": "bing.com::search_results_view",
+    "precision": 0.2978723404255319,
+    "recall": 0.7,
+    "f1": 0.417910447761194,
+    "support": 20
+  },
+  {
+    "source_protocol": "SHADOWSOCKS",
+    "domain": "target",
+    "arm": "F",
+    "label": "developer.mozilla.org::document_view",
+    "precision": 0.8,
+    "recall": 0.4,
+    "f1": 0.5333333333333333,
+    "support": 20
+  },
+  {
+    "source_protocol": "SHADOWSOCKS",
+    "domain": "target",
+    "arm": "F",
+    "label": "github.com::repository_view",
+    "precision": 0.3225806451612903,
+    "recall": 0.5,
+    "f1": 0.39215686274509803,
+    "support": 20
+  },
+  {
+    "source_protocol": "SHADOWSOCKS",
+    "domain": "target",
+    "arm": "F",
+    "label": "wikipedia.org::article_view",
+    "precision": 0.30434782608695654,
+    "recall": 0.35,
+    "f1": 0.32558139534883723,
+    "support": 20
+  },
+  {
+    "source_protocol": "SHADOWSOCKS",
+    "domain": "target",
+    "arm": "F",
+    "label": "youtube.com::search_results_view",
+    "precision": 0.5555555555555556,
+    "recall": 0.25,
+    "f1": 0.3448275862068966,
+    "support": 20
+  },
+  {
+    "source_protocol": "SHADOWSOCKS",
+    "domain": "target",
+    "arm": "F",
+    "label": "youtube.com::video_playback",
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "support": 20
+  },
+  {
+    "source_protocol": "SHADOWSOCKS",
+    "domain": "target",
+    "arm": "H",
+    "label": "bing.com::search_results_view",
+    "precision": 0.38235294117647056,
+    "recall": 0.65,
+    "f1": 0.48148148148148145,
+    "support": 20
+  },
+  {
+    "source_protocol": "SHADOWSOCKS",
+    "domain": "target",
+    "arm": "H",
+    "label": "developer.mozilla.org::document_view",
+    "precision": 0.8888888888888888,
+    "recall": 0.8,
+    "f1": 0.8421052631578947,
+    "support": 20
+  },
+  {
+    "source_protocol": "SHADOWSOCKS",
+    "domain": "target",
+    "arm": "H",
+    "label": "github.com::repository_view",
+    "precision": 0.3225806451612903,
+    "recall": 0.5,
+    "f1": 0.39215686274509803,
+    "support": 20
+  },
+  {
+    "source_protocol": "SHADOWSOCKS",
+    "domain": "target",
+    "arm": "H",
+    "label": "wikipedia.org::article_view",
+    "precision": 0.3142857142857143,
+    "recall": 0.55,
+    "f1": 0.4,
+    "support": 20
+  },
+  {
+    "source_protocol": "SHADOWSOCKS",
+    "domain": "target",
+    "arm": "H",
+    "label": "youtube.com::search_results_view",
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "support": 20
+  },
+  {
+    "source_protocol": "SHADOWSOCKS",
+    "domain": "target",
+    "arm": "H",
+    "label": "youtube.com::video_playback",
+    "precision": 1.0,
+    "recall": 0.05,
+    "f1": 0.09523809523809523,
+    "support": 20
+  },
+  {
+    "source_protocol": "VLESS",
+    "domain": "source",
+    "arm": "A",
+    "label": "bing.com::search_results_view",
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "support": 20
+  },
+  {
+    "source_protocol": "VLESS",
+    "domain": "source",
+    "arm": "A",
+    "label": "developer.mozilla.org::document_view",
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "support": 20
+  },
+  {
+    "source_protocol": "VLESS",
+    "domain": "source",
+    "arm": "A",
+    "label": "github.com::repository_view",
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "support": 20
+  },
+  {
+    "source_protocol": "VLESS",
+    "domain": "source",
+    "arm": "A",
+    "label": "wikipedia.org::article_view",
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "support": 20
+  },
+  {
+    "source_protocol": "VLESS",
+    "domain": "source",
+    "arm": "A",
+    "label": "youtube.com::search_results_view",
+    "precision": 0.8421052631578947,
+    "recall": 0.8,
+    "f1": 0.8205128205128205,
+    "support": 20
+  },
+  {
+    "source_protocol": "VLESS",
+    "domain": "source",
+    "arm": "A",
+    "label": "youtube.com::video_playback",
+    "precision": 0.8095238095238095,
+    "recall": 0.85,
+    "f1": 0.8292682926829268,
+    "support": 20
+  },
+  {
+    "source_protocol": "VLESS",
+    "domain": "source",
+    "arm": "B",
+    "label": "bing.com::search_results_view",
+    "precision": 0.4090909090909091,
+    "recall": 0.45,
+    "f1": 0.42857142857142855,
+    "support": 20
+  },
+  {
+    "source_protocol": "VLESS",
+    "domain": "source",
+    "arm": "B",
+    "label": "developer.mozilla.org::document_view",
+    "precision": 0.5333333333333333,
+    "recall": 0.8,
+    "f1": 0.64,
+    "support": 20
+  },
+  {
+    "source_protocol": "VLESS",
+    "domain": "source",
+    "arm": "B",
+    "label": "github.com::repository_view",
+    "precision": 0.27941176470588236,
+    "recall": 0.95,
+    "f1": 0.4318181818181818,
+    "support": 20
+  },
+  {
+    "source_protocol": "VLESS",
+    "domain": "source",
+    "arm": "B",
+    "label": "wikipedia.org::article_view",
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "support": 20
+  },
+  {
+    "source_protocol": "VLESS",
+    "domain": "source",
+    "arm": "B",
+    "label": "youtube.com::search_results_view",
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "support": 20
+  },
+  {
+    "source_protocol": "VLESS",
+    "domain": "source",
+    "arm": "B",
+    "label": "youtube.com::video_playback",
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "support": 20
+  },
+  {
+    "source_protocol": "VLESS",
+    "domain": "source",
+    "arm": "E",
+    "label": "bing.com::search_results_view",
+    "precision": 0.95,
+    "recall": 0.95,
+    "f1": 0.95,
+    "support": 20
+  },
+  {
+    "source_protocol": "VLESS",
+    "domain": "source",
+    "arm": "E",
+    "label": "developer.mozilla.org::document_view",
+    "precision": 0.9523809523809523,
+    "recall": 1.0,
+    "f1": 0.975609756097561,
+    "support": 20
+  },
+  {
+    "source_protocol": "VLESS",
+    "domain": "source",
+    "arm": "E",
+    "label": "github.com::repository_view",
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "support": 20
+  },
+  {
+    "source_protocol": "VLESS",
+    "domain": "source",
+    "arm": "E",
+    "label": "wikipedia.org::article_view",
+    "precision": 0.95,
+    "recall": 0.95,
+    "f1": 0.95,
+    "support": 20
+  },
+  {
+    "source_protocol": "VLESS",
+    "domain": "source",
+    "arm": "E",
+    "label": "youtube.com::search_results_view",
+    "precision": 0.8571428571428571,
+    "recall": 0.9,
+    "f1": 0.8780487804878049,
+    "support": 20
+  },
+  {
+    "source_protocol": "VLESS",
+    "domain": "source",
+    "arm": "E",
+    "label": "youtube.com::video_playback",
+    "precision": 0.9444444444444444,
+    "recall": 0.85,
+    "f1": 0.8947368421052632,
+    "support": 20
+  },
+  {
+    "source_protocol": "VLESS",
+    "domain": "source",
+    "arm": "F",
+    "label": "bing.com::search_results_view",
+    "precision": 0.9473684210526315,
+    "recall": 0.9,
+    "f1": 0.9230769230769231,
+    "support": 20
+  },
+  {
+    "source_protocol": "VLESS",
+    "domain": "source",
+    "arm": "F",
+    "label": "developer.mozilla.org::document_view",
+    "precision": 0.8,
+    "recall": 1.0,
+    "f1": 0.8888888888888888,
+    "support": 20
+  },
+  {
+    "source_protocol": "VLESS",
+    "domain": "source",
+    "arm": "F",
+    "label": "github.com::repository_view",
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "support": 20
+  },
+  {
+    "source_protocol": "VLESS",
+    "domain": "source",
+    "arm": "F",
+    "label": "wikipedia.org::article_view",
+    "precision": 0.9375,
+    "recall": 0.75,
+    "f1": 0.8333333333333334,
+    "support": 20
+  },
+  {
+    "source_protocol": "VLESS",
+    "domain": "source",
+    "arm": "F",
+    "label": "youtube.com::search_results_view",
+    "precision": 0.8823529411764706,
+    "recall": 0.75,
+    "f1": 0.8108108108108109,
+    "support": 20
+  },
+  {
+    "source_protocol": "VLESS",
+    "domain": "source",
+    "arm": "F",
+    "label": "youtube.com::video_playback",
+    "precision": 0.8260869565217391,
+    "recall": 0.95,
+    "f1": 0.8837209302325582,
+    "support": 20
+  },
+  {
+    "source_protocol": "VLESS",
+    "domain": "source",
+    "arm": "H",
+    "label": "bing.com::search_results_view",
+    "precision": 0.9523809523809523,
+    "recall": 1.0,
+    "f1": 0.975609756097561,
+    "support": 20
+  },
+  {
+    "source_protocol": "VLESS",
+    "domain": "source",
+    "arm": "H",
+    "label": "developer.mozilla.org::document_view",
+    "precision": 0.9090909090909091,
+    "recall": 1.0,
+    "f1": 0.9523809523809523,
+    "support": 20
+  },
+  {
+    "source_protocol": "VLESS",
+    "domain": "source",
+    "arm": "H",
+    "label": "github.com::repository_view",
+    "precision": 0.9523809523809523,
+    "recall": 1.0,
+    "f1": 0.975609756097561,
+    "support": 20
+  },
+  {
+    "source_protocol": "VLESS",
+    "domain": "source",
+    "arm": "H",
+    "label": "wikipedia.org::article_view",
+    "precision": 0.9444444444444444,
+    "recall": 0.85,
+    "f1": 0.8947368421052632,
+    "support": 20
+  },
+  {
+    "source_protocol": "VLESS",
+    "domain": "source",
+    "arm": "H",
+    "label": "youtube.com::search_results_view",
+    "precision": 0.875,
+    "recall": 0.7,
+    "f1": 0.7777777777777778,
+    "support": 20
+  },
+  {
+    "source_protocol": "VLESS",
+    "domain": "source",
+    "arm": "H",
+    "label": "youtube.com::video_playback",
+    "precision": 0.7727272727272727,
+    "recall": 0.85,
+    "f1": 0.8095238095238095,
+    "support": 20
+  },
+  {
+    "source_protocol": "VLESS",
+    "domain": "target",
+    "arm": "A",
+    "label": "bing.com::search_results_view",
+    "precision": 1.0,
+    "recall": 0.7,
+    "f1": 0.8235294117647058,
+    "support": 20
+  },
+  {
+    "source_protocol": "VLESS",
+    "domain": "target",
+    "arm": "A",
+    "label": "developer.mozilla.org::document_view",
+    "precision": 0.8333333333333334,
+    "recall": 0.75,
+    "f1": 0.7894736842105263,
+    "support": 20
+  },
+  {
+    "source_protocol": "VLESS",
+    "domain": "target",
+    "arm": "A",
+    "label": "github.com::repository_view",
+    "precision": 0.296875,
+    "recall": 0.95,
+    "f1": 0.4523809523809524,
+    "support": 20
+  },
+  {
+    "source_protocol": "VLESS",
+    "domain": "target",
+    "arm": "A",
+    "label": "wikipedia.org::article_view",
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "support": 20
+  },
+  {
+    "source_protocol": "VLESS",
+    "domain": "target",
+    "arm": "A",
+    "label": "youtube.com::search_results_view",
+    "precision": 0.391304347826087,
+    "recall": 0.45,
+    "f1": 0.4186046511627907,
+    "support": 20
+  },
+  {
+    "source_protocol": "VLESS",
+    "domain": "target",
+    "arm": "A",
+    "label": "youtube.com::video_playback",
+    "precision": 1.0,
+    "recall": 0.05,
+    "f1": 0.09523809523809523,
+    "support": 20
+  },
+  {
+    "source_protocol": "VLESS",
+    "domain": "target",
+    "arm": "B",
+    "label": "bing.com::search_results_view",
+    "precision": 0.46153846153846156,
+    "recall": 0.3,
+    "f1": 0.36363636363636365,
+    "support": 20
+  },
+  {
+    "source_protocol": "VLESS",
+    "domain": "target",
+    "arm": "B",
+    "label": "developer.mozilla.org::document_view",
+    "precision": 0.44,
+    "recall": 0.55,
+    "f1": 0.4888888888888889,
+    "support": 20
+  },
+  {
+    "source_protocol": "VLESS",
+    "domain": "target",
+    "arm": "B",
+    "label": "github.com::repository_view",
+    "precision": 0.36,
+    "recall": 0.9,
+    "f1": 0.5142857142857142,
+    "support": 20
+  },
+  {
+    "source_protocol": "VLESS",
+    "domain": "target",
+    "arm": "B",
+    "label": "wikipedia.org::article_view",
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "support": 20
+  },
+  {
+    "source_protocol": "VLESS",
+    "domain": "target",
+    "arm": "B",
+    "label": "youtube.com::search_results_view",
+    "precision": 0.5,
+    "recall": 0.3,
+    "f1": 0.375,
+    "support": 20
+  },
+  {
+    "source_protocol": "VLESS",
+    "domain": "target",
+    "arm": "B",
+    "label": "youtube.com::video_playback",
+    "precision": 0.45,
+    "recall": 0.45,
+    "f1": 0.45,
+    "support": 20
+  },
+  {
+    "source_protocol": "VLESS",
+    "domain": "target",
+    "arm": "E",
+    "label": "bing.com::search_results_view",
+    "precision": 0.2608695652173913,
+    "recall": 0.3,
+    "f1": 0.27906976744186046,
+    "support": 20
+  },
+  {
+    "source_protocol": "VLESS",
+    "domain": "target",
+    "arm": "E",
+    "label": "developer.mozilla.org::document_view",
+    "precision": 1.0,
+    "recall": 0.4,
+    "f1": 0.5714285714285714,
+    "support": 20
+  },
+  {
+    "source_protocol": "VLESS",
+    "domain": "target",
+    "arm": "E",
+    "label": "github.com::repository_view",
+    "precision": 0.7,
+    "recall": 0.7,
+    "f1": 0.7,
+    "support": 20
+  },
+  {
+    "source_protocol": "VLESS",
+    "domain": "target",
+    "arm": "E",
+    "label": "wikipedia.org::article_view",
+    "precision": 0.6666666666666666,
+    "recall": 0.1,
+    "f1": 0.17391304347826086,
+    "support": 20
+  },
+  {
+    "source_protocol": "VLESS",
+    "domain": "target",
+    "arm": "E",
+    "label": "youtube.com::search_results_view",
+    "precision": 0.11538461538461539,
+    "recall": 0.3,
+    "f1": 0.16666666666666666,
+    "support": 20
+  },
+  {
+    "source_protocol": "VLESS",
+    "domain": "target",
+    "arm": "E",
+    "label": "youtube.com::video_playback",
+    "precision": 0.42857142857142855,
+    "recall": 0.3,
+    "f1": 0.35294117647058826,
+    "support": 20
+  },
+  {
+    "source_protocol": "VLESS",
+    "domain": "target",
+    "arm": "F",
+    "label": "bing.com::search_results_view",
+    "precision": 0.38461538461538464,
+    "recall": 0.25,
+    "f1": 0.30303030303030304,
+    "support": 20
+  },
+  {
+    "source_protocol": "VLESS",
+    "domain": "target",
+    "arm": "F",
+    "label": "developer.mozilla.org::document_view",
+    "precision": 0.6666666666666666,
+    "recall": 0.7,
+    "f1": 0.6829268292682927,
+    "support": 20
+  },
+  {
+    "source_protocol": "VLESS",
+    "domain": "target",
+    "arm": "F",
+    "label": "github.com::repository_view",
+    "precision": 0.8125,
+    "recall": 0.65,
+    "f1": 0.7222222222222222,
+    "support": 20
+  },
+  {
+    "source_protocol": "VLESS",
+    "domain": "target",
+    "arm": "F",
+    "label": "wikipedia.org::article_view",
+    "precision": 0.6842105263157895,
+    "recall": 0.65,
+    "f1": 0.6666666666666666,
+    "support": 20
+  },
+  {
+    "source_protocol": "VLESS",
+    "domain": "target",
+    "arm": "F",
+    "label": "youtube.com::search_results_view",
+    "precision": 0.5882352941176471,
+    "recall": 0.5,
+    "f1": 0.5405405405405406,
+    "support": 20
+  },
+  {
+    "source_protocol": "VLESS",
+    "domain": "target",
+    "arm": "F",
+    "label": "youtube.com::video_playback",
+    "precision": 0.3235294117647059,
+    "recall": 0.55,
+    "f1": 0.4074074074074074,
+    "support": 20
+  },
+  {
+    "source_protocol": "VLESS",
+    "domain": "target",
+    "arm": "H",
+    "label": "bing.com::search_results_view",
+    "precision": 0.45454545454545453,
+    "recall": 0.25,
+    "f1": 0.3225806451612903,
+    "support": 20
+  },
+  {
+    "source_protocol": "VLESS",
+    "domain": "target",
+    "arm": "H",
+    "label": "developer.mozilla.org::document_view",
+    "precision": 0.6666666666666666,
+    "recall": 0.8,
+    "f1": 0.7272727272727273,
+    "support": 20
+  },
+  {
+    "source_protocol": "VLESS",
+    "domain": "target",
+    "arm": "H",
+    "label": "github.com::repository_view",
+    "precision": 0.9285714285714286,
+    "recall": 0.65,
+    "f1": 0.7647058823529411,
+    "support": 20
+  },
+  {
+    "source_protocol": "VLESS",
+    "domain": "target",
+    "arm": "H",
+    "label": "wikipedia.org::article_view",
+    "precision": 0.6666666666666666,
+    "recall": 0.7,
+    "f1": 0.6829268292682927,
+    "support": 20
+  },
+  {
+    "source_protocol": "VLESS",
+    "domain": "target",
+    "arm": "H",
+    "label": "youtube.com::search_results_view",
+    "precision": 0.7333333333333333,
+    "recall": 0.55,
+    "f1": 0.6285714285714286,
+    "support": 20
+  },
+  {
+    "source_protocol": "VLESS",
+    "domain": "target",
+    "arm": "H",
+    "label": "youtube.com::video_playback",
+    "precision": 0.4,
+    "recall": 0.7,
+    "f1": 0.509090909090909,
+    "support": 20
+  }
+]

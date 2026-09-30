@@ -1,0 +1,20 @@
+version: 1
+budgets_per_business: [1, 2, 3]
+rotations: [0, 1, 2, 3]
+role_salt: paired-calibration-budget-20260928-v1
+seeds: [20260918, 20260919, 20260920]
+deployments: [SHADOWSOCKS, VLESS]
+features: [U_up, U_down, E_up, E_down, R_up, R_down]
+views: 8
+neighbors: 8
+ridge_alpha: 1.0
+max_redraws: 32
+first_invalid_gate: 0.10
+fallback_gate: 0.01
+gate_scope: deployment_budget_generation_arm_all_folds_rotations_seeds
+classification_steps: 1000
+classification_batch: 24
+classification_lr: 0.001
+classification_weight_l2: 0.0001
+classification_scale: C_pre_only
+device: cuda

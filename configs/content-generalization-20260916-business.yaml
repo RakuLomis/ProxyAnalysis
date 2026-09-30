@@ -1,0 +1,24 @@
+schema_version: 1
+raw_root: Datasets/TrafficTracer-content-generalization-20260916
+audit_root: outputs/content-generalization-20260916/audit-01
+output_root: outputs/content-generalization-20260916/business-01
+feature_config: configs/feature-defaults.yaml
+metric_spec: configs/reproducibility.yaml
+primary_rounds: [1, 2, 4, 5]
+protocols: [SHADOWSOCKS, VLESS]
+labels:
+  - bing.com::search_results_view
+  - developer.mozilla.org::document_view
+  - github.com::repository_view
+  - wikipedia.org::article_view
+  - youtube.com::search_results_view
+  - youtube.com::video_playback
+seed: 20260917
+model_C: 1.0
+max_iter: 3000
+alpha: 0.5
+temperature: 1.0
+teacher_schemes: [0, 1, 2]
+within_content_seeds: [6101, 6102, 6103, 6104, 6105]
+bootstrap_repetitions: 2000
+observation_level: offline_index_assisted_post

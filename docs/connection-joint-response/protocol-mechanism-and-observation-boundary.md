@@ -1,0 +1,9 @@
+# 协议机制与观测边界
+
+机制依据使用采集客户端74cfed919c03f07a21b252328fe48b72c5361215及封存依赖，Meta参考88dcbf7f1614a67c3b36b848ee3592dfa92ada36不能回填历史运行。
+
+SS当前为AES-256-GCM无plugin与smux；VLESS当前TCP加TLS，无REALITY及Vision；Trojan为TCP加TLS；VMess为WS加TLS、auto安全模式、global padding关闭。源码提供分块、首写、封装及有条件padding假设，不提供捕获中的内部块数或远端实现真值。
+
+AnyTLS共享TLS carrier及复用状态，Hy2为QUIC加Salamander共享carrier，两者未进入本轮排他TCP业务矩阵。不能把TCP E或U直接替换到这两种载体，亦不能将内部writeConn计数当抓包事件数。
+
+观测单位、离线共同有效成员与物理post攻击资格分别登记。完整缓存装包不代表学习器有权限读取目标U或测试pre。概率诊断与分类是两个终点，不生成精确K、initial/relay或互信息主张。

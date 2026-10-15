@@ -5,6 +5,8 @@ __pycache__/
 .ruff_cache/
 *.egg-info/
 .venv/
+node_modules/
+.pnpm-store/
 outputs/
 
 # Local/raw research data and generated analysis artifacts
@@ -24,6 +26,12 @@ plan/
 *.zip
 *.7z
 *.rar
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.npz
+*.npy
 
 # Local environment and editor state
 .env

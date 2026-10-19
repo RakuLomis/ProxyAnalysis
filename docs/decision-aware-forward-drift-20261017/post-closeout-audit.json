@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "source_forward_replay_max_error": 7.105427357601002e-15,
+  "models_replayed": 240,
+  "source_query_pre_logs": 48,
+  "label_logs": 48,
+  "permission_files": 156,
+  "scientific_math_engine_evaluation_AST_unchanged": true,
+  "actual_H_U_reads": 0,
+  "new_fits": 0,
+  "analysis_wall_seconds": 11.516766199842095,
+  "original_completion_sha256": "c4d27660d2b46a1397b8409af213fa241b232fab439df80102521baea644e668",
+  "original_report_sha256": "38bf64a4dfff05777233514b498ae3547d9dd1ca66a1e0f14388ad83f909b13a"
+}
